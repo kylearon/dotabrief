@@ -6,6 +6,7 @@ export const testTheme = createTheme({
 
 export const lightTheme = createTheme({
     body: '#E2E2E2',
+    headerBody: '#cfcfcf',
     text: '#363537',
     toggleBorder: '#FFF',
     gradient: 'linear-gradient(#39598A, #79D7ED)',

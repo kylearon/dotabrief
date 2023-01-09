@@ -1,30 +1,37 @@
 
-import { Typography, Stack, TextField } from '@mui/material';
+import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 export default function SplashLogin() {
 
+    const theme = useTheme();
+
     return (
         <Stack spacing={2} >
+
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography
                     variant="h5"
-                    css={{
-                    fontWeight: 'bold',
-                    paddingLeft: '10px',
+                    sx={{
+                        fontWeight: 'normal',
+                        color: theme.text
                     }}
                 >
                     Please Enter your Steam ID to continue
                 </Typography>
+            </Box>
+
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <TextField 
                     id="outlined-basic" 
                     label="steam id" 
                     variant="outlined"
-                    css={{
+                    sx={{
                         fontWeight: 'normal',
-                        paddingLeft: '10px',
-                        width: '200px'
-                        }}
-                
+                        width: '40ch'
+                    }}
                 />
+            </Box>
+
         </Stack>
 
     )
