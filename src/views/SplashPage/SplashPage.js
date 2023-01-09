@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header'
 import SplashLogin from '../../components/SplashLogin/SplashLogin'
 
 
-export default function SplashPage() {
+export default function SplashPage({setSteamId}) {
 
     const theme = useTheme();
 
@@ -19,7 +19,7 @@ export default function SplashPage() {
                     <Header />
 
                     <Box sx={{ display: 'flex', height: '50vh', justifyContent: 'center', alignItems: 'center' }}>
-                        <SplashLogin />
+                        <SplashLogin setSteamId={setSteamId} />
                     </Box>
                     
                 </Stack>

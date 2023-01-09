@@ -1,9 +1,20 @@
 
 import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
-export default function SplashLogin() {
+export default function SplashLogin({setSteamId}) {
 
     const theme = useTheme();
+
+    const onKeyPress = (e) => {
+        if (e.key === "Enter") {
+            console.log('Input value', e.target.value);
+            e.preventDefault();
+
+            if(e.target.value) {
+                setSteamId(e.target.value);
+            }          
+        }
+    }
 
     return (
         <Stack spacing={2} >
@@ -26,9 +37,11 @@ export default function SplashLogin() {
                     label="steam id" 
                     variant="outlined"
                     sx={{
+                        fontSize: '16px',
                         fontWeight: 'normal',
                         width: '40ch'
                     }}
+                    onKeyPress={onKeyPress}
                 />
             </Box>
 
