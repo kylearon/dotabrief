@@ -11,6 +11,7 @@ export default function SplashLogin({setSteamId}) {
             e.preventDefault();
 
             if(e.target.value) {
+                //set the with the provided callback
                 setSteamId(e.target.value);
             }          
         }
