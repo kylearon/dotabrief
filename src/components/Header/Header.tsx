@@ -1,7 +1,7 @@
 
 import { Container, Stack, Box, useTheme } from '@mui/material';
 
-import React from 'react'
+import React from 'react';
 
 import Typography from '@mui/material/Typography';
 

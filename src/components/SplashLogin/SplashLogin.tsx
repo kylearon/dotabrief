@@ -1,18 +1,25 @@
 
 import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
-export default function SplashLogin({setSteamId}) {
+
+import { KeyboardEventHandler } from 'react';
+
+export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => void}) {
 
     const theme = useTheme();
 
-    const onKeyPress = (e) => {
+    const onKeyPress: KeyboardEventHandler<HTMLDivElement> = (e) => {
+
+        //have to cast the target as a type to get its value
+        const target = e.target as HTMLInputElement;
+
         if (e.key === "Enter") {
-            console.log('Input value', e.target.value);
+            console.log('Input value', target.value);
             e.preventDefault();
 
-            if(e.target.value) {
+            if(target.value) {
                 //set the with the provided callback
-                setSteamId(e.target.value);
+                setSteamId(target.value);
             }          
         }
     }
