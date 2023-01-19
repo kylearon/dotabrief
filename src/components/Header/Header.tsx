@@ -1,9 +1,11 @@
 
 import { Container, Stack, Box, useTheme } from '@mui/material';
 
+import React from 'react'
+
 import Typography from '@mui/material/Typography';
 
-export default function Header({userId}) {
+export default function Header({userId} : {userId: string}) {
 
     const theme = useTheme();
 
