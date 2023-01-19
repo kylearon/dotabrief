@@ -9,9 +9,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Dependencies
 
-### `npm install @mui/material`
+### install mui `npm install @mui/material`
 
-### `npm install react-router-dom`
+### install react router `npm install react-router-dom`
+
+### install typescript `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
 
 @emotion/react @emotion/styled
 npm install --save styled-components
