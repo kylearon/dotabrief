@@ -15,6 +15,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### install typescript `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
 
+### add tsconfig `npx tsc --init`
+
 @emotion/react @emotion/styled
 npm install --save styled-components
 
