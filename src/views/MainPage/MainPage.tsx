@@ -5,12 +5,12 @@ import { useState } from 'react';
 import Header from '../../components/Header/Header'
 
 
-export default function MainPage({steamId}) {
+export default function MainPage({steamId} : {steamId: string}) {
     
     const theme = useTheme();
 
     return (
-        <Container maxWidth="" sx={{ bgcolor: theme.body }}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body }}>
 
             <Container maxWidth="lg" sx={{  }}>
 
