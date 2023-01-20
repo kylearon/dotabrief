@@ -94,6 +94,7 @@ export interface ProfileData {
     account_id: number
     personaname: string
     avatar: string
+    avatarfull: string
 }
 
 export interface PlayerData {

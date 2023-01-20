@@ -11,13 +11,23 @@ export default function MainPage({steamId} : {steamId: string}) {
     
     const theme = useTheme();
 
+    const [timeframe, setTimeframe] = useState("THIS_PATCH");
+
     //load the player data
     const { playerData, error } = useFetchPlayer();
+
+
+    useEffect(() => {
+        console.log("timeframe changed");
+        console.log(timeframe);
+    },[timeframe]);
 
     useEffect(() => {
         console.log("player data changed");
         console.log(playerData);
     },[playerData]);
+
+    
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body }}>
@@ -31,7 +41,7 @@ export default function MainPage({steamId} : {steamId: string}) {
                     {
                         playerData
                         ?
-                        <PlayerHeader playerData={playerData} />
+                        <PlayerHeader props={{playerData: playerData, timeframe: timeframe, setTimeframe: setTimeframe}}/>
                         :
                         <></>
                     }

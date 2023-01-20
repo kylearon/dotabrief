@@ -5,9 +5,15 @@ import React from 'react';
 
 import Typography from '@mui/material/Typography';
 import { PlayerData, ProfileData } from '../../hooks/useFetch';
+import TimeframeSelector from '../TimeframeSelector/TimeframeSelector';
 
+export interface PlayerHeaderProps {
+    playerData: PlayerData;
+    timeframe: string;
+    setTimeframe: Function;
+}
 
-export default function PlayerHeader({playerData} : {playerData: PlayerData}) {
+export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
 
     const theme = useTheme();
 
@@ -20,28 +26,29 @@ export default function PlayerHeader({playerData} : {playerData: PlayerData}) {
                 bgcolor: theme.headerBody
             }}>
 
-            <Typography
-                variant="h3"
+            <Box
+                component="img"
                 sx={{
-                    fontWeight: 'bold', 
-                    paddingLeft: '10px',
-                    color: theme.text
+                    height: 64,
+                    width: 64
                 }}
-            >
-                icon
-            </Typography>
+                alt="avatar icon"
+                src={props.playerData.profile.avatarfull}
+            />
 
             <Typography
                 variant="h5"
                 sx={{
                     fontWeight: 'bold', 
-                    paddingTop: '20px',
-                    width: '100%',
+                    paddingTop: '16px',
+                    width: '200px',
                     color: theme.text
                 }}
             >
-                username
+                {props.playerData.profile.personaname}
             </Typography>
+
+            <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
 
         </Stack>
         

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import SplashPage from './views/SplashPage/SplashPage';
@@ -37,12 +36,12 @@ function App() {
 
 
    //update the route when the steamId changes
-   useEffect(() => {
-      if(steamId)
-      {
-        console.log("Loading player data for: " + steamId);
-        navigate("/player/" + steamId);
-      }
+  useEffect(() => {
+    if(steamId)
+    {
+      console.log("Loading player data for: " + steamId);
+      navigate("/player/" + steamId);
+    }
   },[steamId]);
 
   return (
