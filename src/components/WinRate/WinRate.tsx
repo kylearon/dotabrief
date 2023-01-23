@@ -4,7 +4,7 @@ import { Container, Stack, Box, useTheme, Button, Typography } from '@mui/materi
 import React, { MouseEventHandler } from 'react';
 
 export interface WinRateProps {
-
+    rate: string
 }
 
 export default function WinRate({props} : {props: WinRateProps}) {
@@ -45,7 +45,7 @@ export default function WinRate({props} : {props: WinRateProps}) {
                     color: theme.text
                 }}
             >
-                55%
+                {props.rate}
             </Typography>
 
         </Stack>

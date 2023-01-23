@@ -4,7 +4,8 @@ import { Container, Stack, Box, useTheme, Button, Typography } from '@mui/materi
 import React, { MouseEventHandler } from 'react';
 
 export interface WinLossProps {
-
+    win: number
+    loss: number
 }
 
 export default function WinLoss({props} : {props: WinLossProps}) {
@@ -48,13 +49,13 @@ export default function WinLoss({props} : {props: WinLossProps}) {
                         textAlign="right"
                         sx={{
                             fontWeight: 'bold', 
-                            paddingTop: '0px',
+                            paddingTop: '1px',
                             width: '50px',
                             fontSize: '14px',
                             color: theme.winColor
                         }}
                     >
-                        40
+                        {props.win}
                     </Typography>
 
                     <Typography
@@ -82,7 +83,7 @@ export default function WinLoss({props} : {props: WinLossProps}) {
                             color: theme.lossColor
                         }}
                     >
-                        35
+                        {props.loss}
                     </Typography>
 
 
