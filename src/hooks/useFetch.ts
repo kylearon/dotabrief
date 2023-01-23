@@ -1,6 +1,7 @@
 //reference: https://usehooks-ts.com/react-hook/use-fetch
 
 import { useEffect, useReducer, useRef } from 'react'
+import { PLAYERS_URL } from '../utils/constants'
 
 interface State<T> {
   data?: T
@@ -104,11 +105,9 @@ export interface PlayerData {
     profile: ProfileData
 }
 
-const playersUrl = "https://api.opendota.com/api/players/";
-
 export const useFetchPlayer = (playerId: string) => {
 
-    const fullUrl = playersUrl + playerId;
+    const fullUrl = PLAYERS_URL + playerId;
 
     const { data, error } = useFetch<PlayerData>(fullUrl);
 

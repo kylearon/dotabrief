@@ -5,13 +5,14 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header'
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchPlayer } from '../../hooks/useFetch';
+import { THIS_PATCH } from '../../utils/constants';
 
 
 export default function MainPage({steamId} : {steamId: string}) {
     
     const theme = useTheme();
 
-    const [timeframe, setTimeframe] = useState("THIS_PATCH");
+    const [timeframe, setTimeframe] = useState(THIS_PATCH);
 
     //load the player data
     const { playerData, error } = useFetchPlayer(steamId);

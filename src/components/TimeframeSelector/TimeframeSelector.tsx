@@ -3,6 +3,8 @@ import { Container, Stack, Box, useTheme, Button } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
+import { THIS_PATCH, LAST_MONTH, LAST_100 } from '../../utils/constants';
+
 export interface TimeframeSelectorProps {
     timeframe: string;
     setTimeframe: Function;
@@ -31,10 +33,10 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
             }}>
 
             <Button 
-                variant={props.timeframe === "THIS_PATCH" ? "contained" : "outlined"}
+                variant={props.timeframe === THIS_PATCH ? "contained" : "outlined"}
                 color="info"
                 onClick={(e) => onButtonClicked(e)}
-                data-timeframe="THIS_PATCH"
+                data-timeframe={THIS_PATCH}
                 sx={{
                     width: '128px'
                 }}>
@@ -42,10 +44,10 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
             </Button>
 
             <Button 
-                variant={props.timeframe === "LAST_MONTH" ? "contained" : "outlined"}
+                variant={props.timeframe === LAST_MONTH ? "contained" : "outlined"}
                 color="info"
                 onClick={(e) => onButtonClicked(e)}
-                data-timeframe="LAST_MONTH"
+                data-timeframe={LAST_MONTH}
                 sx={{
                     width: '128px'
                 }}>
@@ -53,10 +55,10 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
             </Button>
 
             <Button 
-                variant={props.timeframe === "LAST_100" ? "contained" : "outlined"}
+                variant={props.timeframe === LAST_100 ? "contained" : "outlined"}
                 color="info"
                 onClick={(e) => onButtonClicked(e)}
-                data-timeframe="LAST_100"
+                data-timeframe={LAST_100}
                 sx={{
                     width: '128px'
                 }}>
