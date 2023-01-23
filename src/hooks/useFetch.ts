@@ -104,10 +104,13 @@ export interface PlayerData {
     profile: ProfileData
 }
 
-const playerUrl = "https://api.opendota.com/api/players/54934870";
+const playersUrl = "https://api.opendota.com/api/players/";
 
-export const useFetchPlayer = () => {
-    const { data, error } = useFetch<PlayerData>(playerUrl);
+export const useFetchPlayer = (playerId: string) => {
+
+    const fullUrl = playersUrl + playerId;
+
+    const { data, error } = useFetch<PlayerData>(fullUrl);
 
     return {playerData: data, error};
 }

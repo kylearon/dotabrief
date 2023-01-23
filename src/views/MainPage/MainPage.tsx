@@ -14,7 +14,7 @@ export default function MainPage({steamId} : {steamId: string}) {
     const [timeframe, setTimeframe] = useState("THIS_PATCH");
 
     //load the player data
-    const { playerData, error } = useFetchPlayer();
+    const { playerData, error } = useFetchPlayer(steamId);
 
 
     useEffect(() => {
