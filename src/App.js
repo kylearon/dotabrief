@@ -6,8 +6,6 @@ import MainPage from './views/MainPage/MainPage';
 import { testTheme, darkTheme, lightTheme } from './theme/Theme';
 import { ThemeProvider } from '@mui/material';
 
-// import Routes from './routes/Routes';
-
 import { useEffect, useState } from 'react';
 
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
