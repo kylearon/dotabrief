@@ -6,6 +6,8 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import { PlayerData, ProfileData } from '../../hooks/useFetch';
 import TimeframeSelector from '../TimeframeSelector/TimeframeSelector';
+import WinLoss from '../WinLoss/WinLoss';
+import WinRate from '../WinRate/WinRate';
 
 export interface PlayerHeaderProps {
     playerData: PlayerData;
@@ -49,6 +51,10 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
             </Typography>
 
             <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
+
+            <WinLoss props={{  }} />
+
+            <WinRate props={{  }} />
 
         </Stack>
         

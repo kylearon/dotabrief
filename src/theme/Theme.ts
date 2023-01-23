@@ -7,6 +7,8 @@ declare module '@mui/material/styles' {
     headerBody: string;
     text: string;
     toggleBorder: string;
+    winColor: string;
+    lossColor: string;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -14,7 +16,10 @@ declare module '@mui/material/styles' {
     headerBody?: string;
     text?: string;
     toggleBorder?: string;
+    winColor?: string;
+    lossColor?: string;
   }
+
 }
   
 
@@ -31,7 +36,9 @@ export const lightTheme = createTheme({
   body: '#E2E2E2',
   headerBody: '#cfcfcf',
   text: '#363537',
-  toggleBorder: '#FFF'
+  toggleBorder: '#FFF',
+  winColor: '#00ff00',
+  lossColor: '#ff0000',
 });
   
 export const darkTheme = createTheme({
@@ -42,5 +49,7 @@ export const darkTheme = createTheme({
   },
   body: '#363537',
   text: '#FAFAFA',
-  toggleBorder: '#6B8096'
+  toggleBorder: '#6B8096',
+  winColor: '#00ff00',
+  lossColor: '#ff0000',
 });
