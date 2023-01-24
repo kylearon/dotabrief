@@ -97,23 +97,26 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
     });
 
     //go through the per-hero results and decide which ones to show
-    const NUM_MATCHES_FOR_SIGNIFICANCE = 3;
+    const NUM_MATCHES_FOR_SIGNIFICANCE = 4;
     let heroesToShow: HeroMatchesData[] = [];
     heroMap.forEach((value: HeroMatchesData, key: number, map: Map<number, HeroMatchesData>) => {
         //are there enough matches to be significant and is the win rate over 50%
-        if(value.win + value.lose > NUM_MATCHES_FOR_SIGNIFICANCE) {
+        if(value.win + value.lose >= NUM_MATCHES_FOR_SIGNIFICANCE) {
 
             //calculate the averages
             let numMatches = value.win + value.lose;
             let kills_avg = Number((value.kills_avg / numMatches).toFixed(1));
             let deaths_avg = Number((value.deaths_avg / numMatches).toFixed(1));
             let assists_avg = Number((value.assists_avg / numMatches).toFixed(0));
+            let hero_damage_avg = Number((value.hero_damage_avg / numMatches).toFixed(0));
+            let tower_damage_avg = Number((value.tower_damage_avg / numMatches).toFixed(0));
 
+            //
             if(bestworst === BEST_HEROES && (value.win / (value.win + value.lose)) >= 0.5) {
-                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: value.hero_damage_avg, tower_damage_avg: value.tower_damage_avg });
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: hero_damage_avg, tower_damage_avg: tower_damage_avg });
             }
             else if(bestworst == WORST_HEROES && (value.win / (value.win + value.lose)) < 0.5) {
-                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: value.hero_damage_avg, tower_damage_avg: value.tower_damage_avg });
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: hero_damage_avg, tower_damage_avg: tower_damage_avg });
             }
         }
     });

@@ -253,7 +253,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 color: theme.text
                             }}
                         >
-                            {'dmg %'}
+                            {props.hero_damage_avg}
                         </Typography>
 
                 </Stack>
@@ -302,7 +302,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 color: theme.text
                             }}
                         >
-                            {'dmg %'}
+                            {props.tower_damage_avg}
                         </Typography>
 
                 </Stack>
