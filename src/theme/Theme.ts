@@ -37,8 +37,8 @@ export const lightTheme = createTheme({
   headerBody: '#cfcfcf',
   text: '#363537',
   toggleBorder: '#FFF',
-  winColor: '#00ff00',
-  lossColor: '#ff0000',
+  winColor: '#00aa00',
+  lossColor: '#e40000',
 });
   
 export const darkTheme = createTheme({
