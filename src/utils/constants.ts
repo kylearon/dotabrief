@@ -6,6 +6,9 @@ export const THIS_PATCH = "THIS_PATCH";
 export const LAST_MONTH = "LAST_MONTH";
 export const LAST_100 = "LAST_100";
 
+export const BEST_HEROES = "BEST_HEROES";
+export const WORST_HEROES = "WORST_HEROES";
+
 export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com"
 
 

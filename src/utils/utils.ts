@@ -1,6 +1,6 @@
 import { HeroSummaryProps } from "../components/HeroSummary/HeroSummary";
 import { MatchData } from "../hooks/useFetch";
-import { dotaconstants } from "./constants";
+import { BEST_HEROES, dotaconstants, WORST_HEROES } from "./constants";
 
 export function getHeroIconFromName(name: string): string {
 
@@ -54,20 +54,20 @@ export function getWinFromMatchData(matchData: MatchData): boolean {
     }
 }
 
-export interface HeroMatchData {
+export interface HeroMatchesData {
     heroId: number
     win: number
     lose: number
 }
 
-export function getHeroesToShowFromMatchData(matchesData: MatchData[]): HeroMatchData[] {
+export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst: string): HeroMatchesData[] {
 
-    let heroMap = new Map<number, HeroMatchData>();
+    let heroMap = new Map<number, HeroMatchesData>();
 
     //go through each match and add up the results per-hero
     matchesData.forEach((value: MatchData, index: number, array: MatchData[]) => {
 
-        //create a new HeroMatchData if necessary
+        //create a new HeroMatchesData if necessary
         if(!heroMap.has(value.hero_id)) {
             heroMap.set(value.hero_id, { heroId: value.hero_id, win: 0, lose: 0 });
         }
@@ -85,23 +85,37 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[]): HeroMatc
     });
 
     //go through the per-hero results and decide which ones to show
-    const NUM_MATCHES_FOR_SIGNIFICANCE = 5;
-    let heroesToShow: HeroMatchData[] = [];
-    heroMap.forEach((value: HeroMatchData, key: number, map: Map<number, HeroMatchData>) => {
-        //are there enough matches to be significant
+    const NUM_MATCHES_FOR_SIGNIFICANCE = 3;
+    let heroesToShow: HeroMatchesData[] = [];
+    heroMap.forEach((value: HeroMatchesData, key: number, map: Map<number, HeroMatchesData>) => {
+        //are there enough matches to be significant and is the win rate over 50%
         if(value.win + value.lose > NUM_MATCHES_FOR_SIGNIFICANCE) {
-            heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose });
+
+            if(bestworst === BEST_HEROES && (value.win / (value.win + value.lose)) >= 0.5) {
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose });
+            }
+            else if(bestworst == WORST_HEROES && (value.win / (value.win + value.lose)) < 0.5) {
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose });
+            }
         }
     });
 
     //sort the heroes to show
     heroesToShow.sort((a, b): number => { 
-        if((a.win + a.lose) < (b.win + b.lose)) {
-            return 1;
+        if((a.win / (a.win + a.lose)) < (b.win / (b.win + b.lose))) {
+            if(bestworst === BEST_HEROES) {
+                return 1;
+            } else {
+                return -1;
+            }
         }
 
-        if((a.win + a.lose) > (b.win + b.lose)) {
-            return -1;
+        if((a.win / (a.win + a.lose)) > (b.win / (b.win + b.lose))) {
+            if(bestworst === BEST_HEROES) {
+                return -1;
+            } else {
+                return 1;
+            }
         }
 
         return 0;

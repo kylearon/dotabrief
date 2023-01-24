@@ -19,9 +19,6 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
 
     const imgSrc = STEAM_CDN_URL + props.img;
 
-    console.log("HeroSummary props");
-    console.log(props.img);
-
     return (
         <Stack 
             direction="row" 
@@ -56,7 +53,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     sx={{
                         fontWeight: 'bold', 
                         paddingTop: '0px',
-                        width: '120px',
+                        width: '140px',
                         fontSize: '14px',
                         color: theme.text
                     }}
@@ -70,7 +67,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     sx={{
                         height: 'fit-content',
                         bgcolor: theme.headerBody,
-                        paddingTop: '0px'
+                        paddingTop: '6px'
                     }}>
 
                         <Typography
@@ -78,7 +75,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '1px',
-                                width: '50px',
+                                width: '30px',
                                 fontSize: '14px',
                                 color: theme.winColor
                             }}
@@ -106,12 +103,26 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 fontWeight: 'bold', 
                                 paddingTop: '0px',
                                 paddingLeft: '4px',
-                                width: '50px',
+                                width: '20px',
                                 fontSize: '14px',
                                 color: theme.lossColor
                             }}
                         >
                             {props.loss}
+                        </Typography>
+
+                        <Typography
+                            textAlign="center"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '0px',
+                                paddingLeft: '4px',
+                                width: '60px',
+                                fontSize: '14px',
+                                color: theme.text
+                            }}
+                        >
+                            {(props.win / (props.win + props.loss) * 100).toFixed(2) + '%'}
                         </Typography>
 
 
