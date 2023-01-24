@@ -49,7 +49,7 @@ export default function Header({userId} : {userId: string}) {
                     fontSize: '18px',
                     fontWeight: 'normal', 
                     paddingTop: '24px',
-                    width: '500px',
+                    width: '400px',
                     color: theme.text
                 }}
             >
@@ -57,25 +57,25 @@ export default function Header({userId} : {userId: string}) {
             </Typography>
 
             
-                {
-                    userId 
-                    ?
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 'fit-content' }}>
-                        <Typography
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '20px',
-                                marginRight: '12px',
-                                fontSize: '22px',
-                                color: theme.text
-                            }}
-                        >
-                            {userId}
-                        </Typography>
-                    </Box> 
-                    :
-                    <></>
-                }
+            {
+                userId 
+                ?
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '480px' }}>
+                    <Typography
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '20px',
+                            marginRight: '12px',
+                            fontSize: '22px',
+                            color: theme.text
+                        }}
+                    >
+                        {userId}
+                    </Typography>
+                </Box> 
+                :
+                <></>
+            }
 
         </Stack>
         
