@@ -60,7 +60,13 @@ function App() {
           element={
               <ThemeProvider 
                   theme={lightTheme}>
-                  <MainPage steamId={steamId}/>
+                  {
+                    steamId 
+                    ?
+                    <MainPage steamId={steamId}/>
+                    :
+                    <></>
+                  }
               </ThemeProvider>
           }
         />
