@@ -1,7 +1,9 @@
 
-import { Container, Stack, Box, useTheme } from '@mui/material';
+import { Container, Stack, Box, useTheme, Button } from '@mui/material';
 
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
+
+import { useNavigate } from "react-router-dom";
 
 import Typography from '@mui/material/Typography';
 
@@ -9,36 +11,49 @@ export default function Header({userId} : {userId: string}) {
 
     const theme = useTheme();
 
+    const navigate = useNavigate();
+
+    const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
+        navigate("/");
+    }
+
+
     return (
         <Stack 
             direction="row" 
-            spacing={2}
+            spacing={1}
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody
             }}>
 
-            <Typography
-                variant="h3"
+            <Button
+                onClick={(e) => onHomeButtonClicked(e)}
                 sx={{
+                    fontSize: '36px',
                     fontWeight: 'bold', 
-                    paddingLeft: '10px',
+                    paddingTop: '0px',
+                    paddingBottom: '0px',
+                    paddingRight: '0px',
+                    paddingLeft: '0px',
+                    width: '230px',
                     color: theme.text
                 }}
+                //monospace text generated here: https://tools.picsart.com/text/font-generator/
             >
-                dotabrief
-            </Typography>
+                𝚍𝚘𝚝𝚊𝚋𝚛𝚒𝚎𝚏
+            </Button>
 
             <Typography
-                variant="h5"
                 sx={{
-                    fontWeight: 'bold', 
-                    paddingTop: '20px',
-                    width: '100%',
+                    fontSize: '18px',
+                    fontWeight: 'normal', 
+                    paddingTop: '24px',
+                    width: '500px',
                     color: theme.text
                 }}
             >
-                your personal dota recommendation engine
+                (your personal dota recommendation engine)
             </Typography>
 
             
@@ -47,11 +62,11 @@ export default function Header({userId} : {userId: string}) {
                     ?
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: 'fit-content' }}>
                         <Typography
-                            variant="h5"
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '20px',
                                 marginRight: '12px',
+                                fontSize: '22px',
                                 color: theme.text
                             }}
                         >
