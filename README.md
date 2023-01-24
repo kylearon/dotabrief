@@ -23,6 +23,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install --save styled-components
 
 
+## Deployment to GitHub Pages
+
+[Deploying a React App to GitHub Pages](https://github.com/gitname/react-gh-pages#readme)
+
+### install gh-pages `npm install gh-pages --save-dev`
+
 
 ## Available Scripts
 
