@@ -68,14 +68,6 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
 
     let heroMap = new Map<number, HeroMatchesData>();
 
-    let index = 0;
-
-    let total_kills = 0;
-    let total_deaths = 0;
-    let total_assists = 0;
-    let total_hero_damage = 0;
-    let total_tower_damage = 0;
-
     //go through each match and add up the results per-hero
     matchesData.forEach((value: MatchData, index: number, array: MatchData[]) => {
 
