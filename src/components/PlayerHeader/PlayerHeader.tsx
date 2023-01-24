@@ -10,8 +10,8 @@ import WinLoss from '../WinLoss/WinLoss';
 import WinRate from '../WinRate/WinRate';
 
 export interface PlayerHeaderProps {
-    playerData: PlayerData;
-    winLossData: WinLossData;
+    playerData: PlayerData | undefined;
+    winLossData: WinLossData | undefined;
     timeframe: string;
     setTimeframe: Function;
 }
@@ -20,15 +20,28 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
 
     const theme = useTheme();
 
-    const winRate = (props.winLossData.win / (props.winLossData.win + props.winLossData.lose)) * 100;
-    const winRateString = winRate.toFixed(2) + "%";
+    let win = 0;
+    let loss = 0;
+    let winRate = 0.0;
+    if(props.winLossData) {
+        win = props.winLossData.win
+        loss = props.winLossData.lose;
+        winRate = (win / (win + loss)) * 100;
+    }
+    let winRateString = winRate.toFixed(2) + "%";
+
+    let imgSrc = "";
+    let heroName = "";
+    if(props.playerData) {
+        imgSrc = props.playerData.profile.avatarfull;
+        heroName = props.playerData.profile.personaname;
+    }
 
     return (
         <Stack 
             direction="row" 
             spacing={2}
             sx={{
-                height: 'fit-content',
                 bgcolor: theme.headerBody
             }}>
 
@@ -39,7 +52,7 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
                     width: 64
                 }}
                 alt="avatar icon"
-                src={props.playerData.profile.avatarfull}
+                src={imgSrc}
             />
 
             <Typography
@@ -51,12 +64,12 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
                     color: theme.text
                 }}
             >
-                {props.playerData.profile.personaname}
+                {heroName}
             </Typography>
 
             <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
 
-            <WinLoss props={{ win: props.winLossData.win, loss: props.winLossData.lose }} />
+            <WinLoss props={{ win: win, loss: loss }} />
 
             <WinRate props={{ rate: winRateString }} />
 

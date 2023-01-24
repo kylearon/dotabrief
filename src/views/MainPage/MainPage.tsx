@@ -75,13 +75,9 @@ export default function MainPage({steamId} : {steamId: string}) {
 
                     <Header userId={playerData ? playerData.profile.personaname : "undefined"} />
 
-                    {
-                        playerData && winLossData
-                        ?
-                        <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe}}/>
-                        :
-                        <></>
-                    }
+                    <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe}}/>
+
+                    <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst }} />
                     
                     {
                         heroesToShow.map(heroToShow => (
