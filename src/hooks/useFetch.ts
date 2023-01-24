@@ -1,7 +1,7 @@
 //reference: https://usehooks-ts.com/react-hook/use-fetch
 
 import { useEffect, useReducer, useRef } from 'react'
-import { PATCHES_URL, PLAYERS_URL, WIN_LOSS_URL_PARAMS } from '../utils/constants'
+import { MATCHES_URL_PARAMS, PATCHES_URL, PLAYERS_URL, WIN_LOSS_URL_PARAMS } from '../utils/constants'
 
 interface State<T> {
   data?: T
@@ -134,4 +134,19 @@ export const useFetchWinLoss = (playerId: string, timeFrameParam: string, gameMo
     const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_PARAMS + "&" + timeFrameParam + "&" + gameModeParam;
     const { data, error } = useFetch<WinLossData>(fullUrl);
     return {winLossData: data, winLossError: error};
+}
+
+
+
+export interface MatchData {
+    match_id: string
+    hero_id: number
+    player_slot: number
+    radiant_win: boolean
+}
+
+export const useFetchMatches = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
+    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_PARAMS + "&" + timeFrameParam + "&" + gameModeParam;
+    const { data, error } = useFetch<MatchData[]>(fullUrl);
+    return {matchesData: data, matchesError: error};
 }
