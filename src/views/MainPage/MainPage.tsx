@@ -61,7 +61,17 @@ export default function MainPage({steamId} : {steamId: string}) {
         if(matchesData) {
             let heroesToShowMatchData = getHeroesToShowFromMatchData(matchesData, bestworst);
             heroesToShowMatchData.forEach((value: HeroMatchesData, index: number, array: HeroMatchesData[]) => {
-                newHeroesToShow.push({ name: getHeroLocalizedNameFromId(value.heroId), win: value.win, loss: value.lose, img: getHeroIconFromId(value.heroId) });
+                newHeroesToShow.push({ 
+                    name: getHeroLocalizedNameFromId(value.heroId), 
+                    win: value.win, 
+                    loss: value.lose, 
+                    img: getHeroIconFromId(value.heroId),
+                    kills_avg: value.kills_avg,
+                    deaths_avg: value.deaths_avg,
+                    assists_avg: value.assists_avg,
+                    hero_damage_avg: value.hero_damage_avg,
+                    tower_damage_avg: value.tower_damage_avg
+                });
             });
 
             setHeroesToShow(newHeroesToShow);
@@ -84,10 +94,20 @@ export default function MainPage({steamId} : {steamId: string}) {
                     
                     {
                         heroesToShow.map(heroToShow => (
-                            <HeroSummary key={heroToShow.name} props={{ name: heroToShow.name, img: heroToShow.img, win: heroToShow.win, loss: heroToShow.loss }} />
+                            <HeroSummary key={heroToShow.name} 
+                            props={{ 
+                                name: heroToShow.name, 
+                                img: heroToShow.img, 
+                                win: heroToShow.win, 
+                                loss: heroToShow.loss, 
+                                kills_avg: heroToShow.kills_avg,
+                                deaths_avg: heroToShow.deaths_avg,
+                                assists_avg: heroToShow.assists_avg,
+                                hero_damage_avg: heroToShow.hero_damage_avg,
+                                tower_damage_avg: heroToShow.tower_damage_avg
+                            }} />
                         ))
                     }
-
 
                 </Stack>
 

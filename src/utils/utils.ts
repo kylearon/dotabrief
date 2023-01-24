@@ -58,28 +58,49 @@ export interface HeroMatchesData {
     heroId: number
     win: number
     lose: number
+    kills_avg: number
+    deaths_avg: number
+    assists_avg: number
+    hero_damage_avg: number
+    tower_damage_avg: number
 }
 
 export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst: string): HeroMatchesData[] {
 
     let heroMap = new Map<number, HeroMatchesData>();
 
+    let index = 0;
+
+    let total_kills = 0;
+    let total_deaths = 0;
+    let total_assists = 0;
+    let total_hero_damage = 0;
+    let total_tower_damage = 0;
+
     //go through each match and add up the results per-hero
     matchesData.forEach((value: MatchData, index: number, array: MatchData[]) => {
 
         //create a new HeroMatchesData if necessary
         if(!heroMap.has(value.hero_id)) {
-            heroMap.set(value.hero_id, { heroId: value.hero_id, win: 0, lose: 0 });
+            heroMap.set(value.hero_id, { heroId: value.hero_id, win: 0, lose: 0, kills_avg: 0, deaths_avg: 0, assists_avg: 0, hero_damage_avg: 0, tower_damage_avg: 0 });
         }
 
-        //update the win/loss for the hero
         let matchDataForHero = heroMap.get(value.hero_id);
         if(matchDataForHero) {
+
+            //update the win/loss for the hero
             if(getWinFromMatchData(value)) {
                 matchDataForHero.win = matchDataForHero.win + 1;
             } else {
                 matchDataForHero.lose = matchDataForHero.lose + 1;
             }
+
+            //update the running totals inside the spot that will eventually hold the average values
+            matchDataForHero.kills_avg = matchDataForHero.kills_avg + value.kills;
+            matchDataForHero.deaths_avg = matchDataForHero.deaths_avg + value.deaths;
+            matchDataForHero.assists_avg = matchDataForHero.assists_avg + value.assists;
+            matchDataForHero.hero_damage_avg = matchDataForHero.hero_damage_avg + value.hero_damage;
+            matchDataForHero.tower_damage_avg = matchDataForHero.tower_damage_avg + value.tower_damage;
         }
 
     });
@@ -91,11 +112,17 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
         //are there enough matches to be significant and is the win rate over 50%
         if(value.win + value.lose > NUM_MATCHES_FOR_SIGNIFICANCE) {
 
+            //calculate the averages
+            let numMatches = value.win + value.lose;
+            let kills_avg = Number((value.kills_avg / numMatches).toFixed(1));
+            let deaths_avg = Number((value.deaths_avg / numMatches).toFixed(1));
+            let assists_avg = Number((value.assists_avg / numMatches).toFixed(0));
+
             if(bestworst === BEST_HEROES && (value.win / (value.win + value.lose)) >= 0.5) {
-                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose });
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: value.hero_damage_avg, tower_damage_avg: value.tower_damage_avg });
             }
             else if(bestworst == WORST_HEROES && (value.win / (value.win + value.lose)) < 0.5) {
-                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose });
+                heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: value.hero_damage_avg, tower_damage_avg: value.tower_damage_avg });
             }
         }
     });

@@ -1,7 +1,7 @@
 //reference: https://usehooks-ts.com/react-hook/use-fetch
 
 import { useEffect, useReducer, useRef } from 'react'
-import { MATCHES_URL_PARAMS, PATCHES_URL, PLAYERS_URL, WIN_LOSS_URL_PARAMS } from '../utils/constants'
+import { MATCHES_URL_BASE, MATCHES_VERBOSE_URL_PARAMS, PATCHES_URL, PLAYERS_URL, WIN_LOSS_URL_BASE } from '../utils/constants'
 
 interface State<T> {
   data?: T
@@ -131,7 +131,7 @@ export interface WinLossData {
 }
 
 export const useFetchWinLoss = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
-    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_PARAMS + "&" + timeFrameParam + "&" + gameModeParam;
+    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_BASE + "&" + timeFrameParam + "&" + gameModeParam;
     const { data, error } = useFetch<WinLossData>(fullUrl);
     return {winLossData: data, winLossError: error};
 }
@@ -140,13 +140,28 @@ export const useFetchWinLoss = (playerId: string, timeFrameParam: string, gameMo
 
 export interface MatchData {
     match_id: string
-    hero_id: number
     player_slot: number
     radiant_win: boolean
+    hero_id: number
+    duration: number
+    start_time: string
+    kills: number
+    deaths: number
+    assists: number
+    hero_damage: number
+    tower_damage: number
+    last_hits: number
+    party_size: number
+    item_0: number
+    item_1: number
+    item_2: number
+    item_3: number
+    item_4: number
+    item_5: number
 }
 
 export const useFetchMatches = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
-    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_PARAMS + "&" + timeFrameParam + "&" + gameModeParam;
+    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_BASE + "&" + timeFrameParam + "&" + gameModeParam + "&" + MATCHES_VERBOSE_URL_PARAMS;
     const { data, error } = useFetch<MatchData[]>(fullUrl);
     return {matchesData: data, matchesError: error};
 }

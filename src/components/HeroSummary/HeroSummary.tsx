@@ -11,6 +11,11 @@ export interface HeroSummaryProps {
     win: number
     loss: number
     img: string
+    kills_avg: number
+    deaths_avg: number
+    assists_avg: number
+    hero_damage_avg: number
+    tower_damage_avg: number
 }
 
 export default function HeroSummary({props} : {props: HeroSummaryProps}) {
@@ -125,13 +130,183 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                             {(props.win / (props.win + props.loss) * 100).toFixed(2) + '%'}
                         </Typography>
 
-
                 </Stack>
-
 
             </Stack>
 
+
             
+            <Stack 
+                direction="column" 
+                spacing={0}
+                sx={{
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '12px'
+                }}>
+
+                <Typography
+                    textAlign="center"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        width: '140px',
+                        fontSize: '14px',
+                        color: theme.text
+                    }}
+                >
+                    Avg KDA
+                </Typography>
+
+                <Stack 
+                    direction="row" 
+                    spacing={0}
+                    sx={{
+                        height: 'fit-content',
+                        bgcolor: theme.headerBody,
+                        paddingTop: '6px'
+                    }}>
+
+                        <Typography
+                            textAlign="right"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingLeft: '20px',
+                                paddingTop: '1px',
+                                width: '30px',
+                                fontSize: '14px',
+                                color: theme.winColor
+                            }}
+                        >
+                            {props.kills_avg}
+                        </Typography>
+
+                        <Typography
+                            textAlign="right"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '1px',
+                                width: '30px',
+                                fontSize: '14px',
+                                color: theme.lossColor
+                            }}
+                        >
+                            {props.deaths_avg}
+                        </Typography>
+
+                        <Typography
+                            textAlign="right"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '1px',
+                                width: '30px',
+                                fontSize: '14px',
+                                color: theme.assistColor
+                            }}
+                        >
+                            {props.assists_avg}
+                        </Typography>
+
+                </Stack>
+            </Stack>
+
+
+            <Stack 
+                direction="column" 
+                spacing={0}
+                sx={{
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '12px'
+                }}>
+
+                <Typography
+                    textAlign="center"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        width: '140px',
+                        fontSize: '14px',
+                        color: theme.text
+                    }}
+                >
+                    Avg Hero Dmg
+                </Typography>
+
+                <Stack 
+                    direction="row" 
+                    spacing={0}
+                    sx={{
+                        height: 'fit-content',
+                        bgcolor: theme.headerBody,
+                        paddingTop: '6px'
+                    }}>
+
+                        <Typography
+                            textAlign="center"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '0px',
+                                paddingLeft: '4px',
+                                width: '140px',
+                                fontSize: '14px',
+                                color: theme.text
+                            }}
+                        >
+                            {'dmg %'}
+                        </Typography>
+
+                </Stack>
+            </Stack>
+
+            
+            <Stack 
+                direction="column" 
+                spacing={0}
+                sx={{
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '12px'
+                }}>
+
+                <Typography
+                    textAlign="center"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        width: '140px',
+                        fontSize: '14px',
+                        color: theme.text
+                    }}
+                >
+                    Avg Tower Dmg
+                </Typography>
+
+                <Stack 
+                    direction="row" 
+                    spacing={0}
+                    sx={{
+                        height: 'fit-content',
+                        bgcolor: theme.headerBody,
+                        paddingTop: '6px'
+                    }}>
+
+                        <Typography
+                            textAlign="center"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '0px',
+                                paddingLeft: '4px',
+                                width: '140px',
+                                fontSize: '14px',
+                                color: theme.text
+                            }}
+                        >
+                            {'dmg %'}
+                        </Typography>
+
+                </Stack>
+            </Stack>
 
         </Stack>
         

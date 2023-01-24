@@ -20,10 +20,10 @@ export const PATCHES_URL = "https://api.opendota.com/api/constants/patch";
 
 
 
-export const MATCHES_URL_PARAMS = "/matches?"
+export const MATCHES_URL_BASE = "/matches?"
 
 //needs a game mode and patch params added to the end
-export const WIN_LOSS_URL_PARAMS = "/wl?";
+export const WIN_LOSS_URL_BASE = "/wl?";
 
 export const GAME_MODE_AP_URL_PARAM = "game_mode=1&significant=1";
 export const GAME_MODE_TURBO_URL_PARAM = "game_mode=23&significant=0";
@@ -32,11 +32,10 @@ export const THIS_PATCH_URL_PARAM = "patch=51";
 export const LAST_MONTH_URL_PARAM = "date=30";
 export const LAST_100_URL_PARAM = "limit=100";
 
-
-
-
 export const TIMEFRAME_PARAM_MAP = new Map<string, string>([
     [THIS_PATCH, THIS_PATCH_URL_PARAM],
     [LAST_MONTH, LAST_MONTH_URL_PARAM],
     [LAST_100, LAST_100_URL_PARAM],
 ])
+
+export const MATCHES_VERBOSE_URL_PARAMS = "project=duration&project=game_mode&project=lobby_type&project=start_time&project=hero_id&project=kills&project=deaths&project=assists&project=hero_damage&project=tower_damage&project=last_hits&project=leaver_status&project=party_size&project=item_0&project=item_1&project=item_2&project=item_3&project=item_4&project=item_5&project=backpack_0";
