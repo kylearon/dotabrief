@@ -1,5 +1,7 @@
 
 
+export const dotaconstants = require('dotaconstants');
+
 export const THIS_PATCH = "THIS_PATCH";
 export const LAST_MONTH = "LAST_MONTH";
 export const LAST_100 = "LAST_100";

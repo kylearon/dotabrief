@@ -17,6 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### add tsconfig `npx tsc --init`
 
+### install dotaconstants `npm install dotaconstants`
+
 @emotion/react @emotion/styled
 npm install --save styled-components
 
