@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dotabrief/static/css/main.073c9b0a.css",
+    "main.js": "/dotabrief/static/js/main.529a1fe4.js",
+    "static/js/787.5ffde4ca.chunk.js": "/dotabrief/static/js/787.5ffde4ca.chunk.js",
+    "index.html": "/dotabrief/index.html",
+    "main.073c9b0a.css.map": "/dotabrief/static/css/main.073c9b0a.css.map",
+    "main.529a1fe4.js.map": "/dotabrief/static/js/main.529a1fe4.js.map",
+    "787.5ffde4ca.chunk.js.map": "/dotabrief/static/js/787.5ffde4ca.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.529a1fe4.js"
+  ]
+}
