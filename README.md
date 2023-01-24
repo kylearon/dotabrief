@@ -1,12 +1,6 @@
 # dotabrief
 A quick glance Dota 2 dashboard 
 
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
 ## Dependencies
 
 ### install mui `npm install @mui/material`
@@ -29,6 +23,16 @@ npm install --save styled-components
 
 ### install gh-pages `npm install gh-pages --save-dev`
 
+### to deploy current code to github pages: `npm run deploy`
+
+
+
+---
+
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
