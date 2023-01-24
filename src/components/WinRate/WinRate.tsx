@@ -1,7 +1,7 @@
 
-import { Container, Stack, Box, useTheme, Button, Typography } from '@mui/material';
+import { Stack, useTheme, Typography } from '@mui/material';
 
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 
 export interface WinRateProps {
     rate: string

@@ -1,4 +1,3 @@
-import { HeroSummaryProps } from "../components/HeroSummary/HeroSummary";
 import { MatchData } from "../hooks/useFetch";
 import { BEST_HEROES, dotaconstants, WORST_HEROES } from "./constants";
 

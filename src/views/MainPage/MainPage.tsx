@@ -1,5 +1,5 @@
 
-import { Container, Stack, Box, useTheme } from '@mui/material';
+import { Container, Stack, useTheme } from '@mui/material';
 
 import { useEffect, useState } from 'react';
 import FilterBar from '../../components/FilterBar/FilterBar';
