@@ -2,12 +2,14 @@
 import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 
-import { KeyboardEventHandler } from 'react';
+import { KeyboardEventHandler, useState } from 'react';
 import { PLAYERS_URL } from '../../utils/constants';
 
 export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => void}) {
 
     const theme = useTheme();
+
+    const [steamIdError, setSteamIdError] = useState<boolean>(false);
 
     // const handleClick = async () => {
     //     await fetch(URL_TO_FETCH,{ 
@@ -23,6 +25,11 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
 
         //have to cast the target as a type to get its value
         const target = e.target as HTMLInputElement;
+
+        //update the error style on keypress
+        if(steamIdError) {
+            setSteamIdError(false);
+        }
 
         if (e.key === "Enter") {
             console.log('Input value', target.value);
@@ -42,7 +49,9 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                     //log a bad response to the console. like 404 etc
                     if (!response.ok) {
                         console.log("ERROR: " + response.status + " " + response.statusText);
-                        //TODO: show error on page?
+                        
+                        //show error on page
+                        setSteamIdError(true);
                         return;
                     }
 
@@ -84,6 +93,8 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                         width: '40ch'
                     }}
                     onKeyPress={onKeyPress}
+                    error={steamIdError}
+                    helperText={steamIdError ? "Incorrect ID. Use the same ID you would find in your dotabuff profile url." : ""}
                 />
             </Box>
 
