@@ -3,18 +3,21 @@ import { Stack, Box, useTheme, Button } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
-import { useNavigate } from "react-router-dom";
-
 import Typography from '@mui/material/Typography';
 
-export default function Header({userId} : {userId: string}) {
+export interface HeaderProps {
+    userId: string
+    setSteamId: (id:string) => void
+}
+
+
+export default function Header({props} : {props: HeaderProps}) {
 
     const theme = useTheme();
 
-    const navigate = useNavigate();
-
     const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
-        navigate("/");
+        //setting the steamId will cause the entire page to re-render
+        props.setSteamId("");
     }
 
 
@@ -58,7 +61,7 @@ export default function Header({userId} : {userId: string}) {
 
             
             {
-                userId 
+                props.userId 
                 ?
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '480px' }}>
                     <Typography
@@ -70,7 +73,7 @@ export default function Header({userId} : {userId: string}) {
                             color: theme.text
                         }}
                     >
-                        {userId}
+                        {props.userId}
                     </Typography>
                 </Box> 
                 :

@@ -16,7 +16,12 @@ function getTimeframeParam(timeframe: string): string {
     return timeframeParam ? timeframeParam : "";
 }
 
-export default function MainPage({steamId} : {steamId: string}) {
+export interface MainPageProps {
+    steamId: string
+    setSteamId: (id:string) => void
+}
+
+export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
 
@@ -29,13 +34,13 @@ export default function MainPage({steamId} : {steamId: string}) {
 
 
     //load the player data
-    const { playerData, playerDataError } = useFetchPlayer(steamId);
+    const { playerData, playerDataError } = useFetchPlayer(props.steamId);
 
     //load the win/loss data based on the timeframe
-    const { winLossData, winLossError } = useFetchWinLoss(steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
+    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
 
     //load the match data from the timeframe
-    const { matchesData, matchesError } = useFetchMatches(steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
+    const { matchesData, matchesError } = useFetchMatches(props.steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
 
 
     // useEffect(() => {
@@ -86,8 +91,8 @@ export default function MainPage({steamId} : {steamId: string}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header userId={playerData ? playerData.profile.personaname : "undefined"} />
-
+                    <Header props={{ userId: playerData ? playerData.profile.personaname : "undefined", setSteamId: props.setSteamId }}  />
+                
                     <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe}}/>
 
                     <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst }} />

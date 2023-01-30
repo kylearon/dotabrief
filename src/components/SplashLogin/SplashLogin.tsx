@@ -3,12 +3,23 @@ import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 
 import { KeyboardEventHandler } from 'react';
+import { PLAYERS_URL } from '../../utils/constants';
 
 export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => void}) {
 
     const theme = useTheme();
 
-    const onKeyPress: KeyboardEventHandler<HTMLDivElement> = (e) => {
+    // const handleClick = async () => {
+    //     await fetch(URL_TO_FETCH,{ 
+    //       method: 'GET', 
+    //       credentials: 'include', 
+    //       headers: new Headers({ 'content-type': 'application/json' }),
+    //       body: JSON.stringify({ data: { myId: "123" } })
+    //     });
+    //     navigate("/");
+    //   };
+
+    const onKeyPress: KeyboardEventHandler<HTMLDivElement> = async (e) => {
 
         //have to cast the target as a type to get its value
         const target = e.target as HTMLInputElement;
@@ -18,8 +29,31 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
             e.preventDefault();
 
             if(target.value) {
-                //set the with the provided callback
-                setSteamId(target.value);
+
+                //generate the full url with the player id
+                const fullUrl = PLAYERS_URL + target.value;
+
+                //fetch the player info
+                //use .then() with the Promise returned by fetch to get the response
+                fetch(PLAYERS_URL + target.value).then( (response) => {
+                    // console.log("SUCCESS");
+                    // console.log(response);
+
+                    //log a bad response to the console. like 404 etc
+                    if (!response.ok) {
+                        console.log("ERROR: " + response.status + " " + response.statusText);
+                        //TODO: show error on page?
+                        return;
+                    }
+
+                    //set the steam id state which causes react to render the main page
+                    setSteamId(target.value);
+
+                } ).catch ( (error) => {
+                    console.log("REJECTED");
+                    console.log(error);
+                    //TODO: show error on page?
+                });
             }          
         }
     }

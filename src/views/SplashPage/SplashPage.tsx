@@ -4,8 +4,11 @@ import { Container, Stack, Box, useTheme } from '@mui/material';
 import Header from '../../components/Header/Header'
 import SplashLogin from '../../components/SplashLogin/SplashLogin'
 
+export interface SplashPageProps {
+    setSteamId: (id:string) => void
+}
 
-export default function SplashPage({setSteamId} : {setSteamId: (id:string) => void}) {
+export default function SplashPage({props} : {props: SplashPageProps}) {
 
     const theme = useTheme();
 
@@ -16,10 +19,10 @@ export default function SplashPage({setSteamId} : {setSteamId: (id:string) => vo
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header userId={''}/>
+                    <Header props={{ userId: '', setSteamId: props.setSteamId }}  />
 
                     <Box sx={{ display: 'flex', height: '50vh', justifyContent: 'center', alignItems: 'center' }}>
-                        <SplashLogin setSteamId={setSteamId} />
+                        <SplashLogin setSteamId={props.setSteamId} />
                     </Box>
                     
                 </Stack>

@@ -40,6 +40,11 @@ function App() {
       console.log("Loading player data for: " + steamId);
       navigate("/player/" + steamId);
     }
+    else
+    {
+      console.log("Showing Splash Page because steamId is undefined");
+      navigate("/");
+    }
   },[steamId]);
 
   return (
@@ -50,7 +55,7 @@ function App() {
           element={
               <ThemeProvider 
                   theme={lightTheme}>
-                  <SplashPage setSteamId={setSteamId}/>
+                  <SplashPage props={{ setSteamId: setSteamId }}/>
               </ThemeProvider>
           }
           // loader={() => { console.log("login page loader"); }}
@@ -63,7 +68,7 @@ function App() {
                   {
                     steamId 
                     ?
-                    <MainPage steamId={steamId}/>
+                    <MainPage props={{ steamId: steamId, setSteamId: setSteamId }}/>
                     :
                     <></>
                   }
