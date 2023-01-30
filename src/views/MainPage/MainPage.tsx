@@ -1,7 +1,8 @@
 
-import { Container, Stack, useTheme } from '@mui/material';
+import { Box, Container, Stack, useTheme } from '@mui/material';
 
 import { useEffect, useState } from 'react';
+
 import FilterBar from '../../components/FilterBar/FilterBar';
 
 import Header from '../../components/Header/Header'
@@ -10,6 +11,9 @@ import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
 import { BEST_HEROES, dotaconstants, GAME_MODE_TURBO_URL_PARAM, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, HeroMatchesData } from '../../utils/utils';
+
+//load an svg as a loading icon https://stackoverflow.com/a/70964618
+const loading: string = require("../../assets/loading.svg").default;
 
 function getTimeframeParam(timeframe: string): string {
     const timeframeParam = TIMEFRAME_PARAM_MAP.get(timeframe);
@@ -98,6 +102,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
                     <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst }} />
                     
                     {
+                        heroesToShow.length > 0
+                        ?
                         heroesToShow.map(heroToShow => (
                             <HeroSummary key={heroToShow.name} 
                             props={{ 
@@ -112,6 +118,19 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                 tower_damage_avg: heroToShow.tower_damage_avg
                             }} />
                         ))
+                        :
+                        <Container sx={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Box 
+                                component="img"
+                                sx={{
+                                    paddingTop: "10%",
+                                    height: 256,
+                                    width: 256,
+                                }}
+                                alt="loading icon"
+                                src={loading}
+                            />
+                        </Container>
                     }
 
                 </Stack>
