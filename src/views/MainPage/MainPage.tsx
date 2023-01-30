@@ -85,7 +85,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
 
     return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body }}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
 
             <Container maxWidth="lg" sx={{  }}>
 
