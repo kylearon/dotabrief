@@ -1,7 +1,7 @@
 
-import { Stack, Box, useTheme } from '@mui/material';
+import { Stack, Box, useTheme, Collapse } from '@mui/material';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import { STEAM_CDN_URL } from '../../utils/constants';
@@ -17,307 +17,326 @@ export interface HeroSummaryProps {
     assists_avg: number
     hero_damage_avg: number
     tower_damage_avg: number
-    onClick: Function
 }
 
 export default function HeroSummary({props} : {props: HeroSummaryProps}) {
 
     const theme = useTheme();
 
+    const [gamesCollapsed, setGamesCollapsed] = useState<boolean>(false);
+
     const imgSrc = STEAM_CDN_URL + props.img;
 
     function onClick() {
-        props.onClick(props.id);
+        setGamesCollapsed(!gamesCollapsed);
     }
 
     return (
+
         <Stack 
-            direction="row" 
-            spacing={2}
-            onClick={onClick}
+            direction="column" 
+            spacing={0}
             sx={{
                 height: 'fit-content',
-                bgcolor: theme.headerBody,
-                "&:hover": {
-                    bgcolor: theme.headerBodyHover, 
-                  },
-
+                bgcolor: theme.transparent,
+                paddingTop: '0px'
             }}>
 
-            <Box
-                component="img"
-                sx={{
-                    height: 72,
-                    width: 128
-                }}
-                alt="avatar icon"
-                src={imgSrc}
-            />
-
 
             <Stack 
-                direction="column" 
-                spacing={0}
+                direction="row" 
+                spacing={2}
+                onClick={onClick}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.transparent,
-                    paddingTop: '12px'
+                    bgcolor: theme.headerBody,
+                    "&:hover": {
+                        bgcolor: theme.headerBodyHover, 
+                    },
+
                 }}>
 
-                <Typography
-                    textAlign="center"
+                <Box
+                    component="img"
                     sx={{
-                        fontWeight: 'bold', 
-                        paddingTop: '0px',
-                        width: '140px',
-                        fontSize: '14px',
-                        color: theme.text
+                        height: 72,
+                        width: 128
                     }}
-                >
-                    {props.name}
-                </Typography>
+                    alt="avatar icon"
+                    src={imgSrc}
+                />
+
 
                 <Stack 
-                    direction="row" 
+                    direction="column" 
                     spacing={0}
                     sx={{
                         height: 'fit-content',
                         bgcolor: theme.transparent,
-                        paddingTop: '6px'
+                        paddingTop: '12px'
                     }}>
 
-                        <Typography
-                            textAlign="right"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '1px',
-                                width: '30px',
-                                fontSize: '14px',
-                                color: theme.winColor
-                            }}
-                        >
-                            {props.win}
-                        </Typography>
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '140px',
+                            fontSize: '14px',
+                            color: theme.text
+                        }}
+                    >
+                        {props.name}
+                    </Typography>
 
-                        <Typography
-                            textAlign="center"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '0px',
-                                paddingLeft: '4px',
-                                width: '8px',
-                                fontSize: '14px',
-                                color: theme.text
-                            }}
-                        >
-                            -
-                        </Typography>
+                    <Stack 
+                        direction="row" 
+                        spacing={0}
+                        sx={{
+                            height: 'fit-content',
+                            bgcolor: theme.transparent,
+                            paddingTop: '6px'
+                        }}>
 
-                        <Typography
-                            textAlign="left"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '0px',
-                                paddingLeft: '4px',
-                                width: '20px',
-                                fontSize: '14px',
-                                color: theme.lossColor
-                            }}
-                        >
-                            {props.loss}
-                        </Typography>
+                            <Typography
+                                textAlign="right"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '1px',
+                                    width: '30px',
+                                    fontSize: '14px',
+                                    color: theme.winColor
+                                }}
+                            >
+                                {props.win}
+                            </Typography>
 
-                        <Typography
-                            textAlign="center"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '0px',
-                                paddingLeft: '4px',
-                                width: '60px',
-                                fontSize: '14px',
-                                color: theme.text
-                            }}
-                        >
-                            {(props.win / (props.win + props.loss) * 100).toFixed(2) + '%'}
-                        </Typography>
+                            <Typography
+                                textAlign="center"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '0px',
+                                    paddingLeft: '4px',
+                                    width: '8px',
+                                    fontSize: '14px',
+                                    color: theme.text
+                                }}
+                            >
+                                -
+                            </Typography>
+
+                            <Typography
+                                textAlign="left"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '0px',
+                                    paddingLeft: '4px',
+                                    width: '20px',
+                                    fontSize: '14px',
+                                    color: theme.lossColor
+                                }}
+                            >
+                                {props.loss}
+                            </Typography>
+
+                            <Typography
+                                textAlign="center"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '0px',
+                                    paddingLeft: '4px',
+                                    width: '60px',
+                                    fontSize: '14px',
+                                    color: theme.text
+                                }}
+                            >
+                                {(props.win / (props.win + props.loss) * 100).toFixed(2) + '%'}
+                            </Typography>
+
+                    </Stack>
 
                 </Stack>
 
-            </Stack>
 
-
-            
-            <Stack 
-                direction="column" 
-                spacing={0}
-                sx={{
-                    height: 'fit-content',
-                    bgcolor: theme.transparent,
-                    paddingTop: '12px'
-                }}>
-
-                <Typography
-                    textAlign="center"
-                    sx={{
-                        fontWeight: 'bold', 
-                        paddingTop: '0px',
-                        width: '140px',
-                        fontSize: '14px',
-                        color: theme.text
-                    }}
-                >
-                    Avg KDA
-                </Typography>
-
+                
                 <Stack 
-                    direction="row" 
+                    direction="column" 
                     spacing={0}
                     sx={{
                         height: 'fit-content',
                         bgcolor: theme.transparent,
-                        paddingTop: '6px'
+                        paddingTop: '12px'
                     }}>
 
-                        <Typography
-                            textAlign="right"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingLeft: '20px',
-                                paddingTop: '1px',
-                                width: '30px',
-                                fontSize: '14px',
-                                color: theme.winColor
-                            }}
-                        >
-                            {props.kills_avg}
-                        </Typography>
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '140px',
+                            fontSize: '14px',
+                            color: theme.text
+                        }}
+                    >
+                        Avg KDA
+                    </Typography>
 
-                        <Typography
-                            textAlign="right"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '1px',
-                                width: '30px',
-                                fontSize: '14px',
-                                color: theme.lossColor
-                            }}
-                        >
-                            {props.deaths_avg}
-                        </Typography>
+                    <Stack 
+                        direction="row" 
+                        spacing={0}
+                        sx={{
+                            height: 'fit-content',
+                            bgcolor: theme.transparent,
+                            paddingTop: '6px'
+                        }}>
 
-                        <Typography
-                            textAlign="right"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '1px',
-                                width: '30px',
-                                fontSize: '14px',
-                                color: theme.assistColor
-                            }}
-                        >
-                            {props.assists_avg}
-                        </Typography>
+                            <Typography
+                                textAlign="right"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingLeft: '20px',
+                                    paddingTop: '1px',
+                                    width: '30px',
+                                    fontSize: '14px',
+                                    color: theme.winColor
+                                }}
+                            >
+                                {props.kills_avg}
+                            </Typography>
 
+                            <Typography
+                                textAlign="right"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '1px',
+                                    width: '30px',
+                                    fontSize: '14px',
+                                    color: theme.lossColor
+                                }}
+                            >
+                                {props.deaths_avg}
+                            </Typography>
+
+                            <Typography
+                                textAlign="right"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '1px',
+                                    width: '30px',
+                                    fontSize: '14px',
+                                    color: theme.assistColor
+                                }}
+                            >
+                                {props.assists_avg}
+                            </Typography>
+
+                    </Stack>
                 </Stack>
-            </Stack>
 
-
-            <Stack 
-                direction="column" 
-                spacing={0}
-                sx={{
-                    height: 'fit-content',
-                    bgcolor: theme.transparent,
-                    paddingTop: '12px'
-                }}>
-
-                <Typography
-                    textAlign="center"
-                    sx={{
-                        fontWeight: 'bold', 
-                        paddingTop: '0px',
-                        width: '140px',
-                        fontSize: '14px',
-                        color: theme.text
-                    }}
-                >
-                    Avg Hero Dmg
-                </Typography>
 
                 <Stack 
-                    direction="row" 
+                    direction="column" 
                     spacing={0}
                     sx={{
                         height: 'fit-content',
                         bgcolor: theme.transparent,
-                        paddingTop: '6px'
+                        paddingTop: '12px'
                     }}>
 
-                        <Typography
-                            textAlign="center"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '0px',
-                                paddingLeft: '4px',
-                                width: '140px',
-                                fontSize: '14px',
-                                color: theme.text
-                            }}
-                        >
-                            {props.hero_damage_avg}
-                        </Typography>
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '140px',
+                            fontSize: '14px',
+                            color: theme.text
+                        }}
+                    >
+                        Avg Hero Dmg
+                    </Typography>
 
+                    <Stack 
+                        direction="row" 
+                        spacing={0}
+                        sx={{
+                            height: 'fit-content',
+                            bgcolor: theme.transparent,
+                            paddingTop: '6px'
+                        }}>
+
+                            <Typography
+                                textAlign="center"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '0px',
+                                    paddingLeft: '4px',
+                                    width: '140px',
+                                    fontSize: '14px',
+                                    color: theme.text
+                                }}
+                            >
+                                {props.hero_damage_avg}
+                            </Typography>
+
+                    </Stack>
                 </Stack>
-            </Stack>
 
-            
-            <Stack 
-                direction="column" 
-                spacing={0}
-                sx={{
-                    height: 'fit-content',
-                    bgcolor: theme.transparent,
-                    paddingTop: '12px'
-                }}>
-
-                <Typography
-                    textAlign="center"
-                    sx={{
-                        fontWeight: 'bold', 
-                        paddingTop: '0px',
-                        width: '140px',
-                        fontSize: '14px',
-                        color: theme.text
-                    }}
-                >
-                    Avg Tower Dmg
-                </Typography>
-
+                
                 <Stack 
-                    direction="row" 
+                    direction="column" 
                     spacing={0}
                     sx={{
                         height: 'fit-content',
                         bgcolor: theme.transparent,
-                        paddingTop: '6px'
+                        paddingTop: '12px'
                     }}>
 
-                        <Typography
-                            textAlign="center"
-                            sx={{
-                                fontWeight: 'bold', 
-                                paddingTop: '0px',
-                                paddingLeft: '4px',
-                                width: '140px',
-                                fontSize: '14px',
-                                color: theme.text
-                            }}
-                        >
-                            {props.tower_damage_avg}
-                        </Typography>
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '140px',
+                            fontSize: '14px',
+                            color: theme.text
+                        }}
+                    >
+                        Avg Tower Dmg
+                    </Typography>
 
+                    <Stack 
+                        direction="row" 
+                        spacing={0}
+                        sx={{
+                            height: 'fit-content',
+                            bgcolor: theme.transparent,
+                            paddingTop: '6px'
+                        }}>
+
+                            <Typography
+                                textAlign="center"
+                                sx={{
+                                    fontWeight: 'bold', 
+                                    paddingTop: '0px',
+                                    paddingLeft: '4px',
+                                    width: '140px',
+                                    fontSize: '14px',
+                                    color: theme.text
+                                }}
+                            >
+                                {props.tower_damage_avg}
+                            </Typography>
+
+                    </Stack>
                 </Stack>
+
             </Stack>
+
+            <Collapse in={gamesCollapsed}>
+                hello
+            </Collapse>
+
 
         </Stack>
         

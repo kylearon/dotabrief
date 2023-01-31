@@ -81,17 +81,12 @@ export default function MainPage({props} : {props: MainPageProps}) {
                     assists_avg: value.assists_avg,
                     hero_damage_avg: value.hero_damage_avg,
                     tower_damage_avg: value.tower_damage_avg,
-                    onClick: heroSummaryOnClick
                 });
                 
             });
             setHeroesToShow(newHeroesToShow);
         }
     },[matchesData, bestworst]);
-
-    function heroSummaryOnClick(heroId: number) {
-        console.log("Clicked hero summary " + heroId);
-    }
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
@@ -122,7 +117,6 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                 assists_avg: heroToShow.assists_avg,
                                 hero_damage_avg: heroToShow.hero_damage_avg,
                                 tower_damage_avg: heroToShow.tower_damage_avg,
-                                onClick: heroSummaryOnClick
                             }} />
                         ))
                         :
