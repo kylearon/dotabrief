@@ -70,7 +70,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
         if(matchesData) {
             let heroesToShowMatchData = getHeroesToShowFromMatchData(matchesData, bestworst);
             heroesToShowMatchData.forEach((value: HeroMatchesData, index: number, array: HeroMatchesData[]) => {
-                newHeroesToShow.push({ 
+                newHeroesToShow.push({
+                    id: value.heroId,
                     name: getHeroLocalizedNameFromId(value.heroId), 
                     win: value.win, 
                     loss: value.lose, 
@@ -79,14 +80,18 @@ export default function MainPage({props} : {props: MainPageProps}) {
                     deaths_avg: value.deaths_avg,
                     assists_avg: value.assists_avg,
                     hero_damage_avg: value.hero_damage_avg,
-                    tower_damage_avg: value.tower_damage_avg
+                    tower_damage_avg: value.tower_damage_avg,
+                    onClick: heroSummaryOnClick
                 });
+                
             });
-
             setHeroesToShow(newHeroesToShow);
         }
     },[matchesData, bestworst]);
 
+    function heroSummaryOnClick(heroId: number) {
+        console.log("Clicked hero summary " + heroId);
+    }
 
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
@@ -107,6 +112,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
                         heroesToShow.map(heroToShow => (
                             <HeroSummary key={heroToShow.name} 
                             props={{ 
+                                id: heroToShow.id,
                                 name: heroToShow.name, 
                                 img: heroToShow.img, 
                                 win: heroToShow.win, 
@@ -115,7 +121,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                 deaths_avg: heroToShow.deaths_avg,
                                 assists_avg: heroToShow.assists_avg,
                                 hero_damage_avg: heroToShow.hero_damage_avg,
-                                tower_damage_avg: heroToShow.tower_damage_avg
+                                tower_damage_avg: heroToShow.tower_damage_avg,
+                                onClick: heroSummaryOnClick
                             }} />
                         ))
                         :

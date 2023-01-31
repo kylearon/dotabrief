@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { STEAM_CDN_URL } from '../../utils/constants';
 
 export interface HeroSummaryProps {
+    id: number
     name: string
     win: number
     loss: number
@@ -16,6 +17,7 @@ export interface HeroSummaryProps {
     assists_avg: number
     hero_damage_avg: number
     tower_damage_avg: number
+    onClick: Function
 }
 
 export default function HeroSummary({props} : {props: HeroSummaryProps}) {
@@ -24,10 +26,15 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
 
     const imgSrc = STEAM_CDN_URL + props.img;
 
+    function onClick() {
+        props.onClick(props.id);
+    }
+
     return (
         <Stack 
             direction="row" 
             spacing={2}
+            onClick={onClick}
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
