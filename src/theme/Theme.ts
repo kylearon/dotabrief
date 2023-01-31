@@ -5,6 +5,8 @@ declare module '@mui/material/styles' {
   interface Theme {
     body: string;
     headerBody: string;
+    headerBodyHover: string;
+    transparent: string;
     text: string;
     toggleBorder: string;
     winColor: string;
@@ -15,6 +17,8 @@ declare module '@mui/material/styles' {
   interface ThemeOptions {
     body?: string;
     headerBody?: string;
+    headerBodyHover?: string;
+    transparent?: string;
     text?: string;
     toggleBorder?: string;
     winColor?: string;
@@ -37,6 +41,8 @@ export const lightTheme = createTheme({
   },
   body: '#E2E2E2',
   headerBody: '#cfcfcf',
+  headerBodyHover: '#b1b1b1',
+  transparent: '#ffffff00',
   text: '#363537',
   toggleBorder: '#FFF',
   winColor: '#00aa00',
@@ -51,6 +57,9 @@ export const darkTheme = createTheme({
     }
   },
   body: '#363537',
+  headerBody: '#cfcfcf',
+  headerBodyHover: '#b1b1b1',
+  transparent: '#ffffff00',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   winColor: '#00ff00',

@@ -30,7 +30,11 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
             spacing={2}
             sx={{
                 height: 'fit-content',
-                bgcolor: theme.headerBody
+                bgcolor: theme.headerBody,
+                "&:hover": {
+                    bgcolor: theme.headerBodyHover, 
+                  },
+
             }}>
 
             <Box
@@ -49,7 +53,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 spacing={0}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.headerBody,
+                    bgcolor: theme.transparent,
                     paddingTop: '12px'
                 }}>
 
@@ -71,7 +75,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     spacing={0}
                     sx={{
                         height: 'fit-content',
-                        bgcolor: theme.headerBody,
+                        bgcolor: theme.transparent,
                         paddingTop: '6px'
                     }}>
 
@@ -141,7 +145,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 spacing={0}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.headerBody,
+                    bgcolor: theme.transparent,
                     paddingTop: '12px'
                 }}>
 
@@ -163,7 +167,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     spacing={0}
                     sx={{
                         height: 'fit-content',
-                        bgcolor: theme.headerBody,
+                        bgcolor: theme.transparent,
                         paddingTop: '6px'
                     }}>
 
@@ -216,7 +220,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 spacing={0}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.headerBody,
+                    bgcolor: theme.transparent,
                     paddingTop: '12px'
                 }}>
 
@@ -238,7 +242,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     spacing={0}
                     sx={{
                         height: 'fit-content',
-                        bgcolor: theme.headerBody,
+                        bgcolor: theme.transparent,
                         paddingTop: '6px'
                     }}>
 
@@ -265,7 +269,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 spacing={0}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.headerBody,
+                    bgcolor: theme.transparent,
                     paddingTop: '12px'
                 }}>
 
@@ -287,7 +291,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     spacing={0}
                     sx={{
                         height: 'fit-content',
-                        bgcolor: theme.headerBody,
+                        bgcolor: theme.transparent,
                         paddingTop: '6px'
                     }}>
 
