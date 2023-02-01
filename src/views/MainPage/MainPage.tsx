@@ -1,5 +1,5 @@
 
-import { Box, Container, Stack, useTheme } from '@mui/material';
+import { Box, Container, Stack, Typography, useTheme } from '@mui/material';
 
 import { useEffect, useState } from 'react';
 
@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, dotaconstants, GAME_MODE_TURBO_URL_PARAM, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
+import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
@@ -32,19 +32,35 @@ export default function MainPage({props} : {props: MainPageProps}) {
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
     const [bestworst, setBestworst] = useState<string>(BEST_HEROES);
+
+    const [gameMode, setGameMode] = useState<string>(GAME_MODE_TURBO);
+
+    // const [lobbyType, setLobbyType] = useState<string>(LOBBY_TYPE_NORMAL);
     
+    const [showLoading, setShowLoading] = useState<boolean>(true);
+
     //load the heros to show
     const [ heroesToShow, setHeroesToShow ] = useState<HeroSummaryProps[]>([]);
+
+    function getGameModeParam(gameMode:string): string {
+        if(gameMode === GAME_MODE_TURBO) {
+            return GAME_MODE_TURBO_URL_PARAM;
+        } else if(gameMode === GAME_MODE_AP) {
+            return GAME_MODE_AP_URL_PARAM;
+        }
+
+        return "";
+    }
 
 
     //load the player data
     const { playerData, playerDataError } = useFetchPlayer(props.steamId);
 
     //load the win/loss data based on the timeframe
-    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
+    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, getTimeframeParam(timeframe), getGameModeParam(gameMode));
 
     //load the match data from the timeframe
-    const { matchesData, matchesError } = useFetchMatches(props.steamId, getTimeframeParam(timeframe), GAME_MODE_TURBO_URL_PARAM);
+    const { matchesData, matchesError } = useFetchMatches(props.steamId, getTimeframeParam(timeframe), getGameModeParam(gameMode));
 
 
     // useEffect(() => {
@@ -57,10 +73,11 @@ export default function MainPage({props} : {props: MainPageProps}) {
     //     console.log(playerData);
     // },[playerData]);
 
-    // useEffect(() => {
-    //     console.log("win/loss data changed");
-    //     console.log(winLossData);
-    // },[winLossData]);
+    useEffect(() => {
+        console.log("timeframe/gameMode changed");
+        setHeroesToShow([]);
+        setShowLoading(true);
+    },[timeframe, gameMode]);
 
     useEffect(() => {
         console.log("matches data changed");
@@ -87,7 +104,10 @@ export default function MainPage({props} : {props: MainPageProps}) {
                 
             });
             setHeroesToShow(newHeroesToShow);
+            
+            setShowLoading(false);
         }
+
     },[matchesData, bestworst]);
 
     return (
@@ -99,30 +119,47 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
                     <Header props={{ userId: playerData ? playerData.profile.personaname : "undefined", setSteamId: props.setSteamId }}  />
                 
-                    <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe}}/>
+                    <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe, gameMode: gameMode, setGameMode: setGameMode }}/>
 
                     <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst }} />
                     
                     {
-                        heroesToShow.length > 0
+                        (!showLoading || heroesToShow.length > 0)
                         ?
-                        heroesToShow.map(heroToShow => (
-                            <HeroSummary key={heroToShow.name} 
-                            props={{ 
-                                id: heroToShow.id,
-                                name: heroToShow.name,
-                                localized_name: heroToShow.localized_name, 
-                                img: heroToShow.img, 
-                                win: heroToShow.win, 
-                                loss: heroToShow.loss, 
-                                kills_avg: heroToShow.kills_avg,
-                                deaths_avg: heroToShow.deaths_avg,
-                                assists_avg: heroToShow.assists_avg,
-                                hero_damage_avg: heroToShow.hero_damage_avg,
-                                tower_damage_avg: heroToShow.tower_damage_avg,
-                                games_match_data: heroToShow.games_match_data 
-                            }} />
-                        ))
+                            
+                            heroesToShow.length > 0
+                            ?
+                            heroesToShow.map(heroToShow => (
+                                <HeroSummary key={heroToShow.name} 
+                                props={{ 
+                                    id: heroToShow.id,
+                                    name: heroToShow.name,
+                                    localized_name: heroToShow.localized_name, 
+                                    img: heroToShow.img, 
+                                    win: heroToShow.win, 
+                                    loss: heroToShow.loss, 
+                                    kills_avg: heroToShow.kills_avg,
+                                    deaths_avg: heroToShow.deaths_avg,
+                                    assists_avg: heroToShow.assists_avg,
+                                    hero_damage_avg: heroToShow.hero_damage_avg,
+                                    tower_damage_avg: heroToShow.tower_damage_avg,
+                                    games_match_data: heroToShow.games_match_data 
+                                }} />
+                            ))
+                            :
+                            <Container sx={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <Typography
+                                    sx={{
+                                        fontWeight: 'bold', 
+                                        paddingTop: '48px',
+                                        marginRight: '12px',
+                                        fontSize: '22px',
+                                        color: theme.text
+                                    }}
+                                >
+                                    No Matches
+                                </Typography>
+                            </Container>
                         :
                         <Container sx={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Box 

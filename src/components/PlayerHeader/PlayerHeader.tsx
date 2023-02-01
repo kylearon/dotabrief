@@ -8,12 +8,16 @@ import { PlayerData, ProfileData, WinLossData } from '../../hooks/useFetch';
 import TimeframeSelector from '../TimeframeSelector/TimeframeSelector';
 import WinLoss from '../WinLoss/WinLoss';
 import WinRate from '../WinRate/WinRate';
+import GameModeSelector from '../GameModeSelector/GameModeSelector';
+import { GAME_MODE_TURBO, LOBBY_TYPE_NORMAL } from '../../utils/constants';
 
 export interface PlayerHeaderProps {
     playerData: PlayerData | undefined;
     winLossData: WinLossData | undefined;
     timeframe: string;
     setTimeframe: Function;
+    gameMode: string;
+    setGameMode: Function;
 }
 
 export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
@@ -26,8 +30,11 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
     if(props.winLossData) {
         win = props.winLossData.win
         loss = props.winLossData.lose;
-        winRate = (win / (win + loss)) * 100;
+        if((win+loss) > 0) {
+            winRate = (win / (win + loss)) * 100;
+        }        
     }
+
     let winRateString = winRate.toFixed(2) + "%";
 
     let imgSrc = "";
@@ -72,6 +79,8 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
             <WinLoss props={{ win: win, loss: loss }} />
 
             <WinRate props={{ rate: winRateString }} />
+
+            <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode }} />
 
         </Stack>
         

@@ -9,6 +9,12 @@ export const LAST_100 = "LAST_100";
 export const BEST_HEROES = "BEST_HEROES";
 export const WORST_HEROES = "WORST_HEROES";
 
+export const GAME_MODE_TURBO = "turbo";
+export const GAME_MODE_AP = "all_pick";
+
+export const LOBBY_TYPE_NORMAL = "normal_matchmaking";
+export const LOBBY_TYPE_RANKED = "ranked_matchmaking";
+
 export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com"
 
 
@@ -27,6 +33,7 @@ export const WIN_LOSS_URL_BASE = "/wl?";
 
 export const GAME_MODE_AP_URL_PARAM = "game_mode=1&significant=1";
 export const GAME_MODE_TURBO_URL_PARAM = "game_mode=23&significant=0";
+export const LOBBY_TYPE_RANKED_URL_PARAM = "lobby_type=7";
 
 export const THIS_PATCH_URL_PARAM = "patch=51";
 export const LAST_MONTH_URL_PARAM = "date=30";
