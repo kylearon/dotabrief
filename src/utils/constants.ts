@@ -39,3 +39,7 @@ export const TIMEFRAME_PARAM_MAP = new Map<string, string>([
 ])
 
 export const MATCHES_VERBOSE_URL_PARAMS = "project=duration&project=game_mode&project=lobby_type&project=start_time&project=hero_id&project=kills&project=deaths&project=assists&project=hero_damage&project=tower_damage&project=last_hits&project=leaver_status&project=party_size&project=item_0&project=item_1&project=item_2&project=item_3&project=item_4&project=item_5&project=backpack_0";
+
+
+export const DOTABUFF_MATCH_URL = "https://www.dotabuff.com/matches/";
+export const OPENDOTA_MATCH_URL = "https://www.opendota.com/matches/";

@@ -1,10 +1,14 @@
 
-import { Stack, useTheme } from '@mui/material';
+import { Box, Button, Stack, useTheme } from '@mui/material';
 
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import Typography from '@mui/material/Typography';
 import { getTimeString } from '../../utils/utils';
+import { DOTABUFF_MATCH_URL, OPENDOTA_MATCH_URL } from '../../utils/constants';
+
+const dotabuffIcon: string = require("../../assets/dotabuff64x64.png");
+const opendotaIcon: string = require("../../assets/opendota64x64.png");
 
 export interface GameSummaryProps {
     match_id: string
@@ -24,6 +28,14 @@ export interface GameSummaryProps {
 export default function GameSummary({props} : {props: GameSummaryProps}) {
 
     const theme = useTheme();
+
+    const onDotabuffButtonClicked: MouseEventHandler<HTMLImageElement> = (e) => {
+        window.open(DOTABUFF_MATCH_URL + props.match_id, '_blank');
+    }
+
+    const onOpendotaButtonClicked: MouseEventHandler<HTMLImageElement> = (e) => {
+        window.open(OPENDOTA_MATCH_URL + props.match_id, '_blank');
+    }
 
     return (
         <Stack 
@@ -260,6 +272,32 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
 
                     </Stack>
                 </Stack>
+
+                <Box
+                    component="img"
+                    onClick={(e) => onDotabuffButtonClicked(e)}
+                    sx={{
+                        height: 24,
+                        width: 24,
+                        paddingTop: '6px',
+                        cursor: 'pointer'
+                    }}
+                    alt="dotabuff icon"
+                    src={dotabuffIcon}
+                />
+
+                <Box
+                    component="img"
+                    onClick={(e) => onOpendotaButtonClicked(e)}
+                    sx={{
+                        height: 24,
+                        width: 24,
+                        paddingTop: '6px',
+                        cursor: 'pointer'
+                    }}
+                    alt="opendota icon"
+                    src={opendotaIcon}
+                />
 
         </Stack>
         
