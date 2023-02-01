@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { STEAM_CDN_URL } from '../../utils/constants';
 import { MatchData } from '../../hooks/useFetch';
 import GameSummary from '../GameSummary/GameSummary';
-import { getAlternateBackgroundColorFromHeroId, getBackgroundColorFromHeroId } from '../../utils/utils';
+import { getAlternateBackgroundColorFromHeroId, getBackgroundColorFromHeroId, getWinFromMatchData } from '../../utils/utils';
 
 export interface HeroSummaryProps {
     id: number
@@ -396,7 +396,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 hero_name: props.name,
                                 img: props.img,
                                 date: match.start_time,
-                                win: match.radiant_win,
+                                win: getWinFromMatchData(match),
                                 kills: match.kills,
                                 deaths: match.deaths,
                                 assists: match.assists,

@@ -1,7 +1,10 @@
+
 import { MatchData } from "../hooks/useFetch";
 import { BEST_HEROES, dotaconstants, WORST_HEROES } from "./constants";
 
 import heroColors from './heroColors.json';
+
+const { DateTime } = require("luxon");
 
 export function getHeroIconFromName(name: string): string {
 
@@ -204,4 +207,12 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
      });
 
      return heroesToShow;
+}
+
+
+
+//https://moment.github.io/luxon/#/
+export function getTimeString(timestampSeconds: string): string {
+    //https://moment.github.io/luxon/api-docs/index.html#datetimetorelative
+    return DateTime.fromSeconds(timestampSeconds).toRelative();
 }

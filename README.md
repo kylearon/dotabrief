@@ -13,6 +13,10 @@ A quick glance Dota 2 dashboard
 
 ### install dotaconstants `npm install dotaconstants`
 
+### install luxon for datetime handling `npm install --save luxon`
+
+
+
 @emotion/react @emotion/styled
 npm install --save styled-components
 

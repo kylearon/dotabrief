@@ -4,6 +4,7 @@ import { Stack, useTheme } from '@mui/material';
 import React from 'react';
 
 import Typography from '@mui/material/Typography';
+import { getTimeString } from '../../utils/utils';
 
 export interface GameSummaryProps {
     match_id: string
@@ -62,10 +63,16 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             paddingTop: '0px',
                             width: '140px',
                             fontSize: '12px',
-                            color: theme.text
+                            color: props.win ? theme.winColor : theme.lossColor
                         }}
                     >
-                        Won Match
+                        {
+                            props.win
+                            ?
+                            "Won Match"
+                            :
+                            "Lost Match"
+                        }
                     </Typography>
 
                     <Typography
@@ -78,7 +85,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             color: theme.text
                         }}
                     >
-                        2 days ago
+                        { getTimeString(props.date) }
                     </Typography>
 
                 </Stack>
