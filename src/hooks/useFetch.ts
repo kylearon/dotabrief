@@ -131,7 +131,7 @@ export interface WinLossData {
 }
 
 export const useFetchWinLoss = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
-    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_BASE + "&" + timeFrameParam + "&" + gameModeParam;
+    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_BASE + timeFrameParam + "&" + gameModeParam;
     const { data, error } = useFetch<WinLossData>(fullUrl);
     return {winLossData: data, winLossError: error};
 }
@@ -161,7 +161,8 @@ export interface MatchData {
 }
 
 export const useFetchMatches = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
-    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_BASE + "&" + timeFrameParam + "&" + gameModeParam + "&" + MATCHES_VERBOSE_URL_PARAMS;
+    // console.log("inside useFetchMatches()");
+    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_BASE + timeFrameParam + "&" + gameModeParam + "&" + MATCHES_VERBOSE_URL_PARAMS;
     const { data, error } = useFetch<MatchData[]>(fullUrl);
     return {matchesData: data, matchesError: error};
 }
