@@ -112,14 +112,14 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                         color: theme.text
                     }}
                 >
-                    Search your Steam Name or Dota Player Number
+                    Search your Steam Name or Player ID Number
                 </Typography>
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <TextField 
                     id="outlined-basic" 
-                    label="steam id" 
+                    label="steam name or player id" 
                     variant="outlined"
                     sx={{
                         fontSize: '16px',
