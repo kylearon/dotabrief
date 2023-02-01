@@ -27,7 +27,7 @@ export default function WinRate({props} : {props: WinRateProps}) {
                 sx={{
                     fontWeight: 'bold', 
                     paddingTop: '0px',
-                    width: '100px',
+                    width: '80px',
                     fontSize: '14px',
                     color: theme.text
                 }}
@@ -40,7 +40,7 @@ export default function WinRate({props} : {props: WinRateProps}) {
                 sx={{
                     fontWeight: 'bold', 
                     paddingTop: '0px',
-                    width: '100px',
+                    width: '80px',
                     fontSize: '14px',
                     color: theme.text
                 }}

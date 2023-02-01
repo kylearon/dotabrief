@@ -28,7 +28,7 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
     let loss = 0;
     let winRate = 0.0;
     if(props.winLossData) {
-        win = props.winLossData.win
+        win = props.winLossData.win;
         loss = props.winLossData.lose;
         if((win+loss) > 0) {
             winRate = (win / (win + loss)) * 100;
@@ -47,7 +47,7 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
     return (
         <Stack 
             direction="row" 
-            spacing={2}
+            spacing={1}
             sx={{
                 bgcolor: theme.headerBody
             }}>

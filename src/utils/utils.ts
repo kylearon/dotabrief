@@ -73,8 +73,8 @@ export function getBackgroundColorFromHeroId(id: number): string | undefined {
 
     const heroColor = heroColorMap.get(nameTrimmed);
 
-    console.log("heroColor");
-    console.log(heroColor);
+    // console.log("heroColor");
+    // console.log(heroColor);
 
     if(heroColor) {
         return (heroColor.darkvibrant);
@@ -212,7 +212,11 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
 
 
 //https://moment.github.io/luxon/#/
-export function getTimeString(timestampSeconds: string): string {
+export function getTimeStringFromSeconds(timestampSeconds: string): string {
     //https://moment.github.io/luxon/api-docs/index.html#datetimetorelative
     return DateTime.fromSeconds(timestampSeconds).toRelative();
+}
+
+export function getTimeStringFromISO(iso: string): string {
+    return DateTime.fromISO(iso).toRelative();
 }

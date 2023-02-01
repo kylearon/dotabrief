@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
+import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_RANKED, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED_URL_PARAM, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
@@ -42,11 +42,14 @@ export default function MainPage({props} : {props: MainPageProps}) {
     //load the heros to show
     const [ heroesToShow, setHeroesToShow ] = useState<HeroSummaryProps[]>([]);
 
+    //map the game mode string value to the url params
     function getGameModeParam(gameMode:string): string {
-        if(gameMode === GAME_MODE_TURBO) {
-            return GAME_MODE_TURBO_URL_PARAM;
-        } else if(gameMode === GAME_MODE_AP) {
+        if(gameMode === GAME_MODE_AP) {
             return GAME_MODE_AP_URL_PARAM;
+        } else if(gameMode == GAME_MODE_RANKED) {
+            return LOBBY_TYPE_RANKED_URL_PARAM;
+        } else if(gameMode === GAME_MODE_TURBO) {
+            return GAME_MODE_TURBO_URL_PARAM;
         }
 
         return "";

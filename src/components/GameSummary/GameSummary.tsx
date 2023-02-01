@@ -4,7 +4,7 @@ import { Box, Button, Stack, useTheme } from '@mui/material';
 import React, { MouseEventHandler } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { getTimeString } from '../../utils/utils';
+import { getTimeStringFromISO, getTimeStringFromSeconds } from '../../utils/utils';
 import { DOTABUFF_MATCH_URL, OPENDOTA_MATCH_URL } from '../../utils/constants';
 
 const dotabuffIcon: string = require("../../assets/dotabuff64x64.png");
@@ -103,7 +103,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             color: theme.text
                         }}
                     >
-                        { getTimeString(props.date) }
+                        { getTimeStringFromSeconds(props.date) }
                     </Typography>
 
                 </Stack>

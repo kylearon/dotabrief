@@ -28,7 +28,7 @@ export default function WinLoss({props} : {props: WinLossProps}) {
                 sx={{
                     fontWeight: 'bold', 
                     paddingTop: '0px',
-                    width: '120px',
+                    width: '90px',
                     fontSize: '14px',
                     color: theme.text
                 }}
@@ -50,7 +50,7 @@ export default function WinLoss({props} : {props: WinLossProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '1px',
-                            width: '50px',
+                            width: '34px',
                             fontSize: '14px',
                             color: theme.winColor
                         }}
@@ -78,7 +78,7 @@ export default function WinLoss({props} : {props: WinLossProps}) {
                             fontWeight: 'bold', 
                             paddingTop: '0px',
                             paddingLeft: '4px',
-                            width: '50px',
+                            width: '36px',
                             fontSize: '14px',
                             color: theme.lossColor
                         }}

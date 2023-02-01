@@ -2,7 +2,7 @@
 import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
-import { GAME_MODE_AP, GAME_MODE_TURBO, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED } from '../../utils/constants';
+import { GAME_MODE_AP, GAME_MODE_RANKED, GAME_MODE_TURBO, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED } from '../../utils/constants';
 
 
 export interface GameModeSelectorProps {
@@ -30,7 +30,7 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                 bgcolor: theme.headerBody,
                 paddingTop: '14px',
                 paddingBottom: '0px',
-                paddingLeft: '0px'
+                paddingLeft: '8px'
             }}>
 
             <ToggleButtonGroup
@@ -43,7 +43,8 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                     width: 200
                 }}
                 >
-                <ToggleButton sx={{ width: 100 }} value={GAME_MODE_AP}>AP/Ranked</ToggleButton>
+                <ToggleButton sx={{ width: 100 }} value={GAME_MODE_AP}>Normal</ToggleButton>
+                <ToggleButton sx={{ width: 90 }} value={GAME_MODE_RANKED}>Ranked</ToggleButton>
                 <ToggleButton sx={{ width: 90 }} value={GAME_MODE_TURBO}>Turbo</ToggleButton>
             </ToggleButtonGroup>
 
