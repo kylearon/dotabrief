@@ -3,13 +3,23 @@ import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 
 import { KeyboardEventHandler, useState } from 'react';
-import { PLAYERS_URL } from '../../utils/constants';
+import PlayerEntry from '../../PlayerEntry/PlayerEntry';
+import { PLAYERS_URL, SEARCH_FOR_PLAYER_URL } from '../../utils/constants';
+
+export interface PlayerSearchEntry {
+    account_id: number;
+    personaname: string;
+    avatarfull: string;
+    last_match_time: string;
+}
 
 export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => void}) {
 
     const theme = useTheme();
 
     const [steamIdError, setSteamIdError] = useState<boolean>(false);
+
+    const [playerSearchEntries, setPlayerSearchEntries] = useState<PlayerSearchEntry[]>([]);
 
     // const handleClick = async () => {
     //     await fetch(URL_TO_FETCH,{ 
@@ -49,9 +59,33 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                     //log a bad response to the console. like 404 etc
                     if (!response.ok) {
                         console.log("ERROR: " + response.status + " " + response.statusText);
+
+                        //try to search for this value as a player name
+                        fetch(SEARCH_FOR_PLAYER_URL + target.value).then( (playerNameResponse) => {
+                            if (!playerNameResponse.ok) {
+                                console.log("ERROR: " + playerNameResponse.status + " " + playerNameResponse.statusText);
+                            }
+
+                            //return the Promise for the json response
+                            return playerNameResponse.json();
+                        }).then((playerNameData: PlayerSearchEntry[]) => { //read the json response Promise
+                            console.log("playerNameData");
+                            console.log(playerNameData);
+
+                            //remove any that don't play dota so don't have a last_match_time
+                            const filteredPlayerNameData = playerNameData.filter(entry => entry.last_match_time);
+
+                            //only show the top ten entries
+                            if(playerNameData.length > 10) {
+                                setPlayerSearchEntries(filteredPlayerNameData.slice(0, 10));
+                            }
+                            else {
+                                setPlayerSearchEntries(filteredPlayerNameData);
+                            }
+                        });
                         
                         //show error on page
-                        setSteamIdError(true);
+                        // setSteamIdError(true);
                         return;
                     }
 
@@ -68,7 +102,7 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
     }
 
     return (
-        <Stack spacing={2} >
+        <Stack spacing={2} sx={{ paddingTop: "48px" }}>
 
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography
@@ -78,7 +112,7 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                         color: theme.text
                     }}
                 >
-                    Please Enter your Steam ID to continue
+                    Search your Steam Name or Dota Player Number
                 </Typography>
             </Box>
 
@@ -98,6 +132,14 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                 />
             </Box>
 
+            {
+                playerSearchEntries.map(entry => 
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <PlayerEntry props={{ account_id: entry.account_id, personaname: entry.personaname, avatarfull: entry.avatarfull, last_match_time: entry.last_match_time }} />
+                    </Box>
+                )
+            }
+            
         </Stack>
 
     )

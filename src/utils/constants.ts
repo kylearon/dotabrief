@@ -18,6 +18,7 @@ export const LOBBY_TYPE_RANKED = "ranked_matchmaking";
 
 export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com"
 
+export const SEARCH_FOR_PLAYER_URL = "https://api.opendota.com/api/search?q=";
 
 export const PLAYERS_URL = "https://api.opendota.com/api/players/";
 export const MATCHES_URL = "https://api.opendota.com/api/matches/";

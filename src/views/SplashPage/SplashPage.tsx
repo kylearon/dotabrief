@@ -21,9 +21,9 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
 
                     <Header props={{ userId: '', setSteamId: props.setSteamId }}  />
 
-                    <Box sx={{ display: 'flex', height: '50vh', justifyContent: 'center', alignItems: 'center' }}>
-                        <SplashLogin setSteamId={props.setSteamId} />
-                    </Box>
+                    <SplashLogin setSteamId={props.setSteamId} />
+
+                    
                     
                 </Stack>
 
