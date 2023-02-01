@@ -43,7 +43,13 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
             spacing={2}
             sx={{
                 height: 'fit-content',
-                bgcolor: props.background_color
+                bgcolor: props.background_color,
+                "& .offsite-button": {
+                    display: "none"
+                },
+                "&:hover .offsite-button": {
+                    display: "flex"
+                }
             }}>
 
                 <Stack 
@@ -274,13 +280,23 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                 </Stack>
 
                 <Box
+                    sx={{
+                        height: "32px",
+                        width: "200px",
+                    }}
+                />
+
+
+                <Box
                     component="img"
+                    className="offsite-button"
                     onClick={(e) => onDotabuffButtonClicked(e)}
                     sx={{
                         height: 24,
                         width: 24,
                         paddingTop: '6px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        opacity: '0.7'
                     }}
                     alt="dotabuff icon"
                     src={dotabuffIcon}
@@ -288,12 +304,14 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
 
                 <Box
                     component="img"
+                    className="offsite-button"
                     onClick={(e) => onOpendotaButtonClicked(e)}
                     sx={{
                         height: 24,
                         width: 24,
                         paddingTop: '6px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        opacity: '0.7'
                     }}
                     alt="opendota icon"
                     src={opendotaIcon}
