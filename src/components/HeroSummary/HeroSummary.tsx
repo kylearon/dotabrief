@@ -5,10 +5,14 @@ import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import { STEAM_CDN_URL } from '../../utils/constants';
+import { MatchData } from '../../hooks/useFetch';
+import GameSummary from '../GameSummary/GameSummary';
+import { getAlternateBackgroundColorFromHeroId, getBackgroundColorFromHeroId } from '../../utils/utils';
 
 export interface HeroSummaryProps {
     id: number
     name: string
+    localized_name: string
     win: number
     loss: number
     img: string
@@ -17,6 +21,7 @@ export interface HeroSummaryProps {
     assists_avg: number
     hero_damage_avg: number
     tower_damage_avg: number
+    games_match_data: MatchData[] 
 }
 
 export default function HeroSummary({props} : {props: HeroSummaryProps}) {
@@ -30,6 +35,54 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
     function onClick() {
         setGamesCollapsed(!gamesCollapsed);
     }
+
+
+    function getBackgroundColor():string {
+        const backgroundColor = getBackgroundColorFromHeroId(props.id) + "44";
+        if(backgroundColor) {
+            return backgroundColor;
+        } else {
+            return theme.headerBody;
+        }
+    }
+
+    function getHoverBackgroundColor():string {
+        const backgroundColor = getBackgroundColorFromHeroId(props.id) + "88";
+        if(backgroundColor) {
+            return backgroundColor;
+        } else {
+            return theme.headerBodyHover;
+        }
+    }
+
+    let useAlternateRowColor: boolean = false;
+    
+    function getGameBackgroundColor():string {
+
+        //swap the value
+        useAlternateRowColor = !useAlternateRowColor;
+
+        //try to lookup the correct color
+        let backgroundColor: string = "";
+        if(useAlternateRowColor) {
+            //TODO: uncomment to use custom hero colors
+            // backgroundColor = getBackgroundColorFromHeroId(props.id) + "33";
+            backgroundColor = theme.headerBody;
+        } else {
+            //TODO: uncomment to use custom hero colors
+            // backgroundColor = getAlternateBackgroundColorFromHeroId(props.id) + "33";
+            backgroundColor = theme.headerBodyAlternate;
+        }
+
+        //return the correct value if one was found
+        if(backgroundColor) {
+            return backgroundColor;
+        } else {
+            return theme.headerBody;
+        }
+    }
+
+
 
     return (
 
@@ -49,9 +102,9 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 onClick={onClick}
                 sx={{
                     height: 'fit-content',
-                    bgcolor: theme.headerBody,
+                    bgcolor: getBackgroundColor,
                     "&:hover": {
-                        bgcolor: theme.headerBodyHover, 
+                        bgcolor: getHoverBackgroundColor, 
                     },
 
                 }}>
@@ -86,7 +139,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                             color: theme.text
                         }}
                     >
-                        {props.name}
+                        {props.localized_name}
                     </Typography>
 
                     <Stack 
@@ -334,7 +387,26 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
             </Stack>
 
             <Collapse in={gamesCollapsed}>
-                hello
+                {
+                    props.games_match_data.map(match => (
+                        <GameSummary key={match.match_id} 
+                            props={{ 
+                                match_id: match.match_id,
+                                hero_id: match.hero_id,
+                                hero_name: props.name,
+                                img: props.img,
+                                date: match.start_time,
+                                win: match.radiant_win,
+                                kills: match.kills,
+                                deaths: match.deaths,
+                                assists: match.assists,
+                                hero_damage: match.hero_damage,
+                                tower_damage: match.tower_damage,
+                                background_color: getGameBackgroundColor()
+                            }} 
+                        />
+                    ))
+                }
             </Collapse>
 
 

@@ -10,7 +10,7 @@ import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/Hero
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
 import { BEST_HEROES, dotaconstants, GAME_MODE_TURBO_URL_PARAM, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
-import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, HeroMatchesData } from '../../utils/utils';
+import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
 const loading: string = require("../../assets/loading.svg").default;
@@ -72,7 +72,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
             heroesToShowMatchData.forEach((value: HeroMatchesData, index: number, array: HeroMatchesData[]) => {
                 newHeroesToShow.push({
                     id: value.heroId,
-                    name: getHeroLocalizedNameFromId(value.heroId), 
+                    localized_name: getHeroLocalizedNameFromId(value.heroId), 
+                    name: getHeroNameFromId(value.heroId), 
                     win: value.win, 
                     loss: value.lose, 
                     img: getHeroIconFromId(value.heroId),
@@ -81,6 +82,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
                     assists_avg: value.assists_avg,
                     hero_damage_avg: value.hero_damage_avg,
                     tower_damage_avg: value.tower_damage_avg,
+                    games_match_data: value.games_match_data 
                 });
                 
             });
@@ -108,7 +110,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
                             <HeroSummary key={heroToShow.name} 
                             props={{ 
                                 id: heroToShow.id,
-                                name: heroToShow.name, 
+                                name: heroToShow.name,
+                                localized_name: heroToShow.localized_name, 
                                 img: heroToShow.img, 
                                 win: heroToShow.win, 
                                 loss: heroToShow.loss, 
@@ -117,6 +120,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                 assists_avg: heroToShow.assists_avg,
                                 hero_damage_avg: heroToShow.hero_damage_avg,
                                 tower_damage_avg: heroToShow.tower_damage_avg,
+                                games_match_data: heroToShow.games_match_data 
                             }} />
                         ))
                         :

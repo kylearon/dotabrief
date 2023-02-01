@@ -6,6 +6,7 @@ declare module '@mui/material/styles' {
     body: string;
     headerBody: string;
     headerBodyHover: string;
+    headerBodyAlternate: string;
     transparent: string;
     text: string;
     toggleBorder: string;
@@ -18,6 +19,7 @@ declare module '@mui/material/styles' {
     body?: string;
     headerBody?: string;
     headerBodyHover?: string;
+    headerBodyAlternate?: string;
     transparent?: string;
     text?: string;
     toggleBorder?: string;
@@ -42,6 +44,7 @@ export const lightTheme = createTheme({
   body: '#E2E2E2',
   headerBody: '#cfcfcf',
   headerBodyHover: '#b1b1b1',
+  headerBodyAlternate: '#c4c4c4',
   transparent: '#ffffff00',
   text: '#363537',
   toggleBorder: '#FFF',
@@ -59,6 +62,7 @@ export const darkTheme = createTheme({
   body: '#363537',
   headerBody: '#cfcfcf',
   headerBodyHover: '#b1b1b1',
+  headerBodyAlternate: '#b1b1b1',
   transparent: '#ffffff00',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
