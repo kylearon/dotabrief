@@ -1,0 +1,986 @@
+{
+    "abaddon": {
+      "vibrant": "#34ddde",
+      "muted": "#5e61a7",
+      "darkvibrant": "#115f6a",
+      "darkmuted": "#2e2d53",
+      "lightvibrant": "#94f1f7",
+      "lightmuted": "#8898bc"
+    },
+    "antimage": {
+      "vibrant": "#f37f3e",
+      "muted": "#6956aa",
+      "darkvibrant": "#723415",
+      "darkmuted": "#332544",
+      "lightvibrant": "#fcc98b",
+      "lightmuted": "#c9b2d3"
+    },
+    "ancient_apparition": {
+      "vibrant": "#225ad6",
+      "muted": "#6082b2",
+      "darkvibrant": "#042f79",
+      "darkmuted": "#34445c",
+      "lightvibrant": "#64acfc",
+      "lightmuted": "#a1b5ca"
+    },
+    "abyssal_underlord": {
+      "vibrant": "#af6c15",
+      "muted": "#959b61",
+      "darkvibrant": "#46600c",
+      "darkmuted": "#54402e",
+      "lightvibrant": "#f1d18a",
+      "lightmuted": "#c1d2ae"
+    },
+    "arc_warden": {
+      "vibrant": "#1f85d5",
+      "muted": "#5879a8",
+      "darkvibrant": "#1558a0",
+      "darkmuted": "#37294b",
+      "lightvibrant": "#82eff4",
+      "lightmuted": "#ca99b9"
+    },
+    "alchemist": {
+      "vibrant": "#c28e19",
+      "muted": "#64a45c",
+      "darkvibrant": "#8f5e0b",
+      "darkmuted": "#502b59",
+      "lightvibrant": "#ec9470",
+      "lightmuted": "#aaabd1"
+    },
+    "bane": {
+      "vibrant": "#dc54fc",
+      "muted": "#8959a9",
+      "darkvibrant": "#472808",
+      "darkmuted": "#4c2e55",
+      "lightvibrant": "#ad8bfa",
+      "lightmuted": "#cca4a4"
+    },
+    "beastmaster": {
+      "vibrant": "#f64529",
+      "muted": "#9c8c54",
+      "darkvibrant": "#744a09",
+      "darkmuted": "#4f3e2d",
+      "lightvibrant": "#f2b575",
+      "lightmuted": "#d4caaa"
+    },
+    "batrider": {
+      "vibrant": "#0480f0",
+      "muted": "#71508d",
+      "darkvibrant": "#7f0404",
+      "darkmuted": "#2b3e58",
+      "lightvibrant": "#ecd87e",
+      "lightmuted": "#d49ca4"
+    },
+    "bloodseeker": {
+      "vibrant": "#e60c04",
+      "muted": "#ab6550",
+      "darkvibrant": "#840c04",
+      "darkmuted": "#57332c",
+      "lightvibrant": "#eccc8c",
+      "lightmuted": "#ccbeab"
+    },
+    "bounty_hunter": {
+      "vibrant": "#f4cc0e",
+      "muted": "#a78752",
+      "darkvibrant": "#671205",
+      "darkmuted": "#544b2d",
+      "lightvibrant": "#f7f47c",
+      "lightmuted": "#94bcc4"
+    },
+    "centaur": {
+      "vibrant": "#cc843c",
+      "muted": "#a87050",
+      "darkvibrant": "#5c2d04",
+      "darkmuted": "#624e32",
+      "lightvibrant": "#fcdc9c",
+      "lightmuted": "#cbc7b6"
+    },
+    "brewmaster": {
+      "vibrant": "#ea9642",
+      "muted": "#9b755a",
+      "darkvibrant": "#773c12",
+      "darkmuted": "#2f4152",
+      "lightvibrant": "#fbea6d",
+      "lightmuted": "#a7c6d3"
+    },
+    "chaos_knight": {
+      "vibrant": "#f79309",
+      "muted": "#a57457",
+      "darkvibrant": "#7c3208",
+      "darkmuted": "#4d2e26",
+      "lightvibrant": "#eca145",
+      "lightmuted": "#d0c0b2"
+    },
+    "chen": {
+      "vibrant": "#3dc2d6",
+      "muted": "#878c6c",
+      "darkvibrant": "#644c14",
+      "darkmuted": "#503f2a",
+      "lightvibrant": "#f9f595",
+      "lightmuted": "#d4d2a2"
+    },
+    "broodmother": {
+      "vibrant": "#e6252a",
+      "muted": "#6e7aa2",
+      "darkvibrant": "#7c0c1e",
+      "darkmuted": "#2f314a",
+      "lightvibrant": "#fcb47c",
+      "lightmuted": "#afb8d4"
+    },
+    "clinkz": {
+      "vibrant": "#f69518",
+      "muted": "#917f6a",
+      "darkvibrant": "#7c360c",
+      "darkmuted": "#2e3344",
+      "lightvibrant": "#f9ef83",
+      "lightmuted": "#9fb3ba"
+    },
+    "axe": {
+      "vibrant": "#b85748",
+      "muted": "#847b83",
+      "darkvibrant": "#681418",
+      "darkmuted": "#542b2a",
+      "lightvibrant": "#f4bc8c",
+      "lightmuted": "#c09f98"
+    },
+    "crystal_maiden": {
+      "vibrant": "#22a6fa",
+      "muted": "#a5855a",
+      "darkvibrant": "#0c2544",
+      "darkmuted": "#5b4332",
+      "lightvibrant": "#71ddfc",
+      "lightmuted": "#d0bdb0"
+    },
+    "bristleback": {
+      "vibrant": "#df371f",
+      "muted": "#91ae4e",
+      "darkvibrant": "#783004",
+      "darkmuted": "#474f34",
+      "lightvibrant": "#f0eb52",
+      "lightmuted": "#d19eaf"
+    },
+    "dark_willow": {
+      "vibrant": "#e4d02a",
+      "muted": "#a25775",
+      "darkvibrant": "#670513",
+      "darkmuted": "#644e2b",
+      "lightvibrant": "#f68381",
+      "lightmuted": "#d3a3cb"
+    },
+    "death_prophet": {
+      "vibrant": "#42f4ca",
+      "muted": "#a6596b",
+      "darkvibrant": "#670c25",
+      "darkmuted": "#2c4e32",
+      "lightvibrant": "#91faec",
+      "lightmuted": "#7ebebc"
+    },
+    "dark_seer": {
+      "vibrant": "#6917b8",
+      "muted": "#664e97",
+      "darkvibrant": "#7e076a",
+      "darkmuted": "#44386d",
+      "lightvibrant": "#8f77f3",
+      "lightmuted": "#b9b2da"
+    },
+    "dazzle": {
+      "vibrant": "#d832f1",
+      "muted": "#628da6",
+      "darkvibrant": "#481576",
+      "darkmuted": "#284152",
+      "lightvibrant": "#fa89d8",
+      "lightmuted": "#d1a1c8"
+    },
+    "disruptor": {
+      "vibrant": "#0867f8",
+      "muted": "#aa5e88",
+      "darkvibrant": "#041a8e",
+      "darkmuted": "#433469",
+      "lightvibrant": "#7aeaf6",
+      "lightmuted": "#b8a6cb"
+    },
+    "dawnbreaker": {
+      "vibrant": "#f19e1b",
+      "muted": "#a49459",
+      "darkvibrant": "#783a0c",
+      "darkmuted": "#543b38",
+      "lightvibrant": "#fbf671",
+      "lightmuted": "#c3b8b6"
+    },
+    "doom_bringer": {
+      "vibrant": "#f04405",
+      "muted": "#a96464",
+      "darkvibrant": "#804a0a",
+      "darkmuted": "#4f2a2d",
+      "lightvibrant": "#fac879",
+      "lightmuted": "#cdacbc"
+    },
+    "drow_ranger": {
+      "vibrant": "#327ac2",
+      "muted": "#727f97",
+      "darkvibrant": "#0b2b56",
+      "darkmuted": "#283954",
+      "lightvibrant": "#7cc4fc",
+      "lightmuted": "#a7abca"
+    },
+    "dragon_knight": {
+      "vibrant": "#e39e0a",
+      "muted": "#ac9464",
+      "darkvibrant": "#701c04",
+      "darkmuted": "#5b342d",
+      "lightvibrant": "#facd7a",
+      "lightmuted": "#caac9d"
+    },
+    "earth_spirit": {
+      "vibrant": "#92d448",
+      "muted": "#59a66d",
+      "darkvibrant": "#4b7604",
+      "darkmuted": "#34634a",
+      "lightvibrant": "#94fcb4",
+      "lightmuted": "#9fc7d2"
+    },
+    "earthshaker": {
+      "vibrant": "#e8842c",
+      "muted": "#a4945c",
+      "darkvibrant": "#80430a",
+      "darkmuted": "#5c4233",
+      "lightvibrant": "#fccc64",
+      "lightmuted": "#cccca8"
+    },
+    "elder_titan": {
+      "vibrant": "#ef381a",
+      "muted": "#9f8d5c",
+      "darkvibrant": "#815c08",
+      "darkmuted": "#4e482c",
+      "lightvibrant": "#80fbf8",
+      "lightmuted": "#cfcb9d"
+    },
+    "ember_spirit": {
+      "vibrant": "#ea7d0c",
+      "muted": "#85504d",
+      "darkvibrant": "#831307",
+      "darkmuted": "#513431",
+      "lightvibrant": "#fcf56d",
+      "lightmuted": "#797ca4"
+    },
+    "enchantress": {
+      "vibrant": "#e73e05",
+      "muted": "#92a860",
+      "darkvibrant": "#7c1e05",
+      "darkmuted": "#405934",
+      "lightvibrant": "#f8b47b",
+      "lightmuted": "#b9d4a6"
+    },
+    "enigma": {
+      "vibrant": "#0970de",
+      "muted": "#556c9e",
+      "darkvibrant": "#0c2d60",
+      "darkmuted": "#4c2e5f",
+      "lightvibrant": "#ee8dfb",
+      "lightmuted": "#c4a8d2"
+    },
+    "faceless_void": {
+      "vibrant": "#423f90",
+      "muted": "#855ba6",
+      "darkvibrant": "#2b045d",
+      "darkmuted": "#2e345c",
+      "lightvibrant": "#cca6e4",
+      "lightmuted": "#c0a7cc"
+    },
+    "furion": {
+      "vibrant": "#0494fc",
+      "muted": "#5994a2",
+      "darkvibrant": "#427c04",
+      "darkmuted": "#2a5356",
+      "lightvibrant": "#7be4f1",
+      "lightmuted": "#cccfa3"
+    },
+    "grimstroke": {
+      "vibrant": "#e48c24",
+      "muted": "#5d6ca9",
+      "darkvibrant": "#750407",
+      "darkmuted": "#523935",
+      "lightvibrant": "#f9d87c",
+      "lightmuted": "#ccadd5"
+    },
+    "invoker": {
+      "vibrant": "#ac844c",
+      "muted": "#9f7660",
+      "darkvibrant": "#6c2146",
+      "darkmuted": "#543044",
+      "lightvibrant": "#e4b582",
+      "lightmuted": "#cfbead"
+    },
+    "gyrocopter": {
+      "vibrant": "#be7343",
+      "muted": "#6690a8",
+      "darkvibrant": "#043c74",
+      "darkmuted": "#29404c",
+      "lightvibrant": "#90e4e7",
+      "lightmuted": "#a8bfcb"
+    },
+    "hoodwink": {
+      "vibrant": "#ddd60d",
+      "muted": "#5890b3",
+      "darkvibrant": "#635a06",
+      "darkmuted": "#564534",
+      "lightvibrant": "#f4f0a5",
+      "lightmuted": "#cab795"
+    },
+    "huskar": {
+      "vibrant": "#f7ed04",
+      "muted": "#569d77",
+      "darkvibrant": "#7a0904",
+      "darkmuted": "#53472c",
+      "lightvibrant": "#fce67c",
+      "lightmuted": "#d2d6b4"
+    },
+    "jakiro": {
+      "vibrant": "#f5a01b",
+      "muted": "#4d78b1",
+      "darkvibrant": "#893f0d",
+      "darkmuted": "#452b2c",
+      "lightvibrant": "#fcc874",
+      "lightmuted": "#d7adba"
+    },
+    "juggernaut": {
+      "vibrant": "#f86f0b",
+      "muted": "#ac8860",
+      "darkvibrant": "#722a06",
+      "darkmuted": "#5d4e31",
+      "lightvibrant": "#f6e882",
+      "lightmuted": "#c8c59f"
+    },
+    "keeper_of_the_light": {
+      "vibrant": "#f5b945",
+      "muted": "#b0714e",
+      "darkvibrant": "#91641b",
+      "darkmuted": "#4b4c2c",
+      "lightvibrant": "#f7c786",
+      "lightmuted": "#cdac9c"
+    },
+    "kunkka": {
+      "vibrant": "#2f9cc4",
+      "muted": "#64788b",
+      "darkvibrant": "#0b4156",
+      "darkmuted": "#4d3926",
+      "lightvibrant": "#ecc08a",
+      "lightmuted": "#c8c1b1"
+    },
+    "leshrac": {
+      "vibrant": "#1fc8fa",
+      "muted": "#a1607f",
+      "darkvibrant": "#09468c",
+      "darkmuted": "#373352",
+      "lightvibrant": "#64e8f9",
+      "lightmuted": "#b8accf"
+    },
+    "lich": {
+      "vibrant": "#ca3450",
+      "muted": "#4c7291",
+      "darkvibrant": "#245786",
+      "darkmuted": "#243444",
+      "lightvibrant": "#b1d9f6",
+      "lightmuted": "#92bdcd"
+    },
+    "lina": {
+      "vibrant": "#f98f16",
+      "muted": "#b0756c",
+      "darkvibrant": "#87440d",
+      "darkmuted": "#613633",
+      "lightvibrant": "#f6b661",
+      "lightmuted": "#ba899b"
+    },
+    "lion": {
+      "vibrant": "#f79908",
+      "muted": "#925ea5",
+      "darkvibrant": "#820704",
+      "darkmuted": "#542c4e",
+      "lightvibrant": "#f1e696",
+      "lightmuted": "#ccb1ad"
+    },
+    "life_stealer": {
+      "vibrant": "#fcf004",
+      "muted": "#a49454",
+      "darkvibrant": "#833c04",
+      "darkmuted": "#305f4f",
+      "lightvibrant": "#fccc74",
+      "lightmuted": "#c9d0a2"
+    },
+    "lone_druid": {
+      "vibrant": "#d6b52f",
+      "muted": "#9b8b5a",
+      "darkvibrant": "#842704",
+      "darkmuted": "#5c4c30",
+      "lightvibrant": "#ecdc68",
+      "lightmuted": "#edebdd"
+    },
+    "luna": {
+      "vibrant": "#5612cc",
+      "muted": "#647c88",
+      "darkvibrant": "#46109d",
+      "darkmuted": "#29364e",
+      "lightvibrant": "#5867f2",
+      "lightmuted": "#ccb0ac"
+    },
+    "lycan": {
+      "vibrant": "#f4ac08",
+      "muted": "#a8955c",
+      "darkvibrant": "#895c0b",
+      "darkmuted": "#285047",
+      "lightvibrant": "#c6dc8c",
+      "lightmuted": "#cdc4a5"
+    },
+    "magnataur": {
+      "vibrant": "#04a4c4",
+      "muted": "#5889a0",
+      "darkvibrant": "#046a83",
+      "darkmuted": "#344755",
+      "lightvibrant": "#e5de99",
+      "lightmuted": "#d5c0b0"
+    },
+    "marci": {
+      "vibrant": "#d58116",
+      "muted": "#787ba4",
+      "darkvibrant": "#74330c",
+      "darkmuted": "#343c53",
+      "lightvibrant": "#f9e07f",
+      "lightmuted": "#92a2cc"
+    },
+    "mars": {
+      "vibrant": "#fa4c04",
+      "muted": "#927e63",
+      "darkvibrant": "#8d1c08",
+      "darkmuted": "#552d25",
+      "lightvibrant": "#fcf17a",
+      "lightmuted": "#ccc4b4"
+    },
+    "medusa": {
+      "vibrant": "#d31c19",
+      "muted": "#6aaa7a",
+      "darkvibrant": "#761b0f",
+      "darkmuted": "#33533c",
+      "lightvibrant": "#eef098",
+      "lightmuted": "#bbcfb4"
+    },
+    "legion_commander": {
+      "vibrant": "#e69007",
+      "muted": "#9e615e",
+      "darkvibrant": "#740d06",
+      "darkmuted": "#54542c",
+      "lightvibrant": "#fce686",
+      "lightmuted": "#d2b9a2"
+    },
+    "mirana": {
+      "vibrant": "#f17f0c",
+      "muted": "#668baf",
+      "darkvibrant": "#744b15",
+      "darkmuted": "#334a56",
+      "lightvibrant": "#fcd47c",
+      "lightmuted": "#cca1a5"
+    },
+    "meepo": {
+      "vibrant": "#df9b1c",
+      "muted": "#5174a7",
+      "darkvibrant": "#0c5c74",
+      "darkmuted": "#2f3d50",
+      "lightvibrant": "#fab093",
+      "lightmuted": "#a4b4cc"
+    },
+    "monkey_king": {
+      "vibrant": "#fcac24",
+      "muted": "#959c60",
+      "darkvibrant": "#743e0a",
+      "darkmuted": "#455528",
+      "lightvibrant": "#fc9e72",
+      "lightmuted": "#ccd4ac"
+    },
+    "morphling": {
+      "vibrant": "#19dec6",
+      "muted": "#588191",
+      "darkvibrant": "#064777",
+      "darkmuted": "#2c4c5c",
+      "lightvibrant": "#c2fc71",
+      "lightmuted": "#9ac4cd"
+    },
+    "naga_siren": {
+      "vibrant": "#ca7c30",
+      "muted": "#6199ad",
+      "darkvibrant": "#046492",
+      "darkmuted": "#34474e",
+      "lightvibrant": "#8ae4ee",
+      "lightmuted": "#a4d3cd"
+    },
+    "necrolyte": {
+      "vibrant": "#96f74b",
+      "muted": "#70a553",
+      "darkvibrant": "#0c7c25",
+      "darkmuted": "#2c4c3f",
+      "lightvibrant": "#cafb7e",
+      "lightmuted": "#a4bcb8"
+    },
+    "nevermore": {
+      "vibrant": "#fc3a42",
+      "muted": "#416b7e",
+      "darkvibrant": "#741414",
+      "darkmuted": "#33535f",
+      "lightvibrant": "#eb393e",
+      "lightmuted": "#8a0e11"
+    },
+    "night_stalker": {
+      "vibrant": "#bcdc0c",
+      "muted": "#597797",
+      "darkvibrant": "#0c2c7c",
+      "darkmuted": "#2b324e",
+      "lightvibrant": "#6cc4fc",
+      "lightmuted": "#b8c4d4"
+    },
+    "nyx_assassin": {
+      "vibrant": "#dc3720",
+      "muted": "#a5985b",
+      "darkvibrant": "#6f4607",
+      "darkmuted": "#4c5432",
+      "lightvibrant": "#fce484",
+      "lightmuted": "#aed1d7"
+    },
+    "obsidian_destroyer": {
+      "vibrant": "#22ed78",
+      "muted": "#6878ad",
+      "darkvibrant": "#097a34",
+      "darkmuted": "#2d635c",
+      "lightvibrant": "#7cf9e9",
+      "lightmuted": "#9ed4c8"
+    },
+    "ogre_magi": {
+      "vibrant": "#bf4d2b",
+      "muted": "#636b98",
+      "darkvibrant": "#4c0805",
+      "darkmuted": "#5c3e30",
+      "lightvibrant": "#cb7a82",
+      "lightmuted": "#ccc0b0"
+    },
+    "omniknight": {
+      "vibrant": "#dd8735",
+      "muted": "#a1665b",
+      "darkvibrant": "#5c2704",
+      "darkmuted": "#5c4636",
+      "lightvibrant": "#fcb688",
+      "lightmuted": "#d4bfb2"
+    },
+    "oracle": {
+      "vibrant": "#3f1fd5",
+      "muted": "#a89356",
+      "darkvibrant": "#791839",
+      "darkmuted": "#473b2b",
+      "lightvibrant": "#a048fc",
+      "lightmuted": "#a5cfd4"
+    },
+    "pangolier": {
+      "vibrant": "#f22f69",
+      "muted": "#a17860",
+      "darkvibrant": "#701d47",
+      "darkmuted": "#58312c",
+      "lightvibrant": "#fcd464",
+      "lightmuted": "#ccb8b2"
+    },
+    "phantom_assassin": {
+      "vibrant": "#04859d",
+      "muted": "#59a1a7",
+      "darkvibrant": "#046e86",
+      "darkmuted": "#2b545b",
+      "lightvibrant": "#a0d7e3",
+      "lightmuted": "#9cc2c8"
+    },
+    "phoenix": {
+      "vibrant": "#f77206",
+      "muted": "#a37d58",
+      "darkvibrant": "#6f2206",
+      "darkmuted": "#463526",
+      "lightvibrant": "#fade7d",
+      "lightmuted": "#ccc4b1"
+    },
+    "puck": {
+      "vibrant": "#1447f3",
+      "muted": "#8d59a6",
+      "darkvibrant": "#1c0474",
+      "darkmuted": "#4f3c4d",
+      "lightvibrant": "#6fa4fa",
+      "lightmuted": "#cca99d"
+    },
+    "primal_beast": {
+      "vibrant": "#e8401a",
+      "muted": "#b1614e",
+      "darkvibrant": "#803212",
+      "darkmuted": "#583627",
+      "lightvibrant": "#f7ab83",
+      "lightmuted": "#92a0c9"
+    },
+    "phantom_lancer": {
+      "vibrant": "#e89d38",
+      "muted": "#6498a2",
+      "darkvibrant": "#78410b",
+      "darkmuted": "#2a4d4a",
+      "lightvibrant": "#f5ec71",
+      "lightmuted": "#ccc6a4"
+    },
+    "pudge": {
+      "vibrant": "#d4e957",
+      "muted": "#957e4f",
+      "darkvibrant": "#684510",
+      "darkmuted": "#574427",
+      "lightvibrant": "#f3c682",
+      "lightmuted": "#ccb489"
+    },
+    "pugna": {
+      "vibrant": "#b3df18",
+      "muted": "#74a358",
+      "darkvibrant": "#407604",
+      "darkmuted": "#264635",
+      "lightvibrant": "#ebfa88",
+      "lightmuted": "#809206"
+    },
+    "queenofpain": {
+      "vibrant": "#e24137",
+      "muted": "#728d91",
+      "darkvibrant": "#680404",
+      "darkmuted": "#4f2b2a",
+      "lightvibrant": "#fbd575",
+      "lightmuted": "#afc3cc"
+    },
+    "razor": {
+      "vibrant": "#106cf6",
+      "muted": "#607b95",
+      "darkvibrant": "#044880",
+      "darkmuted": "#273a52",
+      "lightvibrant": "#8bf4fa",
+      "lightmuted": "#a0cccc"
+    },
+    "rattletrap": {
+      "vibrant": "#edd348",
+      "muted": "#528ba5",
+      "darkvibrant": "#7b130d",
+      "darkmuted": "#4c2c54",
+      "lightvibrant": "#a4ecfc",
+      "lightmuted": "#b2c4cb"
+    },
+    "rubick": {
+      "vibrant": "#adf11c",
+      "muted": "#7454a4",
+      "darkvibrant": "#4d6d15",
+      "darkmuted": "#384b2f",
+      "lightvibrant": "#6052f4",
+      "lightmuted": "#bd9bd3"
+    },
+    "riki": {
+      "vibrant": "#1563c6",
+      "muted": "#55a9b2",
+      "darkvibrant": "#044e66",
+      "darkmuted": "#2c284f",
+      "lightvibrant": "#7fbdf3",
+      "lightmuted": "#9c8ccc"
+    },
+    "sand_king": {
+      "vibrant": "#b1f404",
+      "muted": "#57a064",
+      "darkvibrant": "#77500c",
+      "darkmuted": "#3e4e2b",
+      "lightvibrant": "#fcf476",
+      "lightmuted": "#b5bac2"
+    },
+    "shadow_demon": {
+      "vibrant": "#f12511",
+      "muted": "#ad646b",
+      "darkvibrant": "#7a0807",
+      "darkmuted": "#532d4e",
+      "lightvibrant": "#fc74a4",
+      "lightmuted": "#caa8b6"
+    },
+    "shadow_shaman": {
+      "vibrant": "#da8b2c",
+      "muted": "#a78953",
+      "darkvibrant": "#6b4a1f",
+      "darkmuted": "#524c32",
+      "lightvibrant": "#fbec8e",
+      "lightmuted": "#d2cda9"
+    },
+    "shredder": {
+      "vibrant": "#f1ad04",
+      "muted": "#916198",
+      "darkvibrant": "#892807",
+      "darkmuted": "#563f2b",
+      "lightvibrant": "#f4e89f",
+      "lightmuted": "#d0a4d1"
+    },
+    "slardar": {
+      "vibrant": "#cc3c54",
+      "muted": "#a8635a",
+      "darkvibrant": "#751628",
+      "darkmuted": "#2e3e54",
+      "lightvibrant": "#90d8f9",
+      "lightmuted": "#aabbd7"
+    },
+    "skeleton_king": {
+      "vibrant": "#42f4b1",
+      "muted": "#9a9957",
+      "darkvibrant": "#04415d",
+      "darkmuted": "#36514a",
+      "lightvibrant": "#88fbf7",
+      "lightmuted": "#04948f"
+    },
+    "skywrath_mage": {
+      "vibrant": "#1da3db",
+      "muted": "#9a6852",
+      "darkvibrant": "#7e5614",
+      "darkmuted": "#66503a",
+      "lightvibrant": "#f9e78a",
+      "lightmuted": "#abcecb"
+    },
+    "slark": {
+      "vibrant": "#f4df0a",
+      "muted": "#608dab",
+      "darkvibrant": "#71180a",
+      "darkmuted": "#745a3e",
+      "lightvibrant": "#e9b184",
+      "lightmuted": "#d6c6af"
+    },
+    "snapfire": {
+      "vibrant": "#d48642",
+      "muted": "#5474a4",
+      "darkvibrant": "#673a0c",
+      "darkmuted": "#323e58",
+      "lightvibrant": "#f8b266",
+      "lightmuted": "#ccc49e"
+    },
+    "sniper": {
+      "vibrant": "#bd8c25",
+      "muted": "#668dae",
+      "darkvibrant": "#8b6017",
+      "darkmuted": "#2c3c51",
+      "lightvibrant": "#89ecf2",
+      "lightmuted": "#cdb0bd"
+    },
+    "spectre": {
+      "vibrant": "#40c8d8",
+      "muted": "#51a9a8",
+      "darkvibrant": "#461073",
+      "darkmuted": "#295056",
+      "lightvibrant": "#53e4e1",
+      "lightmuted": "#6cbbb6"
+    },
+    "spirit_breaker": {
+      "vibrant": "#f9442c",
+      "muted": "#5c8ba8",
+      "darkvibrant": "#704a14",
+      "darkmuted": "#2b454d",
+      "lightvibrant": "#84f7fc",
+      "lightmuted": "#d2bfb2"
+    },
+    "storm_spirit": {
+      "vibrant": "#1481ee",
+      "muted": "#587ca4",
+      "darkvibrant": "#0b3d79",
+      "darkmuted": "#2c3c4f",
+      "lightvibrant": "#79f8f9",
+      "lightmuted": "#a2bccb"
+    },
+    "sven": {
+      "vibrant": "#30e7e7",
+      "muted": "#9c7c64",
+      "darkvibrant": "#1c486c",
+      "darkmuted": "#365658",
+      "lightvibrant": "#64ecf4",
+      "lightmuted": "#d4c8a9"
+    },
+    "templar_assassin": {
+      "vibrant": "#d42c3c",
+      "muted": "#77649b",
+      "darkvibrant": "#721263",
+      "darkmuted": "#2c2c54",
+      "lightvibrant": "#91eff5",
+      "lightmuted": "#bfb0d2"
+    },
+    "terrorblade": {
+      "vibrant": "#22e4e4",
+      "muted": "#4f9ca8",
+      "darkvibrant": "#118686",
+      "darkmuted": "#542b2e",
+      "lightvibrant": "#79dadf",
+      "lightmuted": "#94bcb4"
+    },
+    "techies": {
+      "vibrant": "#f28508",
+      "muted": "#9d7b64",
+      "darkvibrant": "#7c3a05",
+      "darkmuted": "#4f382d",
+      "lightvibrant": "#fcdd7d",
+      "lightmuted": "#d3c2ad"
+    },
+    "tidehunter": {
+      "vibrant": "#d8af04",
+      "muted": "#64af62",
+      "darkvibrant": "#71610e",
+      "darkmuted": "#335959",
+      "lightvibrant": "#6eead2",
+      "lightmuted": "#a0c4a3"
+    },
+    "tinker": {
+      "vibrant": "#44abc2",
+      "muted": "#5d8ca5",
+      "darkvibrant": "#4c2404",
+      "darkmuted": "#30325c",
+      "lightvibrant": "#96dffb",
+      "lightmuted": "#c494ac"
+    },
+    "tiny": {
+      "vibrant": "#dccb3b",
+      "muted": "#969b55",
+      "darkvibrant": "#56741c",
+      "darkmuted": "#415024",
+      "lightvibrant": "#94acdc",
+      "lightmuted": "#a4acc4"
+    },
+    "treant": {
+      "vibrant": "#44dcdc",
+      "muted": "#a48554",
+      "darkvibrant": "#827f04",
+      "darkmuted": "#2c5032",
+      "lightvibrant": "#ace484",
+      "lightmuted": "#c6b59e"
+    },
+    "troll_warlord": {
+      "vibrant": "#bf542d",
+      "muted": "#b67155",
+      "darkvibrant": "#7f1404",
+      "darkmuted": "#5c312d",
+      "lightvibrant": "#f4b996",
+      "lightmuted": "#d9d3bb"
+    },
+    "tusk": {
+      "vibrant": "#a83105",
+      "muted": "#5f79a5",
+      "darkvibrant": "#652a0f",
+      "darkmuted": "#522825",
+      "lightvibrant": "#749cde",
+      "lightmuted": "#acb4c4"
+    },
+    "silencer": {
+      "vibrant": "#fcc03c",
+      "muted": "#5ca4ac",
+      "darkvibrant": "#92210a",
+      "darkmuted": "#542a2c",
+      "lightvibrant": "#f9d87c",
+      "lightmuted": "#d3acac"
+    },
+    "ursa": {
+      "vibrant": "#e89438",
+      "muted": "#9c6e57",
+      "darkvibrant": "#5c291d",
+      "darkmuted": "#603236",
+      "lightvibrant": "#f6d4bc",
+      "lightmuted": "#ceaea7"
+    },
+    "undying": {
+      "vibrant": "#44cca4",
+      "muted": "#599ea5",
+      "darkvibrant": "#5b141a",
+      "darkmuted": "#4d4534",
+      "lightvibrant": "#9eece8",
+      "lightmuted": "#98cca7"
+    },
+    "venomancer": {
+      "vibrant": "#8fe504",
+      "muted": "#91a757",
+      "darkvibrant": "#348404",
+      "darkmuted": "#553331",
+      "lightvibrant": "#edf780",
+      "lightmuted": "#cac7a2"
+    },
+    "visage": {
+      "vibrant": "#24a5e0",
+      "muted": "#4e8cb0",
+      "darkvibrant": "#0c3685",
+      "darkmuted": "#27394a",
+      "lightvibrant": "#84f4d4",
+      "lightmuted": "#96c0c9"
+    },
+    "void_spirit": {
+      "vibrant": "#9424dc",
+      "muted": "#aa7d59",
+      "darkvibrant": "#460b72",
+      "darkmuted": "#402f58",
+      "lightvibrant": "#e876fc",
+      "lightmuted": "#c4afcf"
+    },
+    "warlock": {
+      "vibrant": "#dd141a",
+      "muted": "#a17760",
+      "darkvibrant": "#8a0c14",
+      "darkmuted": "#58442c",
+      "lightvibrant": "#f5e17e",
+      "lightmuted": "#d0b4ac"
+    },
+    "weaver": {
+      "vibrant": "#e73423",
+      "muted": "#5ca7a9",
+      "darkvibrant": "#046771",
+      "darkmuted": "#34545c",
+      "lightvibrant": "#fadb6c",
+      "lightmuted": "#9fd5d5"
+    },
+    "windrunner": {
+      "vibrant": "#dac11e",
+      "muted": "#a56a48",
+      "darkvibrant": "#865b0c",
+      "darkmuted": "#4b512c",
+      "lightvibrant": "#fae882",
+      "lightmuted": "#b99a76"
+    },
+    "winter_wyvern": {
+      "vibrant": "#14ef91",
+      "muted": "#5779a5",
+      "darkvibrant": "#0f7472",
+      "darkmuted": "#2e4459",
+      "lightvibrant": "#91f9ef",
+      "lightmuted": "#a4cacc"
+    },
+    "wisp": {
+      "vibrant": "#6c74f4",
+      "muted": "#5c89b0",
+      "darkvibrant": "#223c63",
+      "darkmuted": "#2c3662",
+      "lightvibrant": "#7e99f4",
+      "lightmuted": "#9cb4cc"
+    },
+    "witch_doctor": {
+      "vibrant": "#b45448",
+      "muted": "#a27656",
+      "darkvibrant": "#692110",
+      "darkmuted": "#34334c",
+      "lightvibrant": "#bbdffb",
+      "lightmuted": "#ccacbc"
+    },
+    "zuus": {
+      "vibrant": "#288ff5",
+      "muted": "#548aa9",
+      "darkvibrant": "#043b72",
+      "darkmuted": "#334a59",
+      "lightvibrant": "#80d0f8",
+      "lightmuted": "#aec2d2"
+    },
+    "viper": {
+      "vibrant": "#ecdc20",
+      "muted": "#6caa53",
+      "darkvibrant": "#0b5849",
+      "darkmuted": "#264724",
+      "lightvibrant": "#e7f67b",
+      "lightmuted": "#c4c4b4"
+    },
+    "vengefulspirit": {
+      "vibrant": "#34b0c3",
+      "muted": "#5283af",
+      "darkvibrant": "#0e4d77",
+      "darkmuted": "#2c3f55",
+      "lightvibrant": "#88c5f5",
+      "lightmuted": "#a0b7d0"
+    }
+  }
