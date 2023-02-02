@@ -301,7 +301,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '0px',
-                            width: '140px',
+                            width: '120px',
                             fontSize: '14px',
                             color: theme.text
                         }}
@@ -323,8 +323,8 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 sx={{
                                     fontWeight: 'bold', 
                                     paddingTop: '0px',
-                                    paddingLeft: '4px',
-                                    width: '140px',
+                                    paddingLeft: '0px',
+                                    width: '120px',
                                     fontSize: '14px',
                                     color: theme.text
                                 }}
@@ -350,7 +350,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '0px',
-                            width: '140px',
+                            width: '120px',
                             fontSize: '14px',
                             color: theme.text
                         }}
@@ -372,8 +372,8 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 sx={{
                                     fontWeight: 'bold', 
                                     paddingTop: '0px',
-                                    paddingLeft: '4px',
-                                    width: '140px',
+                                    paddingLeft: '0px',
+                                    width: '120px',
                                     fontSize: '14px',
                                     color: theme.text
                                 }}
@@ -402,7 +402,13 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 assists: match.assists,
                                 hero_damage: match.hero_damage,
                                 tower_damage: match.tower_damage,
-                                background_color: getGameBackgroundColor()
+                                background_color: getGameBackgroundColor(),
+
+                                kills_avg: props.kills_avg,
+                                deaths_avg: props.deaths_avg,
+                                assists_avg: props.assists_avg,
+                                hero_damage_avg: props.hero_damage_avg,
+                                tower_damage_avg: props.tower_damage_avg
                             }} 
                         />
                     ))

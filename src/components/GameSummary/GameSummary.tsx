@@ -23,6 +23,12 @@ export interface GameSummaryProps {
     hero_damage: number
     tower_damage: number
     background_color: string
+
+    kills_avg: number
+    deaths_avg: number
+    assists_avg: number
+    hero_damage_avg: number
+    tower_damage_avg: number
 }
 
 export default function GameSummary({props} : {props: GameSummaryProps}) {
@@ -184,53 +190,6 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                 </Stack>
 
 
-                <Stack 
-                    direction="column" 
-                    spacing={0}
-                    sx={{
-                        height: '37px',
-                        bgcolor: theme.transparent,
-                        paddingTop: '0px'
-                    }}>
-
-                    <Typography
-                        textAlign="center"
-                        sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '0px',
-                            width: '140px',
-                            fontSize: '14px',
-                            color: theme.text
-                        }}
-                    >
-                    </Typography>
-
-                    <Stack 
-                        direction="row" 
-                        spacing={0}
-                        sx={{
-                            height: 'fit-content',
-                            bgcolor: theme.transparent,
-                            paddingTop: '0px'
-                        }}>
-
-                            <Typography
-                                textAlign="center"
-                                sx={{
-                                    fontWeight: 'bold', 
-                                    paddingTop: '0px',
-                                    paddingLeft: '4px',
-                                    width: '140px',
-                                    fontSize: '14px',
-                                    color: theme.text
-                                }}
-                            >
-                                {props.hero_damage}
-                            </Typography>
-
-                    </Stack>
-                </Stack>
-
                 
                 <Stack 
                     direction="column" 
@@ -247,37 +206,67 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             fontWeight: 'bold', 
                             paddingTop: '0px',
                             width: '140px',
-                            fontSize: '10px',
+                            fontSize: '12px',
                             color: theme.text
                         }}
                     >
+                        {props.hero_damage}
                     </Typography>
 
-                    <Stack 
-                        direction="row" 
-                        spacing={0}
+                    <Typography
+                        textAlign="center"
                         sx={{
-                            height: 'fit-content',
-                            bgcolor: theme.transparent,
-                            paddingTop: '0px'
-                        }}>
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '140px',
+                            fontSize: '10px',
+                            color: (props.hero_damage - props.hero_damage_avg) > 0 ? theme.winColor : theme.lossColor
+                        }}
+                    >
+                        { "(" +  ((props.hero_damage - props.hero_damage_avg) > 0 ? "+" : "") + (props.hero_damage - props.hero_damage_avg) + ")" }
+                    </Typography>
 
-                            <Typography
-                                textAlign="center"
-                                sx={{
-                                    fontWeight: 'bold', 
-                                    paddingTop: '0px',
-                                    paddingLeft: '4px',
-                                    width: '140px',
-                                    fontSize: '14px',
-                                    color: theme.text
-                                }}
-                            >
-                                {props.tower_damage}
-                            </Typography>
-
-                    </Stack>
                 </Stack>
+
+
+
+                <Stack 
+                    direction="column" 
+                    spacing={0}
+                    sx={{
+                        height: '37px',
+                        bgcolor: theme.transparent,
+                        paddingTop: '0px'
+                    }}>
+
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '100px',
+                            fontSize: '12px',
+                            color: theme.text
+                        }}
+                    >
+                        {props.tower_damage}
+                    </Typography>
+
+                    <Typography
+                        textAlign="center"
+                        sx={{
+                            fontWeight: 'bold', 
+                            paddingTop: '0px',
+                            width: '100px',
+                            fontSize: '10px',
+                            color: (props.tower_damage - props.tower_damage_avg) > 0 ? theme.winColor : theme.lossColor
+                        }}
+                    >
+                        { "(" +  ((props.tower_damage - props.tower_damage_avg) > 0 ? "+" : "") + (props.tower_damage - props.tower_damage_avg) + ")" }
+                    </Typography>
+
+                </Stack>
+
 
                 <Box
                     sx={{
