@@ -42,10 +42,47 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                     height: 36,
                     width: 200
                 }}
+            >
+
+                <ToggleButton 
+                    sx={{ 
+                        width: 100,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={GAME_MODE_AP}
                 >
-                <ToggleButton sx={{ width: 100 }} value={GAME_MODE_AP}>Normal</ToggleButton>
-                <ToggleButton sx={{ width: 90 }} value={GAME_MODE_RANKED}>Ranked</ToggleButton>
-                <ToggleButton sx={{ width: 90 }} value={GAME_MODE_TURBO}>Turbo</ToggleButton>
+                    Normal
+                </ToggleButton>
+
+                <ToggleButton 
+                    sx={{ 
+                        width: 90,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={GAME_MODE_RANKED}
+                >
+                    Ranked
+                </ToggleButton>
+
+                <ToggleButton 
+                    sx={{ 
+                        width: 90,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={GAME_MODE_TURBO}
+                >
+                    Turbo
+                </ToggleButton>
+
             </ToggleButtonGroup>
 
         </Stack>
