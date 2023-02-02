@@ -1,5 +1,5 @@
 
-import { Stack, useTheme, Button } from '@mui/material';
+import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
@@ -14,12 +14,10 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
 
     const theme = useTheme();
 
-    const onButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
-        // console.log("on click handler")
-        // console.log(e);
-
-        const target = e.target as HTMLButtonElement; 
-        props.setTimeframe(target.getAttribute("data-timeframe"));
+    const onTimeframeToggleChange: MouseEventHandler<HTMLElement> = (e) => {
+        const target = e.target as HTMLButtonElement;
+        // console.log(target.value);
+        props.setTimeframe(target.value);
     }
 
     return (
@@ -32,38 +30,58 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                 paddingTop: '12px'
             }}>
 
-            <Button 
-                variant={props.timeframe === THIS_PATCH ? "contained" : "outlined"}
-                color="info"
-                onClick={(e) => onButtonClicked(e)}
-                data-timeframe={THIS_PATCH}
+            
+            <ToggleButtonGroup
+                value={props.timeframe}
+                exclusive
+                onChange={(e) => onTimeframeToggleChange(e)}
+                aria-label="Platform"
                 sx={{
-                    width: '128px'
-                }}>
-                This Patch
-            </Button>
+                    height: 36,
+                    width: 360
+                }}
+            >
 
-            <Button 
-                variant={props.timeframe === LAST_MONTH ? "contained" : "outlined"}
-                color="info"
-                onClick={(e) => onButtonClicked(e)}
-                data-timeframe={LAST_MONTH}
-                sx={{
-                    width: '128px'
-                }}>
-                Last Month
-            </Button>
+                <ToggleButton 
+                    sx={{ 
+                        width: 120,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={THIS_PATCH}
+                >
+                    This Patch
+                </ToggleButton>
 
-            <Button 
-                variant={props.timeframe === LAST_100 ? "contained" : "outlined"}
-                color="info"
-                onClick={(e) => onButtonClicked(e)}
-                data-timeframe={LAST_100}
-                sx={{
-                    width: '128px'
-                }}>
-                Last 100
-            </Button>
+                <ToggleButton 
+                    sx={{ 
+                        width: 120,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={LAST_MONTH}
+                >
+                    Last Month
+                </ToggleButton>
+
+                <ToggleButton 
+                    sx={{ 
+                        width: 120,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={LAST_100}
+                >
+                    Last 100
+                </ToggleButton>
+
+            </ToggleButtonGroup>
 
         </Stack>
         
