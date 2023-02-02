@@ -4,8 +4,9 @@ import { Box, Button, Stack, useTheme } from '@mui/material';
 import React, { MouseEventHandler } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { getTimeStringFromISO, getTimeStringFromSeconds } from '../../utils/utils';
+import { getItemUrlFromId, getTimeStringFromISO, getTimeStringFromSeconds } from '../../utils/utils';
 import { DOTABUFF_MATCH_URL, OPENDOTA_MATCH_URL } from '../../utils/constants';
+import ItemRow from '../ItemRow/ItemRow';
 
 const dotabuffIcon: string = require("../../assets/dotabuff64x64.png");
 const opendotaIcon: string = require("../../assets/opendota64x64.png");
@@ -29,6 +30,13 @@ export interface GameSummaryProps {
     assists_avg: number
     hero_damage_avg: number
     tower_damage_avg: number
+
+    item_0: number
+    item_1: number
+    item_2: number
+    item_3: number
+    item_4: number
+    item_5: number
 }
 
 export default function GameSummary({props} : {props: GameSummaryProps}) {
@@ -267,14 +275,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
 
                 </Stack>
 
-
-                <Box
-                    sx={{
-                        height: "32px",
-                        width: "200px",
-                    }}
-                />
-
+                <ItemRow props={{ background_color: props.background_color, item_0: props.item_0, item_1: props.item_1, item_2: props.item_2, item_3: props.item_3, item_4: props.item_4, item_5: props.item_5 }}/>
 
                 <Box
                     component="img"

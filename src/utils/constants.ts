@@ -16,7 +16,9 @@ export const GAME_MODE_RANKED = "ranked";
 export const LOBBY_TYPE_NORMAL = "normal_matchmaking";
 export const LOBBY_TYPE_RANKED = "ranked_matchmaking";
 
-export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com"
+export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com";
+export const STEAM_CDN_ITEMS_FULL_URL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/"; //phase_boots.png
+export const STEAM_CDN_DEFAULT_ICON_FULL_URL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/default.png";
 
 export const SEARCH_FOR_PLAYER_URL = "https://api.opendota.com/api/search?q=";
 

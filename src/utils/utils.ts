@@ -1,6 +1,6 @@
 
 import { MatchData } from "../hooks/useFetch";
-import { BEST_HEROES, dotaconstants, WORST_HEROES } from "./constants";
+import { BEST_HEROES, dotaconstants, STEAM_CDN_DEFAULT_ICON_FULL_URL, STEAM_CDN_URL, WORST_HEROES } from "./constants";
 
 import heroColors from './heroColors.json';
 
@@ -48,6 +48,27 @@ export function getHeroLocalizedNameFromId(id: number): string {
 
 export function getHeroNameFromId(id: number): string {
     return dotaconstants.heroes[id].name;
+}
+
+export function getItemUrlFromId(itemId: number): string {
+
+    if(itemId == 0) {
+        return STEAM_CDN_DEFAULT_ICON_FULL_URL;
+    }
+
+    let itemName: string = dotaconstants.item_ids[itemId];
+
+    if(!itemName) {
+        console.log("ERROR: item with id " + itemId + " has no name");
+        return STEAM_CDN_DEFAULT_ICON_FULL_URL;
+    }
+
+    if(!dotaconstants.items[itemName]) {
+        console.log("ERROR: item with name " + itemName + " has no data");
+        return STEAM_CDN_DEFAULT_ICON_FULL_URL;
+    }
+
+    return STEAM_CDN_URL + dotaconstants.items[itemName].img;
 }
 
 

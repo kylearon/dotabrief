@@ -408,7 +408,14 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 deaths_avg: props.deaths_avg,
                                 assists_avg: props.assists_avg,
                                 hero_damage_avg: props.hero_damage_avg,
-                                tower_damage_avg: props.tower_damage_avg
+                                tower_damage_avg: props.tower_damage_avg,
+
+                                item_0: match.item_0,
+                                item_1: match.item_1,
+                                item_2: match.item_2,
+                                item_3: match.item_3,
+                                item_4: match.item_4,
+                                item_5: match.item_5
                             }} 
                         />
                     ))
