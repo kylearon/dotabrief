@@ -1,5 +1,5 @@
 
-import { Stack, useTheme, Button } from '@mui/material';
+import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
@@ -14,12 +14,9 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
 
     const theme = useTheme();
 
-    const onButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
-        // console.log("on click handler")
-        // console.log(e);
-
+    const onButtonClicked: MouseEventHandler<HTMLElement> = (e) => {
         const target = e.target as HTMLButtonElement; 
-        props.setBestworst(target.getAttribute("data-bestworst"));
+        props.setBestworst(target.value);
     }
 
     return (
@@ -34,6 +31,43 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                 paddingLeft: '12px'
             }}>
 
+            <ToggleButtonGroup
+                value={props.bestworst}
+                exclusive
+                onClick={(e) => onButtonClicked(e)}
+                aria-label="Platform"
+                sx={{
+                    height: 36,
+                    width: 300
+                }}
+            >
+                <ToggleButton 
+                    sx={{ 
+                        width: 150,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={BEST_HEROES}
+                >
+                    Best Heroes
+                </ToggleButton>
+                <ToggleButton 
+                    sx={{ 
+                        width: 150,
+                        "&.Mui-selected, &.Mui-selected:hover": {
+                            color: "white",
+                            backgroundColor: theme.headerButtonBackground
+                        }
+                    }} 
+                    value={WORST_HEROES}
+                >
+                    Worst Heroes
+                </ToggleButton>
+            </ToggleButtonGroup>
+
+{/* 
             <Button 
                 variant={props.bestworst === BEST_HEROES ? "contained" : "outlined"}
                 color="info"
@@ -54,7 +88,7 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                     width: '160px'
                 }}>
                 Worst Heroes
-            </Button>
+            </Button> */}
 
         </Stack>
         
