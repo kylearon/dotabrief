@@ -1,5 +1,5 @@
 
-import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton, Typography } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
@@ -31,41 +31,63 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                 paddingLeft: '12px'
             }}>
 
-            <ToggleButtonGroup
-                value={props.bestworst}
-                exclusive
-                onClick={(e) => onButtonClicked(e)}
-                aria-label="Platform"
+
+            <Stack 
+                direction="column" 
+                spacing={0}
                 sx={{
-                    height: 36,
-                    width: 300
-                }}
-            >
-                <ToggleButton 
-                    sx={{ 
-                        width: 150,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={BEST_HEROES}
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '0px'
+                }}>
+
+                <Typography
+                    textAlign="left"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        fontSize: '10px',
+                        color: theme.text
+                    }}
                 >
-                    Best Heroes
-                </ToggleButton>
-                <ToggleButton 
-                    sx={{ 
-                        width: 150,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={WORST_HEROES}
+                    WHO
+                </Typography>
+
+
+                <ToggleButtonGroup
+                    value={props.bestworst}
+                    exclusive
+                    onClick={(e) => onButtonClicked(e)}
+                    aria-label="Platform"
+                    sx={{
+                        height: 36
+                    }}
                 >
-                    Worst Heroes
-                </ToggleButton>
-            </ToggleButtonGroup>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={BEST_HEROES}
+                    >
+                        Best Heroes
+                    </ToggleButton>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={WORST_HEROES}
+                    >
+                        Worst Heroes
+                    </ToggleButton>
+                </ToggleButtonGroup>
+                
+            </Stack>
 
 {/* 
             <Button 

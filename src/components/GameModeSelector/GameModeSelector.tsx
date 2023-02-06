@@ -1,5 +1,5 @@
 
-import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton, Typography } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 import { GAME_MODE_AP, GAME_MODE_RANKED, GAME_MODE_TURBO, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED } from '../../utils/constants';
@@ -28,62 +28,83 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
-                paddingTop: '14px',
+                paddingTop: '12px',
                 paddingBottom: '0px',
-                paddingLeft: '8px'
             }}>
 
-            <ToggleButtonGroup
-                value={props.gameMode}
-                exclusive
-                onChange={(e) => onGameModeToggleChange(e)}
-                aria-label="Platform"
+
+            <Stack 
+                direction="column" 
+                spacing={0}
                 sx={{
-                    height: 36,
-                    width: 200
-                }}
-            >
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '0px'
+                }}>
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 100,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={GAME_MODE_AP}
+                <Typography
+                    textAlign="left"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        fontSize: '10px',
+                        color: theme.text
+                    }}
                 >
-                    Normal
-                </ToggleButton>
+                    WHAT
+                </Typography>
+            
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 90,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={GAME_MODE_RANKED}
+
+                <ToggleButtonGroup
+                    value={props.gameMode}
+                    exclusive
+                    onChange={(e) => onGameModeToggleChange(e)}
+                    aria-label="Platform"
+                    sx={{
+                        height: 36
+                    }}
                 >
-                    Ranked
-                </ToggleButton>
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 90,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={GAME_MODE_TURBO}
-                >
-                    Turbo
-                </ToggleButton>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={GAME_MODE_AP}
+                    >
+                        Normal
+                    </ToggleButton>
 
-            </ToggleButtonGroup>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={GAME_MODE_RANKED}
+                    >
+                        Ranked
+                    </ToggleButton>
+
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={GAME_MODE_TURBO}
+                    >
+                        Turbo
+                    </ToggleButton>
+
+                </ToggleButtonGroup>
+
+            </Stack>
 
         </Stack>
         

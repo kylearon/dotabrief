@@ -1,5 +1,5 @@
 
-import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton, Typography } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
@@ -30,58 +30,78 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                 paddingTop: '12px'
             }}>
 
-            
-            <ToggleButtonGroup
-                value={props.timeframe}
-                exclusive
-                onChange={(e) => onTimeframeToggleChange(e)}
-                aria-label="Platform"
+
+            <Stack 
+                direction="column" 
+                spacing={0}
                 sx={{
-                    height: 36,
-                    width: 360
-                }}
-            >
+                    height: 'fit-content',
+                    bgcolor: theme.headerBody,
+                    paddingTop: '0px'
+                }}>
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 120,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={THIS_PATCH}
+                <Typography
+                    textAlign="left"
+                    sx={{
+                        fontWeight: 'bold', 
+                        paddingTop: '0px',
+                        fontSize: '10px',
+                        color: theme.text
+                    }}
                 >
-                    This Patch
-                </ToggleButton>
+                    WHEN
+                </Typography>
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 120,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={LAST_MONTH}
+            
+                <ToggleButtonGroup
+                    value={props.timeframe}
+                    exclusive
+                    onChange={(e) => onTimeframeToggleChange(e)}
+                    aria-label="Platform"
+                    sx={{
+                        height: 36
+                    }}
                 >
-                    Last Month
-                </ToggleButton>
 
-                <ToggleButton 
-                    sx={{ 
-                        width: 120,
-                        "&.Mui-selected, &.Mui-selected:hover": {
-                            color: "white",
-                            backgroundColor: theme.headerButtonBackground
-                        }
-                    }} 
-                    value={LAST_100}
-                >
-                    Last 100
-                </ToggleButton>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={THIS_PATCH}
+                    >
+                        This Patch
+                    </ToggleButton>
 
-            </ToggleButtonGroup>
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={LAST_MONTH}
+                    >
+                        Last Month
+                    </ToggleButton>
+
+                    <ToggleButton 
+                        sx={{ 
+                            "&.Mui-selected, &.Mui-selected:hover": {
+                                color: "white",
+                                backgroundColor: theme.headerButtonBackground
+                            }
+                        }} 
+                        value={LAST_100}
+                    >
+                        Last 100
+                    </ToggleButton>
+
+                </ToggleButtonGroup>
+
+            </Stack>
 
         </Stack>
         
