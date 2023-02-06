@@ -1,7 +1,7 @@
 //reference: https://usehooks-ts.com/react-hook/use-fetch
 
 import { useEffect, useReducer, useRef } from 'react'
-import { MATCHES_URL_BASE, MATCHES_VERBOSE_URL_PARAMS, PATCHES_URL, PLAYERS_URL, WIN_LOSS_URL_BASE } from '../utils/constants'
+import { GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_RANKED, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_RANKED_URL_PARAM, MATCHES_URL_BASE, MATCHES_VERBOSE_URL_PARAMS, PATCHES_URL, PLAYERS_URL, SIDE_DIRE, SIDE_DIRE_URL_PARAM, SIDE_RADIANT, SIDE_RADIANT_URL_PARAM, TIMEFRAME_PARAM_MAP, WIN_LOSS_URL_BASE } from '../utils/constants'
 
 interface State<T> {
   data?: T
@@ -125,13 +125,43 @@ export const useFetchPatches = () => {
 }
 
 
+//map the timeframe string to the timeframe url params
+function getTimeframeParam(separator: string, timeframe: string): string {
+    const timeframeParam = TIMEFRAME_PARAM_MAP.get(timeframe);
+    return timeframeParam ? (separator + timeframeParam) : "";
+}
+
+//map the game mode string value to the game mode url params
+function getGameModeParam(separator: string, gameMode:string): string {
+    if(gameMode === GAME_MODE_AP) {
+        return separator + GAME_MODE_AP_URL_PARAM;
+    } else if(gameMode == GAME_MODE_RANKED) {
+        return separator + LOBBY_TYPE_RANKED_URL_PARAM;
+    } else if(gameMode === GAME_MODE_TURBO) {
+        return separator + GAME_MODE_TURBO_URL_PARAM;
+    }
+
+    return "";
+}
+
+function getSideParam(separator: string, side:string): string {
+    if(side === SIDE_RADIANT) {
+        return separator + SIDE_RADIANT_URL_PARAM;
+    } else if(side == SIDE_DIRE) {
+        return separator + SIDE_DIRE_URL_PARAM;
+    }
+
+    return "";
+}
+
+
 export interface WinLossData {
     win: number
     lose: number
 }
 
-export const useFetchWinLoss = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
-    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_BASE + timeFrameParam + "&" + gameModeParam;
+export const useFetchWinLoss = (playerId: string, timeframe: string, gameMode: string, side: string) => {
+    const fullUrl = PLAYERS_URL + playerId + WIN_LOSS_URL_BASE + getTimeframeParam("?", timeframe) + getGameModeParam("&", gameMode) + getSideParam("&", side);
     const { data, error } = useFetch<WinLossData>(fullUrl);
     return {winLossData: data, winLossError: error};
 }
@@ -160,9 +190,9 @@ export interface MatchData {
     item_5: number
 }
 
-export const useFetchMatches = (playerId: string, timeFrameParam: string, gameModeParam: string) => {
+export const useFetchMatches = (playerId: string, timeframe: string, gameMode: string, side: string) => {
     // console.log("inside useFetchMatches()");
-    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_BASE + timeFrameParam + "&" + gameModeParam + "&" + MATCHES_VERBOSE_URL_PARAMS;
+    const fullUrl = PLAYERS_URL + playerId + MATCHES_URL_BASE + getTimeframeParam("?", timeframe) + getGameModeParam("&", gameMode) + getSideParam("&", side) + "&" + MATCHES_VERBOSE_URL_PARAMS;
     const { data, error } = useFetch<MatchData[]>(fullUrl);
     return {matchesData: data, matchesError: error};
 }

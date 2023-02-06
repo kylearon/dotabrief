@@ -9,16 +9,12 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_RANKED, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED_URL_PARAM, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
+import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_RANKED, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED_URL_PARAM, SIDE_BOTH, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
 const loading: string = require("../../assets/loading.svg").default;
 
-function getTimeframeParam(timeframe: string): string {
-    const timeframeParam = TIMEFRAME_PARAM_MAP.get(timeframe);
-    return timeframeParam ? timeframeParam : "";
-}
 
 export interface MainPageProps {
     steamId: string
@@ -35,6 +31,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
     const [gameMode, setGameMode] = useState<string>(GAME_MODE_TURBO);
 
+    const [side, setSide] = useState<string>(SIDE_BOTH);
+
     // const [lobbyType, setLobbyType] = useState<string>(LOBBY_TYPE_NORMAL);
     
     const [showLoading, setShowLoading] = useState<boolean>(true);
@@ -42,28 +40,15 @@ export default function MainPage({props} : {props: MainPageProps}) {
     //load the heros to show
     const [ heroesToShow, setHeroesToShow ] = useState<HeroSummaryProps[]>([]);
 
-    //map the game mode string value to the url params
-    function getGameModeParam(gameMode:string): string {
-        if(gameMode === GAME_MODE_AP) {
-            return GAME_MODE_AP_URL_PARAM;
-        } else if(gameMode == GAME_MODE_RANKED) {
-            return LOBBY_TYPE_RANKED_URL_PARAM;
-        } else if(gameMode === GAME_MODE_TURBO) {
-            return GAME_MODE_TURBO_URL_PARAM;
-        }
-
-        return "";
-    }
-
 
     //load the player data
     const { playerData, playerDataError } = useFetchPlayer(props.steamId);
 
     //load the win/loss data based on the timeframe
-    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, getTimeframeParam(timeframe), getGameModeParam(gameMode));
+    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, timeframe, gameMode, side);
 
     //load the match data from the timeframe
-    const { matchesData, matchesError } = useFetchMatches(props.steamId, getTimeframeParam(timeframe), getGameModeParam(gameMode));
+    const { matchesData, matchesError } = useFetchMatches(props.steamId, timeframe, gameMode, side);
 
 
     // useEffect(() => {
@@ -122,9 +107,9 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
                     <Header props={{ userId: playerData ? playerData.profile.personaname : "undefined", setSteamId: props.setSteamId }}  />
                 
-                    <PlayerHeader props={{playerData: playerData, winLossData: winLossData, timeframe: timeframe, setTimeframe: setTimeframe, gameMode: gameMode, setGameMode: setGameMode }}/>
+                    <PlayerHeader props={{playerData: playerData, winLossData: winLossData }}/>
 
-                    <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst }} />
+                    <FilterBar props={{ bestworst: bestworst, setBestworst: setBestworst, timeframe: timeframe, setTimeframe: setTimeframe, gameMode: gameMode, setGameMode: setGameMode, side: side, setSide: setSide }} />
                     
                     {
                         (!showLoading || heroesToShow.length > 0)

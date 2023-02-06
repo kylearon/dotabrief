@@ -34,10 +34,10 @@ export const PATCHES_URL = "https://api.opendota.com/api/constants/patch";
 
 
 
-export const MATCHES_URL_BASE = "/matches?"
+export const MATCHES_URL_BASE = "/matches"
 
 //needs a game mode and patch params added to the end
-export const WIN_LOSS_URL_BASE = "/wl?";
+export const WIN_LOSS_URL_BASE = "/wl";
 
 export const GAME_MODE_AP_URL_PARAM = "game_mode=1"; //&significant=1";
 export const GAME_MODE_TURBO_URL_PARAM = "game_mode=23&significant=0";

@@ -14,10 +14,6 @@ import { GAME_MODE_TURBO, LOBBY_TYPE_NORMAL } from '../../utils/constants';
 export interface PlayerHeaderProps {
     playerData: PlayerData | undefined;
     winLossData: WinLossData | undefined;
-    timeframe: string;
-    setTimeframe: Function;
-    gameMode: string;
-    setGameMode: Function;
 }
 
 export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
@@ -74,13 +70,9 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
                 {heroName}
             </Typography>
 
-            <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
-
             <WinLoss props={{ win: win, loss: loss }} />
 
             <WinRate props={{ rate: winRateString }} />
-
-            <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode }} />
 
         </Stack>
         
