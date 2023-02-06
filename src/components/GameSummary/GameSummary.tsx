@@ -1,10 +1,10 @@
 
-import { Box, Button, Stack, useTheme } from '@mui/material';
+import { Box, Stack, useTheme } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 
 import Typography from '@mui/material/Typography';
-import { getItemUrlFromId, getTimeStringFromISO, getTimeStringFromSeconds } from '../../utils/utils';
+import { getTimeStringFromSeconds } from '../../utils/utils';
 import { DOTABUFF_MATCH_URL, OPENDOTA_MATCH_URL } from '../../utils/constants';
 import ItemRow from '../ItemRow/ItemRow';
 

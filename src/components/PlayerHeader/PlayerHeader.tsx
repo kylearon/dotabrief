@@ -4,12 +4,9 @@ import { Stack, Box, useTheme } from '@mui/material';
 import React from 'react';
 
 import Typography from '@mui/material/Typography';
-import { PlayerData, ProfileData, WinLossData } from '../../hooks/useFetch';
-import TimeframeSelector from '../TimeframeSelector/TimeframeSelector';
+import { PlayerData, WinLossData } from '../../hooks/useFetch';
 import WinLoss from '../WinLoss/WinLoss';
 import WinRate from '../WinRate/WinRate';
-import GameModeSelector from '../GameModeSelector/GameModeSelector';
-import { GAME_MODE_TURBO, LOBBY_TYPE_NORMAL } from '../../utils/constants';
 
 export interface PlayerHeaderProps {
     playerData: PlayerData | undefined;

@@ -1,8 +1,8 @@
 
-import { Stack, useTheme, Button, ToggleButtonGroup, ToggleButton, Typography } from '@mui/material';
+import { Stack, useTheme, ToggleButtonGroup, ToggleButton, Typography } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
-import { GAME_MODE_AP, GAME_MODE_RANKED, GAME_MODE_TURBO, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED } from '../../utils/constants';
+import { GAME_MODE_AP, GAME_MODE_RANKED, GAME_MODE_TURBO } from '../../utils/constants';
 
 
 export interface GameModeSelectorProps {

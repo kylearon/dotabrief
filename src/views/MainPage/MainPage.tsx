@@ -9,8 +9,8 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, dotaconstants, GAME_MODE_AP, GAME_MODE_AP_URL_PARAM, GAME_MODE_RANKED, GAME_MODE_TURBO, GAME_MODE_TURBO_URL_PARAM, LOBBY_TYPE_NORMAL, LOBBY_TYPE_RANKED_URL_PARAM, SIDE_BOTH, THIS_PATCH, TIMEFRAME_PARAM_MAP } from '../../utils/constants';
-import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroIconFromName, getHeroLocalizedNameFromId, getHeroLocalizedNameFromName, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
+import { BEST_HEROES, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
+import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
 const loading: string = require("../../assets/loading.svg").default;
