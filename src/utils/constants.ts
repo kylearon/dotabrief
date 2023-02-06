@@ -16,6 +16,10 @@ export const GAME_MODE_RANKED = "ranked";
 export const LOBBY_TYPE_NORMAL = "normal_matchmaking";
 export const LOBBY_TYPE_RANKED = "ranked_matchmaking";
 
+export const SIDE_RADIANT = "SIDE_RADIANT";
+export const SIDE_DIRE = "SIDE_DIRE";
+export const SIDE_BOTH = "SIDE_BOTH";
+
 export const STEAM_CDN_URL = "https://cdn.cloudflare.steamstatic.com";
 export const STEAM_CDN_ITEMS_FULL_URL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/"; //phase_boots.png
 export const STEAM_CDN_DEFAULT_ICON_FULL_URL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/default.png";
@@ -48,6 +52,9 @@ export const TIMEFRAME_PARAM_MAP = new Map<string, string>([
     [LAST_MONTH, LAST_MONTH_URL_PARAM],
     [LAST_100, LAST_100_URL_PARAM],
 ])
+
+export const SIDE_RADIANT_URL_PARAM = "is_radiant=1";
+export const SIDE_DIRE_URL_PARAM = "is_radiant=0";
 
 export const MATCHES_VERBOSE_URL_PARAMS = "project=duration&project=game_mode&project=lobby_type&project=start_time&project=hero_id&project=kills&project=deaths&project=assists&project=hero_damage&project=tower_damage&project=last_hits&project=leaver_status&project=party_size&project=item_0&project=item_1&project=item_2&project=item_3&project=item_4&project=item_5&project=backpack_0";
 
