@@ -56,7 +56,7 @@ export default function Header({props} : {props: HeaderProps}) {
                     color: theme.text
                 }}
             >
-                (your personal dota recommendation engine)
+                (breaking down your recent dota performance)
             </Typography>
 
             
