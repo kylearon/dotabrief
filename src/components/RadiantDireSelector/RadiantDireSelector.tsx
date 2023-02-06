@@ -46,7 +46,8 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                         fontWeight: 'bold', 
                         paddingTop: '0px',
                         fontSize: '10px',
-                        color: theme.text
+                        paddingLeft: '4px',
+                        color: theme.textLighter
                     }}
                 >
                     WHERE

@@ -47,8 +47,9 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                     sx={{
                         fontWeight: 'bold', 
                         paddingTop: '0px',
+                        paddingLeft: '4px',
                         fontSize: '10px',
-                        color: theme.text
+                        color: theme.textLighter
                     }}
                 >
                     WHAT

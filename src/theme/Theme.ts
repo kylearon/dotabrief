@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
     headerBodyAlternate: string;
     transparent: string;
     text: string;
+    textLighter: string;
     toggleBorder: string;
     winColor: string;
     lossColor: string;
@@ -23,6 +24,7 @@ declare module '@mui/material/styles' {
     headerBodyAlternate?: string;
     transparent?: string;
     text?: string;
+    textLighter?: string;
     toggleBorder?: string;
     winColor?: string;
     lossColor?: string;
@@ -49,6 +51,7 @@ export const lightTheme = createTheme({
   headerBodyAlternate: '#c4c4c4',
   transparent: '#ffffff00',
   text: '#363537',
+  textLighter: '#636363',
   toggleBorder: '#FFF',
   winColor: '#00aa00',
   lossColor: '#e40000',
@@ -68,6 +71,7 @@ export const darkTheme = createTheme({
   headerBodyAlternate: '#b1b1b1',
   transparent: '#ffffff00',
   text: '#FAFAFA',
+  textLighter: '#cacaca',
   toggleBorder: '#6B8096',
   winColor: '#00ff00',
   lossColor: '#ff0000',

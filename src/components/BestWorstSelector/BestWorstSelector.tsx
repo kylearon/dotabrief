@@ -46,8 +46,9 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                     sx={{
                         fontWeight: 'bold', 
                         paddingTop: '0px',
+                        paddingLeft: '4px',
                         fontSize: '10px',
-                        color: theme.text
+                        color: theme.textLighter
                     }}
                 >
                     WHO

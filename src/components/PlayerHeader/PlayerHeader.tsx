@@ -60,7 +60,7 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
                 sx={{
                     fontWeight: 'bold', 
                     paddingTop: '16px',
-                    width: '260px',
+                    width: '880px',
                     color: theme.text
                 }}
             >
