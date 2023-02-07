@@ -5,14 +5,14 @@ import React, { MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTimeStringFromISO } from '../../utils/utils';
 
-export interface PlayerEntryProps {
+export interface PlayerEntryFromSearchProps {
     account_id: number;
     personaname: string;
     avatarfull: string;
     last_match_time: string;
 }
 
-export default function PlayerEntry({props} : {props: PlayerEntryProps}) {
+export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromSearchProps}) {
 
     const theme = useTheme();
 

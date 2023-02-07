@@ -3,7 +3,7 @@ import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 
 import { KeyboardEventHandler, useState } from 'react';
-import PlayerEntry from '../PlayerEntryFromSearch/PlayerEntryFromSearch';
+import PlayerEntryFromSearch from '../PlayerEntryFromSearch/PlayerEntryFromSearch';
 import { PLAYERS_URL, SEARCH_FOR_PLAYER_URL } from '../../utils/constants';
 
 export interface PlayerSearchEntry {
@@ -135,7 +135,7 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
             {
                 playerSearchEntries.map(entry => 
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <PlayerEntry props={{ account_id: entry.account_id, personaname: entry.personaname, avatarfull: entry.avatarfull, last_match_time: entry.last_match_time }} />
+                        <PlayerEntryFromSearch props={{ account_id: entry.account_id, personaname: entry.personaname, avatarfull: entry.avatarfull, last_match_time: entry.last_match_time }} />
                     </Box>
                 )
             }
