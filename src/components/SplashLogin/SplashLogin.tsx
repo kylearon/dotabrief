@@ -3,7 +3,7 @@ import { Typography, Stack, TextField, Box, useTheme } from '@mui/material';
 
 
 import { KeyboardEventHandler, useState } from 'react';
-import PlayerEntry from '../PlayerEntry/PlayerEntry';
+import PlayerEntry from '../PlayerEntryFromSearch/PlayerEntryFromSearch';
 import { PLAYERS_URL, SEARCH_FOR_PLAYER_URL } from '../../utils/constants';
 
 export interface PlayerSearchEntry {
