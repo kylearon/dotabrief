@@ -115,7 +115,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){ // {se
         <Stack spacing={2} sx={{ paddingTop: "12px" }}>
 
             {
-                (Object.values<PlayerData>(cookies['steamIds']).length > 0)
+                (cookies['steamIds'])
                 ?
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Typography
@@ -133,11 +133,15 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){ // {se
             }
 
             {
+                (cookies['steamIds'])
+                ?
                 Object.values<PlayerData>(cookies['steamIds']).map(value => 
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                         <PlayerEntryFromHistory props={{ account_id: value.profile.account_id, personaname: value.profile.personaname, avatarfull: value.profile.avatarfull }} />
                     </Box>
                 )
+                :
+                <></>
             }
 
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
