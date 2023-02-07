@@ -21,9 +21,8 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
 
                     <Header props={{ userId: '', setSteamId: props.setSteamId }}  />
 
-                    <SplashLogin setSteamId={props.setSteamId} />
+                    <SplashLogin props={{ setSteamId: props.setSteamId  }} />
 
-                    
                     
                 </Stack>
 

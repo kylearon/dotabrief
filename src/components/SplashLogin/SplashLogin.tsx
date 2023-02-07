@@ -17,7 +17,11 @@ export interface PlayerSearchEntry {
     last_match_time: string;
 }
 
-export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => void}) {
+export interface SplashLoginProps {
+    setSteamId: (id:string) => void
+}
+
+export default function SplashLogin({props} : {props: SplashLoginProps}){ // {setSteamId} : {setSteamId: (id:string) => void}) {
 
     const theme = useTheme();
 
@@ -96,7 +100,7 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
                     }
 
                     //set the steam id state which causes react to render the main page
-                    setSteamId(target.value);
+                    props.setSteamId(target.value);
 
                 } ).catch ( (error) => {
                     console.log("REJECTED");
