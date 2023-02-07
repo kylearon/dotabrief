@@ -6,6 +6,10 @@ import { KeyboardEventHandler, useState } from 'react';
 import PlayerEntryFromSearch from '../PlayerEntryFromSearch/PlayerEntryFromSearch';
 import { PLAYERS_URL, SEARCH_FOR_PLAYER_URL } from '../../utils/constants';
 
+import { useCookies } from 'react-cookie';
+import { PlayerData } from '../../hooks/useFetch';
+import PlayerEntryFromHistory from '../PlayerEntryFromHistory/PlayerEntryFromHistory';
+
 export interface PlayerSearchEntry {
     account_id: number;
     personaname: string;
@@ -20,6 +24,8 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
     const [steamIdError, setSteamIdError] = useState<boolean>(false);
 
     const [playerSearchEntries, setPlayerSearchEntries] = useState<PlayerSearchEntry[]>([]);
+
+    const [cookies, setCookie, removeCookie] = useCookies(['steamIds']);
 
     // const handleClick = async () => {
     //     await fetch(URL_TO_FETCH,{ 
@@ -102,17 +108,44 @@ export default function SplashLogin({setSteamId} : {setSteamId: (id:string) => v
     }
 
     return (
-        <Stack spacing={2} sx={{ paddingTop: "48px" }}>
+        <Stack spacing={2} sx={{ paddingTop: "12px" }}>
+
+            {
+                (Object.values<PlayerData>(cookies['steamIds']).length > 0)
+                ?
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: 'normal',
+                            color: theme.text
+                        }}
+                    >
+                        Dotabrief History
+                    </Typography>
+                </Box>
+                :
+                <></>
+            }
+
+            {
+                Object.values<PlayerData>(cookies['steamIds']).map(value => 
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <PlayerEntryFromHistory props={{ account_id: value.profile.account_id, personaname: value.profile.personaname, avatarfull: value.profile.avatarfull }} />
+                    </Box>
+                )
+            }
 
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Typography
                     variant="h5"
                     sx={{
+                        paddingTop: "12px",
                         fontWeight: 'normal',
                         color: theme.text
                     }}
                 >
-                    Search your Steam Name or Player ID Number
+                    Search Steam Name
                 </Typography>
             </Box>
 

@@ -15,6 +15,8 @@ declare module '@mui/material/styles' {
     lossColor: string;
     assistColor: string;
     headerButtonBackground: string;
+    deleteButton: string;
+    deleteButtonHover: string;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -30,6 +32,8 @@ declare module '@mui/material/styles' {
     lossColor?: string;
     assistColor?: string;
     headerButtonBackground?: string;
+    deleteButton?: string;
+    deleteButtonHover?: string;
   }
 
 }
@@ -56,7 +60,9 @@ export const lightTheme = createTheme({
   winColor: '#00aa00',
   lossColor: '#e40000',
   assistColor: '#505050',
-  headerButtonBackground: '#6d6d6d'
+  headerButtonBackground: '#6d6d6d',
+  deleteButton: '#e40000',
+  deleteButtonHover: '#ac0000',
 });
   
 export const darkTheme = createTheme({
@@ -76,5 +82,7 @@ export const darkTheme = createTheme({
   winColor: '#00ff00',
   lossColor: '#ff0000',
   assistColor: '#FAFAFA',
-  headerButtonBackground: '#6d6d6d'
+  headerButtonBackground: '#6d6d6d',
+  deleteButton: '#e40000',
+  deleteButtonHover: '#ac0000',
 });
