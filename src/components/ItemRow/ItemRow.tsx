@@ -20,8 +20,9 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
     const theme = useTheme();
 
     const iconHeight = "28px";
-    const iconWidth = "34px";
+    const iconWidth = "38px";
     const iconPaddingTop = "4px";
+    const iconPaddingLeft = "1px";
 
     return (
         <Stack 
@@ -38,7 +39,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_0)}
                 />
@@ -48,7 +50,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_1)}
                 />
@@ -58,7 +61,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_2)}
                 />
@@ -68,7 +72,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_3)}
                 />
@@ -78,7 +83,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_4)}
                 />
@@ -88,7 +94,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
                     sx={{
                         height: iconHeight,
                         width: iconWidth,
-                        paddingTop: iconPaddingTop
+                        paddingTop: iconPaddingTop,
+                        paddingLeft: iconPaddingLeft
                     }}
                     src={getItemUrlFromId(props.item_5)}
                 />
