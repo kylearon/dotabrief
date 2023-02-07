@@ -12,6 +12,8 @@ import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/us
 import { BEST_HEROES, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
+import { useCookies } from 'react-cookie';
+
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
 const loading: string = require("../../assets/loading.svg").default;
 
@@ -25,6 +27,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
 
+    const [cookies, setCookie, removeCookie] = useCookies(['steamIds']);
+
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
     const [bestworst, setBestworst] = useState<string>(BEST_HEROES);
@@ -32,8 +36,6 @@ export default function MainPage({props} : {props: MainPageProps}) {
     const [gameMode, setGameMode] = useState<string>(GAME_MODE_TURBO);
 
     const [side, setSide] = useState<string>(SIDE_BOTH);
-
-    // const [lobbyType, setLobbyType] = useState<string>(LOBBY_TYPE_NORMAL);
     
     const [showLoading, setShowLoading] = useState<boolean>(true);
 
@@ -56,10 +58,23 @@ export default function MainPage({props} : {props: MainPageProps}) {
     //     console.log(timeframe);
     // },[timeframe]);
 
-    // useEffect(() => {
-    //     console.log("player data changed");
-    //     console.log(playerData);
-    // },[playerData]);
+    useEffect(() => {
+        console.log("player data changed");
+        console.log(playerData);
+
+        if(playerData) {
+            
+            //clone the current steamIds cookie into a new object which will be modified
+            var clone = Object.assign({}, cookies['steamIds']);
+
+            //add data to the cookie clone for this player
+            clone[playerData.profile.account_id] = playerData;
+
+            //save the steamIds cookie back
+            setCookie('steamIds', clone, { path: '/' });
+        }
+
+    },[playerData]);
 
     useEffect(() => {
         console.log("timeframe/gameMode changed");
