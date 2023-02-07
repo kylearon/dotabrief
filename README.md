@@ -15,7 +15,7 @@ A quick glance Dota 2 dashboard
 
 ### install luxon for datetime handling `npm install --save luxon`
 
-
+### install react-cookie for cookies `npm install react-cookie`
 
 @emotion/react @emotion/styled
 npm install --save styled-components
