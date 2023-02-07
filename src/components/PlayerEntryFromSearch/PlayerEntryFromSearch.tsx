@@ -29,8 +29,8 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
             spacing={2}
             onClick={(e) => onPlayerEntryclick(e)}
             sx={{
-                height: '40px',
-                width: '280px',
+                height: '64px',
+                width: '1152px',
                 bgcolor: theme.headerBody,
                 paddingTop: '0px',
                 "&:hover": {
@@ -42,8 +42,8 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
             <Box
                 component="img"
                 sx={{
-                    height: 40,
-                    width: 40
+                    height: 64,
+                    width: 64
                 }}
                 alt="avatar icon"
                 src={props.avatarfull}
@@ -55,7 +55,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                 sx={{
                     height: 'fit-content',
                     bgcolor: theme.transparent,
-                    paddingTop: '2px'
+                    paddingTop: '4px'
                 }}>
 
                 <Typography
@@ -63,8 +63,8 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                     sx={{
                         fontWeight: 'bold', 
                         paddingTop: '0px',
-                        width: '240px',
-                        fontSize: '14px',
+                        width: '800px',
+                        fontSize: '22px',
                         color: theme.text
                     }}
                 >
@@ -76,7 +76,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                     sx={{
                         fontWeight: 'normal', 
                         paddingTop: '0px',
-                        width: '240px',
+                        width: '800px',
                         fontSize: '10px',
                         color: theme.text
                     }}
