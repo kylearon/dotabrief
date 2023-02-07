@@ -3,7 +3,7 @@ import { Stack, useTheme, Typography, Box } from '@mui/material';
 
 import React, { MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getTimeStringFromISO } from '../utils/utils';
+import { getTimeStringFromISO } from '../../utils/utils';
 
 export interface PlayerEntryProps {
     account_id: number;
@@ -81,7 +81,13 @@ export default function PlayerEntry({props} : {props: PlayerEntryProps}) {
                         color: theme.text
                     }}
                 >
-                    {"last played " + getTimeStringFromISO(props.last_match_time)}
+                    {
+                        props.last_match_time
+                        ?
+                        "last played " + getTimeStringFromISO(props.last_match_time)
+                        :
+                        ""
+                    }
                 </Typography>
             
 
