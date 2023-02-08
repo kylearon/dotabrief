@@ -4,37 +4,40 @@ import { Stack, useTheme, Typography, Box } from '@mui/material';
 import React, { MouseEventHandler } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCookies } from 'react-cookie';
-
-export interface PlayerEntryProps {
+export interface PlayerEntryFromHistoryProps {
     account_id: number;
     personaname: string;
     avatarfull: string;
+    setSteamIdsObject: Function;
 }
 
-export default function PlayerEntry({props} : {props: PlayerEntryProps}) {
+export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFromHistoryProps}) {
 
     const theme = useTheme();
 
     const navigate = useNavigate();
 
-    const [cookies, setCookie, removeCookie] = useCookies(['steamIds']);
-
-    // const onButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
     const onPlayerEntryClick: MouseEventHandler<HTMLDivElement> = (e) => {
         navigate("/player/" + props.account_id);
     }
 
     const onRemoveEntryClick: MouseEventHandler<HTMLDivElement> = (e) => {
+    
+        //get the steamIdsObject even if it doesn't exist
+        let steamIdsObject = JSON.parse("{}");
+        let steamIdsString = localStorage.getItem('steamIds');
+        if(steamIdsString) {
+            steamIdsObject = JSON.parse(steamIdsString);
+        }
         
-        //clone the current steamIds cookie into a new object which will be modified
-        var clone = Object.assign({}, cookies['steamIds']);
+        //delete the player data from the object
+        delete steamIdsObject[props.account_id];
+        
+        //save the object to localStorage
+        localStorage.setItem('steamIds',  JSON.stringify(steamIdsObject));
 
-        //delete the cookie for this player from the clone
-        delete clone[props.account_id];
-
-        //save the steamIds cookie back
-        setCookie('steamIds', clone, { path: '/' });
+        //use the callback to update the parent state
+        props.setSteamIdsObject(steamIdsObject);
     }
     
     return (

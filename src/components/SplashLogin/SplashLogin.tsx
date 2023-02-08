@@ -6,7 +6,6 @@ import { KeyboardEventHandler, useState } from 'react';
 import PlayerEntryFromSearch from '../PlayerEntryFromSearch/PlayerEntryFromSearch';
 import { PLAYERS_URL, SEARCH_FOR_PLAYER_URL } from '../../utils/constants';
 
-import { useCookies } from 'react-cookie';
 import { PlayerData } from '../../hooks/useFetch';
 import PlayerEntryFromHistory from '../PlayerEntryFromHistory/PlayerEntryFromHistory';
 
@@ -21,7 +20,7 @@ export interface SplashLoginProps {
     setSteamId: (id:string) => void
 }
 
-export default function SplashLogin({props} : {props: SplashLoginProps}){ // {setSteamId} : {setSteamId: (id:string) => void}) {
+export default function SplashLogin({props} : {props: SplashLoginProps}){
 
     const theme = useTheme();
 
@@ -29,17 +28,12 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){ // {se
 
     const [playerSearchEntries, setPlayerSearchEntries] = useState<PlayerSearchEntry[]>([]);
 
-    const [cookies, setCookie, removeCookie] = useCookies(['steamIds']);
-
-    // const handleClick = async () => {
-    //     await fetch(URL_TO_FETCH,{ 
-    //       method: 'GET', 
-    //       credentials: 'include', 
-    //       headers: new Headers({ 'content-type': 'application/json' }),
-    //       body: JSON.stringify({ data: { myId: "123" } })
-    //     });
-    //     navigate("/");
-    //   };
+    const [steamIdsObject, setSteamIdsObject] = useState(() => {
+        //get stored string value from localStorage and parse it
+        const saved = localStorage.getItem("steamIds") || "{}";
+        const initialValue = JSON.parse(saved);
+        return initialValue || JSON.parse("{}");
+      });
 
     const onKeyPress: KeyboardEventHandler<HTMLDivElement> = async (e) => {
 
@@ -115,7 +109,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){ // {se
         <Stack spacing={2} sx={{ paddingTop: "12px" }}>
 
             {
-                (cookies['steamIds'])
+                (steamIdsObject && Object.keys(steamIdsObject).length > 0)
                 ?
                 <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Typography
@@ -133,11 +127,11 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){ // {se
             }
 
             {
-                (cookies['steamIds'])
+                (steamIdsObject && Object.keys(steamIdsObject).length > 0)
                 ?
-                Object.values<PlayerData>(cookies['steamIds']).map(value => 
+                Object.values<PlayerData>(steamIdsObject).map(value => 
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <PlayerEntryFromHistory props={{ account_id: value.profile.account_id, personaname: value.profile.personaname, avatarfull: value.profile.avatarfull }} />
+                        <PlayerEntryFromHistory props={{ account_id: value.profile.account_id, personaname: value.profile.personaname, avatarfull: value.profile.avatarfull, setSteamIdsObject: setSteamIdsObject }} />
                     </Box>
                 )
                 :

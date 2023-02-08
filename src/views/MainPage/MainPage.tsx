@@ -12,8 +12,6 @@ import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/us
 import { BEST_HEROES, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
-import { useCookies } from 'react-cookie';
-
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
 const loading: string = require("../../assets/loading.svg").default;
 
@@ -26,8 +24,6 @@ export interface MainPageProps {
 export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
-
-    const [cookies, setCookie, removeCookie] = useCookies(['steamIds']);
 
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
@@ -64,14 +60,18 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
         if(playerData) {
             
-            //clone the current steamIds cookie into a new object which will be modified
-            var clone = Object.assign({}, cookies['steamIds']);
-
-            //add data to the cookie clone for this player
-            clone[playerData.profile.account_id] = playerData;
-
-            //save the steamIds cookie back
-            setCookie('steamIds', clone, { path: '/' });
+            //get the steamIdsObject even if it doesn't exist
+            let steamIdsObject = JSON.parse("{}");
+            let steamIdsString = localStorage.getItem('steamIds');
+            if(steamIdsString) {
+                steamIdsObject = JSON.parse(steamIdsString);
+            }
+            
+            //add the player data to the object
+            steamIdsObject[playerData.profile.account_id] = playerData;
+            
+            //save the object to localStorage
+            localStorage.setItem('steamIds',  JSON.stringify(steamIdsObject));
         }
 
     },[playerData]);
