@@ -1,6 +1,8 @@
 # dotabrief
 A quick glance Dota 2 dashboard 
 
+On github pages here: https://kylearon.github.io/dotabrief/
+
 ## Dependencies
 
 install mui `npm install @mui/material`
