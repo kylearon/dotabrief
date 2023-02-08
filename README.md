@@ -5,6 +5,8 @@ A quick glance Dota 2 dashboard
 
 install mui `npm install @mui/material`
 
+install material-ui icons `npm install @mui/icons-material`
+
 install react router `npm install react-router-dom`
 
 install typescript `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
