@@ -9,10 +9,13 @@ import { ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { LIGHT_MODE } from './utils/constants';
 
 function App() {
 
   const [steamId, setSteamId] = useState(undefined);
+
+  const [lightDarkMode, setLightDarkMode] = useState(lightTheme);
 
   const navigate = useNavigate();
 
@@ -54,8 +57,8 @@ function App() {
           path="/"
           element={
               <ThemeProvider 
-                  theme={lightTheme}>
-                  <SplashPage props={{ setSteamId: setSteamId }}/>
+                  theme={lightDarkMode}>
+                  <SplashPage props={{ setSteamId: setSteamId, lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
               </ThemeProvider>
           }
           // loader={() => { console.log("login page loader"); }}
@@ -64,11 +67,11 @@ function App() {
           path="/player/:steamId"
           element={
               <ThemeProvider 
-                  theme={lightTheme}>
+                  theme={lightDarkMode}>
                   {
                     steamId 
                     ?
-                    <MainPage props={{ steamId: steamId, setSteamId: setSteamId }}/>
+                    <MainPage props={{ steamId: steamId, setSteamId: setSteamId, lightDarkMode: lightDarkMode.name, setLightDarkMode: setLightDarkMode }}/>
                     :
                     <></>
                   }

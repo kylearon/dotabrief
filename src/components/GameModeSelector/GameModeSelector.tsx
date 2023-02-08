@@ -72,7 +72,12 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={GAME_MODE_AP}
                     >
@@ -84,7 +89,12 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={GAME_MODE_RANKED}
                     >
@@ -96,7 +106,12 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={GAME_MODE_TURBO}
                     >

@@ -69,7 +69,12 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={THIS_PATCH}
                     >
@@ -81,7 +86,12 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={LAST_MONTH}
                     >
@@ -93,7 +103,12 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={LAST_100}
                     >

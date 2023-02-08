@@ -1,13 +1,20 @@
 
-import { Stack, Box, useTheme, Button } from '@mui/material';
+import { Stack, Box, useTheme, Button, ToggleButtonGroup, ToggleButton } from '@mui/material';
+
+import { LightModeOutlined, DarkModeOutlined } from '@mui/icons-material';
+
 
 import React, { MouseEventHandler } from 'react';
 
 import Typography from '@mui/material/Typography';
+import { DARK_MODE, LIGHT_MODE } from '../../utils/constants';
+import { darkTheme, lightTheme } from '../../theme/Theme';
 
 export interface HeaderProps {
     userId: string
     setSteamId: (id:string) => void
+    lightDarkMode: string
+    setLightDarkMode: Function
 }
 
 
@@ -20,6 +27,15 @@ export default function Header({props} : {props: HeaderProps}) {
         props.setSteamId("");
     }
 
+    const onLightDarkToggleChange: MouseEventHandler<HTMLElement> = (e) => {
+        const target = e.target as HTMLButtonElement;
+        // console.log(target);
+        if(target.value === LIGHT_MODE) {
+            props.setLightDarkMode(lightTheme);
+        } else {
+            props.setLightDarkMode(darkTheme);
+        }
+    }
 
     return (
         <Stack 
@@ -60,25 +76,49 @@ export default function Header({props} : {props: HeaderProps}) {
             </Typography>
 
             
-            {
-                props.userId 
-                ?
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '480px' }}>
-                    <Typography
+           
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '480px' }}>
+                <ToggleButtonGroup
+                    value={props.lightDarkMode}
+                    exclusive
+                    onChange={(e) => onLightDarkToggleChange(e)}
+                    sx={{
+                        height: '50px',
+                        paddingTop: '6px'
+                    }}
+                >
+                    <ToggleButton 
+                        value={LIGHT_MODE}
+                        aria-label={LIGHT_MODE}
                         sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '20px',
-                            marginRight: '12px',
-                            fontSize: '22px',
-                            color: theme.text
+                            width: '64px',
+                            paddingTop: '6px'
                         }}
                     >
-                        {props.userId}
-                    </Typography>
-                </Box> 
-                :
-                <></>
-            }
+                        <LightModeOutlined 
+                            sx={{ 
+                                pointerEvents: 'none',
+                                color: theme.text
+                            }}
+                        />
+                    </ToggleButton>
+                    <ToggleButton 
+                        value={DARK_MODE} 
+                        aria-label={DARK_MODE}
+                        sx={{
+                            width: '64px',
+                            paddingTop: '6px'
+                        }}
+                    >
+                        <DarkModeOutlined 
+                            sx={{ 
+                                pointerEvents: 'none',
+                                color: theme.text
+                            }}
+                        />
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </Box> 
 
         </Stack>
         

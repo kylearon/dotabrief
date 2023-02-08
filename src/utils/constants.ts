@@ -2,6 +2,9 @@
 
 export const dotaconstants = require('dotaconstants');
 
+export const LIGHT_MODE = "light mode";
+export const DARK_MODE = "dark mode";
+
 export const THIS_PATCH = "THIS_PATCH";
 export const LAST_MONTH = "LAST_MONTH";
 export const LAST_100 = "LAST_100";

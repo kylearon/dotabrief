@@ -6,6 +6,8 @@ import SplashLogin from '../../components/SplashLogin/SplashLogin'
 
 export interface SplashPageProps {
     setSteamId: (id:string) => void
+    lightDarkMode: string
+    setLightDarkMode: Function
 }
 
 export default function SplashPage({props} : {props: SplashPageProps}) {
@@ -19,7 +21,7 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ userId: '', setSteamId: props.setSteamId }}  />
+                    <Header props={{ userId: '', setSteamId: props.setSteamId, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
 
                     <SplashLogin props={{ setSteamId: props.setSteamId  }} />
 

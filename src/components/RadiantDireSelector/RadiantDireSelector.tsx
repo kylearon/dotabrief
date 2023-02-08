@@ -70,7 +70,12 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={SIDE_RADIANT}
                     >
@@ -83,7 +88,12 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={SIDE_DIRE}
                     >
@@ -96,7 +106,12 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={SIDE_BOTH}
                     >

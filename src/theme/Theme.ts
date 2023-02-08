@@ -1,8 +1,10 @@
 import { createTheme } from '@mui/material/styles';
+import { DARK_MODE, LIGHT_MODE } from '../utils/constants';
 
 
 declare module '@mui/material/styles' {
   interface Theme {
+    name: string;
     body: string;
     headerBody: string;
     headerBodyHover: string;
@@ -20,6 +22,7 @@ declare module '@mui/material/styles' {
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
+    name?: string;
     body?: string;
     headerBody?: string;
     headerBodyHover?: string;
@@ -49,6 +52,7 @@ export const lightTheme = createTheme({
       main: '#4b4b4b',
     }
   },
+  name: LIGHT_MODE,
   body: '#E2E2E2',
   headerBody: '#cfcfcf',
   headerBodyHover: '#b1b1b1',
@@ -71,10 +75,11 @@ export const darkTheme = createTheme({
       main: '#dddddd',
     }
   },
-  body: '#363537',
-  headerBody: '#cfcfcf',
-  headerBodyHover: '#b1b1b1',
-  headerBodyAlternate: '#b1b1b1',
+  name: DARK_MODE,
+  body: '#2b2a2c',
+  headerBody: '#4d4b4e',
+  headerBodyHover: '#535155',
+  headerBodyAlternate: '#5a5a5a',
   transparent: '#ffffff00',
   text: '#FAFAFA',
   textLighter: '#cacaca',
@@ -82,7 +87,7 @@ export const darkTheme = createTheme({
   winColor: '#00ff00',
   lossColor: '#ff0000',
   assistColor: '#FAFAFA',
-  headerButtonBackground: '#6d6d6d',
+  headerButtonBackground: '#808080',
   deleteButton: '#e40000',
   deleteButtonHover: '#ac0000',
 });

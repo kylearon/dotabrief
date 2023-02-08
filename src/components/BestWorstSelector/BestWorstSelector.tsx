@@ -69,7 +69,12 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={BEST_HEROES}
                     >
@@ -80,7 +85,12 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
-                            }
+                            },
+                            "&:hover": {
+                                color: theme.text,
+                                backgroundColor: theme.headerBodyAlternate
+                            },
+                            color: theme.text
                         }} 
                         value={WORST_HEROES}
                     >

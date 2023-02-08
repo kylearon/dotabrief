@@ -19,6 +19,8 @@ const loading: string = require("../../assets/loading.svg").default;
 export interface MainPageProps {
     steamId: string
     setSteamId: (id:string) => void
+    lightDarkMode: string
+    setLightDarkMode: Function
 }
 
 export default function MainPage({props} : {props: MainPageProps}) {
@@ -120,7 +122,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
-                    <Header props={{ userId: playerData ? playerData.profile.personaname : "undefined", setSteamId: props.setSteamId }}  />
+                    <Header props={{ userId: playerData ? playerData.profile.personaname : "undefined", setSteamId: props.setSteamId, lightDarkMode: props.lightDarkMode, setLightDarkMode: props.setLightDarkMode }}  />
                 
                     <PlayerHeader props={{playerData: playerData, winLossData: winLossData }}/>
 
