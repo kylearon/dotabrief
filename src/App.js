@@ -15,7 +15,15 @@ function App() {
 
   const [steamId, setSteamId] = useState(undefined);
 
-  const [lightDarkMode, setLightDarkMode] = useState(lightTheme);
+  const [lightDarkMode, setLightDarkMode] = useState(() => {
+    //load the saved theme from the localStorage
+    let lightDarkModeString = localStorage.getItem('theme') || LIGHT_MODE;
+    if(lightDarkModeString === LIGHT_MODE) {
+      return lightTheme;
+    } else {
+      return darkTheme;
+    }
+  });
 
   const navigate = useNavigate();
 
@@ -49,6 +57,14 @@ function App() {
       navigate("/");
     }
   },[steamId]);
+
+  useEffect(() => {
+    if(lightDarkMode) {
+      //save the name of the theme to localStorage
+      localStorage.setItem('theme',  lightDarkMode.name);
+    }
+
+},[lightDarkMode]);
 
   return (
     <>
