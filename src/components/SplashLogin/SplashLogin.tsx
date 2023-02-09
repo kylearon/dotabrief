@@ -165,7 +165,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                 <Box sx={{ width: '1152px', paddingTop: '12px', display: 'flex', justifyContent: 'center' }}>
                     <TextField 
                         id="outlined-basic" 
-                        label="steam name or player id" 
+                        label="steam name" 
                         variant="outlined"
                         sx={{
                             fontSize: '16px',
