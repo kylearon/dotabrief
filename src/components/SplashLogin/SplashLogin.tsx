@@ -106,7 +106,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
     }
 
     return (
-        <Stack spacing={2} sx={{ paddingTop: "12px" }}>
+        <Stack spacing={2} sx={{ paddingTop: "12px", paddingBottom: "12px" }}>
 
             {
                 (steamIdsObject && Object.keys(steamIdsObject).length > 0)

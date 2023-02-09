@@ -15,7 +15,7 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
     const theme = useTheme();
 
     return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body }}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
 
             <Container maxWidth="lg" sx={{  }}>
 
