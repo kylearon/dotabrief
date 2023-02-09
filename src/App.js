@@ -9,7 +9,7 @@ import { ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { LIGHT_MODE } from './utils/constants';
+import { LIGHT_MODE, DARK_MODE } from './utils/constants';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
 
   const [lightDarkMode, setLightDarkMode] = useState(() => {
     //load the saved theme from the localStorage
-    let lightDarkModeString = localStorage.getItem('theme') || LIGHT_MODE;
+    let lightDarkModeString = localStorage.getItem('theme') || DARK_MODE;
     if(lightDarkModeString === LIGHT_MODE) {
       return lightTheme;
     } else {
