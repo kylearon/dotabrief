@@ -1,5 +1,5 @@
 
-import { Box, Container, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
 
 import { useEffect, useState } from 'react';
 
@@ -166,18 +166,16 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                 </Typography>
                             </Container>
                         :
-                        <Container sx={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Box 
-                                component="img"
-                                sx={{
-                                    paddingTop: "10%",
-                                    height: 256,
-                                    width: 256,
-                                }}
-                                alt="loading icon"
-                                src={loading}
-                            />
-                        </Container>
+                        <Stack spacing={2} >
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                            <Skeleton variant="rectangular" width={"100%"} height={72} />
+                        </Stack>
                     }
 
                 </Stack>
