@@ -30,8 +30,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
 
     const [steamIdsObject, setSteamIdsObject] = useState(() => {
         //get stored string value from localStorage and parse it
-        const saved = localStorage.getItem("steamIds") || "{}";
-        const initialValue = JSON.parse(saved);
+        const initialValue = JSON.parse(localStorage.getItem("steamIds") || "{}");
         return initialValue || JSON.parse("{}");
       });
 
