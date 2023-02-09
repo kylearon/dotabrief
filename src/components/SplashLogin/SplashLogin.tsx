@@ -151,21 +151,56 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                 </Typography>
             </Box>
 
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <TextField 
-                    id="outlined-basic" 
-                    label="steam name or player id" 
-                    variant="outlined"
-                    sx={{
-                        fontSize: '16px',
-                        fontWeight: 'normal',
-                        width: '40ch'
-                    }}
-                    onKeyPress={onKeyPress}
-                    error={steamIdError}
-                    helperText={steamIdError ? "Incorrect ID. Use the same ID you would find in your dotabuff profile url." : ""}
-                />
-            </Box>
+            <Stack 
+                direction="row" 
+                spacing={2}
+                sx={{
+                    display: 'flex',
+                    height: '84px',
+                    width: '1152px',
+                    backgroundColor: theme.headerBody,
+                    paddingTop: '0px'
+                }}>
+
+                <Box sx={{ width: '1152px', paddingTop: '12px', display: 'flex', justifyContent: 'center' }}>
+                    <TextField 
+                        id="outlined-basic" 
+                        label="steam name or player id" 
+                        variant="outlined"
+                        sx={{
+                            fontSize: '16px',
+                            fontWeight: 'normal',
+                            width: '40ch',
+                            input:{ color: theme.text, },
+                            '& label': {
+                                color: theme.text,
+                            },
+                            '& label.Mui-focused': {
+                                color: theme.text,
+                            },
+                            '& .MuiInput-underline:after': {
+                                borderBottomColor: theme.text,
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                borderColor: theme.text,
+                                },
+                                '&:hover fieldset': {
+                                borderColor: theme.text,
+                                },
+                                '&.Mui-focused fieldset': {
+                                borderColor: theme.text,
+                                },
+                            }
+                        }}
+                        onKeyPress={onKeyPress}
+                        error={steamIdError}
+                        helperText={steamIdError ? "Incorrect ID. Use the same ID you would find in your dotabuff profile url." : ""}
+                    />
+                </Box>
+
+            </Stack>
+
 
             {
                 playerSearchEntries.map(entry => 
