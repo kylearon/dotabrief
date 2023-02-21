@@ -4,6 +4,8 @@ import { Container, Stack, Box, useTheme } from '@mui/material';
 import Header from '../../components/Header/Header'
 import SplashLogin from '../../components/SplashLogin/SplashLogin'
 
+import { useViewport } from '../../hooks/useViewport';
+
 export interface SplashPageProps {
     setSteamId: (id:string) => void
     lightDarkMode: string
@@ -14,10 +16,13 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
 
     const theme = useTheme();
 
-    return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
+    const { viewportWidth } = useViewport();
+    const mobileBreakpoint = 910;
 
-            <Container maxWidth="lg" sx={{  }}>
+    return (
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={viewportWidth < mobileBreakpoint}>
+
+            <Container maxWidth="lg" sx={{  }} disableGutters={viewportWidth < mobileBreakpoint}>
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
