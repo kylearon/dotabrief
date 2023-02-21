@@ -9,6 +9,7 @@ import React, { MouseEventHandler } from 'react';
 import Typography from '@mui/material/Typography';
 import { DARK_MODE, LIGHT_MODE } from '../../utils/constants';
 import { darkTheme, lightTheme } from '../../theme/Theme';
+import { useViewport } from '../../hooks/useViewport';
 
 export interface HeaderProps {
     userId: string
@@ -21,6 +22,9 @@ export interface HeaderProps {
 export default function Header({props} : {props: HeaderProps}) {
 
     const theme = useTheme();
+
+    const { viewportWidth } = useViewport();
+    const breakpoint = 910;
 
     const onHomeButtonClicked: MouseEventHandler<HTMLButtonElement> = (e) => {
         //setting the steamId will cause the entire page to re-render
@@ -56,6 +60,7 @@ export default function Header({props} : {props: HeaderProps}) {
                     paddingRight: '0px',
                     paddingLeft: '0px',
                     width: '230px',
+                    minWidth: '230px',
                     color: theme.text
                 }}
                 //monospace text generated here: https://tools.picsart.com/text/font-generator/
@@ -63,28 +68,35 @@ export default function Header({props} : {props: HeaderProps}) {
                 𝚍𝚘𝚝𝚊𝚋𝚛𝚒𝚎𝚏
             </Button>
 
-            <Typography
-                sx={{
-                    fontSize: '18px',
-                    fontWeight: 'normal', 
-                    paddingTop: '24px',
-                    width: '400px',
-                    color: theme.text
-                }}
-            >
-                (breaking down your recent dota performance)
-            </Typography>
+            {
+                viewportWidth >= breakpoint
+                ?
+                <Typography
+                    sx={{
+                        fontSize: '18px',
+                        fontWeight: 'normal', 
+                        paddingTop: '24px',
+                        width: '400px',
+                        minWidth: '400px',
+                        color: theme.text
+                    }}
+                >
+                    (breaking down your recent dota performance)
+                </Typography>
+                :
+                <></>
 
-            
+            }
            
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '480px' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '510px' }}>
                 <ToggleButtonGroup
                     value={props.lightDarkMode}
                     exclusive
                     onChange={(e) => onLightDarkToggleChange(e)}
                     sx={{
                         height: '50px',
-                        paddingTop: '6px'
+                        paddingTop: '6px',
+                        paddingRight: '24px'
                     }}
                 >
                     <ToggleButton 

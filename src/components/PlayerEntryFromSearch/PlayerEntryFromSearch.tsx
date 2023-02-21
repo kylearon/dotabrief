@@ -24,6 +24,8 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
     }
     
     return (
+
+
         <Stack 
             direction="row" 
             spacing={2}
@@ -31,6 +33,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
             sx={{
                 height: '64px',
                 width: '1152px',
+                display: 'flex',
                 bgcolor: theme.headerBody,
                 paddingTop: '0px',
                 "&:hover": {
@@ -54,6 +57,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                 spacing={0}
                 sx={{
                     height: 'fit-content',
+                    width: '100%',
                     bgcolor: theme.transparent,
                     paddingTop: '4px'
                 }}>
@@ -63,7 +67,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                     sx={{
                         fontWeight: 'bold', 
                         paddingTop: '0px',
-                        width: '800px',
+                        width: '100%',
                         fontSize: '22px',
                         color: theme.text
                     }}
@@ -76,7 +80,7 @@ export default function PlayerEntryFromSearch({props} : {props: PlayerEntryFromS
                     sx={{
                         fontWeight: 'normal', 
                         paddingTop: '0px',
-                        width: '800px',
+                        width: '100%',
                         fontSize: '10px',
                         color: theme.text
                     }}

@@ -46,7 +46,7 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
             spacing={0}
             
             sx={{
-                cursor: 'pointer'
+                cursor: 'pointer',
             }}>
 
 
@@ -103,31 +103,32 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
             </Stack>
 
             <Box
-                    component="div"
+                component="div"
+                sx={{
+                    height: 64,
+                    width: 64,
+                    minWidth: 64,
+                    justifyContent: 'center',
+                    backgroundColor: theme.deleteButton,
+                    "&:hover": {
+                        backgroundColor: theme.deleteButtonHover, 
+                    }
+                }}
+                onClick={(e) => onRemoveEntryClick(e)}
+            >
+                <Typography
+                    textAlign="center"
                     sx={{
-                        height: 64,
-                        width: 64,
-                        justifyContent: 'center',
-                        backgroundColor: theme.deleteButton,
-                        "&:hover": {
-                            backgroundColor: theme.deleteButtonHover, 
-                        }
+                        fontWeight: 'bold', 
+                        paddingTop: '14px',
+                        width: 'fill',
+                        fontSize: '22px',
+                        color: theme.text
                     }}
-                    onClick={(e) => onRemoveEntryClick(e)}
                 >
-                    <Typography
-                        textAlign="center"
-                        sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '14px',
-                            width: 'fill',
-                            fontSize: '22px',
-                            color: theme.text
-                        }}
-                    >
-                        X
-                    </Typography>
-                </Box>
+                    X
+                </Typography>
+            </Box>
 
         </Stack>
         

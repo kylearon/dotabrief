@@ -110,12 +110,13 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
             {
                 (steamIdsObject && Object.keys(steamIdsObject).length > 0)
                 ?
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Box sx={{ justifyContent: 'center' }}>
                     <Typography
                         variant="h5"
                         sx={{
                             fontWeight: 'normal',
-                            color: theme.text
+                            color: theme.text,
+                            textAlign: "center"
                         }}
                     >
                         Dotabrief History
@@ -129,7 +130,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                 (steamIdsObject && Object.keys(steamIdsObject).length > 0)
                 ?
                 Object.values<PlayerData>(steamIdsObject).map(value => 
-                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Box sx={{ justifyContent: 'center' }}>
                         <PlayerEntryFromHistory props={{ account_id: value.profile.account_id, personaname: value.profile.personaname, avatarfull: value.profile.avatarfull, setSteamIdsObject: setSteamIdsObject }} />
                     </Box>
                 )
@@ -137,13 +138,14 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                 <></>
             }
 
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ justifyContent: 'center' }}>
                 <Typography
                     variant="h5"
                     sx={{
                         paddingTop: "12px",
                         fontWeight: 'normal',
-                        color: theme.text
+                        color: theme.text,
+                        textAlign: "center"
                     }}
                 >
                     Search Steam Name
@@ -156,7 +158,6 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                 sx={{
                     display: 'flex',
                     height: '84px',
-                    width: '1152px',
                     backgroundColor: theme.headerBody,
                     paddingTop: '0px'
                 }}>
