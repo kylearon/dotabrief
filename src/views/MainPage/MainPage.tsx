@@ -27,6 +27,24 @@ export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
 
+    const mobileBreakpoint = 910;
+    
+    const [renderSmall, setRenderSmall] = useState<boolean>(false);
+
+    //handle the window resizing not in a custom hook because the custom hook was causing an entire page re-render on every resize
+    useEffect(() => {
+        const handleWindowResize = () => {
+            // console.log("resized to " + window.innerWidth);
+            if((window.innerWidth <= mobileBreakpoint) && renderSmall === false) {
+                setRenderSmall(true);
+            } else if (window.innerWidth > mobileBreakpoint) {
+                setRenderSmall(false);
+            }
+        };
+        window.addEventListener("resize", handleWindowResize);
+        return () => window.removeEventListener("resize", handleWindowResize);
+      }, [renderSmall]);
+
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
     const [bestworst, setBestworst] = useState<string>(BEST_HEROES);
@@ -116,9 +134,9 @@ export default function MainPage({props} : {props: MainPageProps}) {
     },[matchesData, bestworst]);
 
     return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={renderSmall}>
 
-            <Container maxWidth="lg" sx={{  }}>
+            <Container maxWidth="lg" sx={{  }} disableGutters={renderSmall}>
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
