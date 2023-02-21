@@ -29,7 +29,7 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
                 paddingTop: '12px',
-                paddingBottom: '0px',
+                paddingBottom: '12px',
             }}>
 
 

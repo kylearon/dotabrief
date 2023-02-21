@@ -27,7 +27,8 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
-                paddingTop: '12px'
+                paddingTop: '12px',
+                paddingBottom: '12px',
             }}>
 
 

@@ -27,7 +27,8 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
-                paddingTop: '12px'
+                paddingTop: '12px',
+                paddingBottom: '12px',
             }}>
 
 
