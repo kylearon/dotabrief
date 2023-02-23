@@ -158,7 +158,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
 
-            <Container maxWidth="lg" sx={{  }} disableGutters={getDisableGutter()}>
+            <Container maxWidth="lg" sx={{  }} disableGutters={true}>
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 

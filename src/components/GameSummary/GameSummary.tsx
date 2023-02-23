@@ -141,7 +141,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '0px',
-                            width: '140px',
+                            width: '120px',
                             fontSize: '14px',
                             color: theme.text
                         }}
@@ -161,7 +161,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                                 textAlign="right"
                                 sx={{
                                     fontWeight: 'bold', 
-                                    paddingLeft: '20px',
+                                    paddingLeft: '8px',
                                     paddingTop: '1px',
                                     width: '30px',
                                     fontSize: '14px',
@@ -218,7 +218,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '0px',
-                                width: '140px',
+                                width: '120px',
                                 fontSize: '12px',
                                 color: theme.text
                             }}
@@ -231,7 +231,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '0px',
-                                width: '140px',
+                                width: '120px',
                                 fontSize: '10px',
                                 color: (props.hero_damage - props.hero_damage_avg) > 0 ? theme.winColor : theme.lossColor
                             }}
@@ -262,7 +262,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '0px',
-                                width: '100px',
+                                width: '120px',
                                 fontSize: '12px',
                                 color: theme.text
                             }}
@@ -275,7 +275,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                             sx={{
                                 fontWeight: 'bold', 
                                 paddingTop: '0px',
-                                width: '100px',
+                                width: '120px',
                                 fontSize: '10px',
                                 color: (props.tower_damage - props.tower_damage_avg) > 0 ? theme.winColor : theme.lossColor
                             }}

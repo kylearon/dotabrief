@@ -134,7 +134,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '0px',
-                            width: '140px',
+                            width: '120px',
                             fontSize: '14px',
                             color: theme.text
                         }}
@@ -226,7 +226,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                         sx={{
                             fontWeight: 'bold', 
                             paddingTop: '0px',
-                            width: '140px',
+                            width: '120px',
                             fontSize: '14px',
                             color: theme.text
                         }}

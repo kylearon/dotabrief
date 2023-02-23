@@ -22,7 +22,7 @@ export default function SplashPage({props} : {props: SplashPageProps}) {
     return (
         <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={viewportWidth < mobileBreakpoint}>
 
-            <Container maxWidth="lg" sx={{  }} disableGutters={viewportWidth < mobileBreakpoint}>
+            <Container maxWidth="lg" sx={{  }} disableGutters={true}>
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
