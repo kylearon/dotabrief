@@ -27,7 +27,20 @@ export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
 
-    const [widthMode, setWidthMode] = useState<string>("large");
+    const [widthMode, setWidthMode] = useState<string>(getWidthModeString());
+
+    function getWidthModeString(): string {
+        let modeToReturn = "large";
+        if((window.innerWidth > BREAKPOINT_MEDIUM)) {
+            modeToReturn = "large";
+        } else if((window.innerWidth <= BREAKPOINT_MEDIUM) && (window.innerWidth > BREAKPOINT_SMALL)) { 
+            modeToReturn = "medium";
+        } else if(window.innerWidth <= BREAKPOINT_SMALL) {
+            modeToReturn = "small";
+        }
+
+        return modeToReturn;
+    }
 
     function getDisableGutter(): boolean {
         if(widthMode === "small") {
@@ -43,24 +56,15 @@ export default function MainPage({props} : {props: MainPageProps}) {
     useEffect(() => {
         const handleWindowResize = () => {
             // console.log("resized to " + window.innerWidth);
-
-            if((window.innerWidth > BREAKPOINT_MEDIUM) && widthMode != "large") {
-                console.log("setting large");
-                console.log("widthMode: " + widthMode);
-                setWidthMode("large");
-            } else if((window.innerWidth <= BREAKPOINT_MEDIUM) && (window.innerWidth > BREAKPOINT_SMALL) && widthMode != "medium") {
-                console.log("setting medium");
-                console.log("widthMode: " + widthMode);
-                setWidthMode("medium");
-            } else if(window.innerWidth <= BREAKPOINT_SMALL) {
-                console.log("setting small");
-                console.log("widthMode: " + widthMode);
-                setWidthMode("small");
+            let widthModeString = getWidthModeString();
+            if(widthMode != widthModeString) {
+                setWidthMode(widthModeString);
             }
         };
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, [widthMode]);
+
 
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
