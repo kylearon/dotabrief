@@ -22,6 +22,7 @@ export interface HeroSummaryProps {
     hero_damage_avg: number
     tower_damage_avg: number
     games_match_data: MatchData[] 
+    widthMode: string
 }
 
 export default function HeroSummary({props} : {props: HeroSummaryProps}) {
@@ -106,7 +107,6 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     "&:hover": {
                         bgcolor: getHoverBackgroundColor, 
                     },
-
                 }}>
 
                 <Box
@@ -286,103 +286,115 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                     </Stack>
                 </Stack>
 
-
-                <Stack 
-                    direction="column" 
-                    spacing={0}
-                    sx={{
-                        height: 'fit-content',
-                        bgcolor: theme.transparent,
-                        paddingTop: '12px'
-                    }}>
-
-                    <Typography
-                        textAlign="center"
-                        sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '0px',
-                            width: '120px',
-                            fontSize: '14px',
-                            color: theme.text
-                        }}
-                    >
-                        Avg Hero Dmg
-                    </Typography>
-
+                {
+                    props.widthMode != "small"
+                    ?
                     <Stack 
-                        direction="row" 
+                        direction="column" 
                         spacing={0}
                         sx={{
                             height: 'fit-content',
                             bgcolor: theme.transparent,
-                            paddingTop: '6px'
+                            paddingTop: '12px'
                         }}>
 
-                            <Typography
-                                textAlign="center"
-                                sx={{
-                                    fontWeight: 'bold', 
-                                    paddingTop: '0px',
-                                    paddingLeft: '0px',
-                                    width: '120px',
-                                    fontSize: '14px',
-                                    color: theme.text
-                                }}
-                            >
-                                {props.hero_damage_avg}
-                            </Typography>
+                        <Typography
+                            textAlign="center"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '0px',
+                                width: '120px',
+                                fontSize: '14px',
+                                color: theme.text
+                            }}
+                        >
+                            Avg Hero Dmg
+                        </Typography>
 
+                        <Stack 
+                            direction="row" 
+                            spacing={0}
+                            sx={{
+                                height: 'fit-content',
+                                bgcolor: theme.transparent,
+                                paddingTop: '6px'
+                            }}>
+
+                                <Typography
+                                    textAlign="center"
+                                    sx={{
+                                        fontWeight: 'bold', 
+                                        paddingTop: '0px',
+                                        paddingLeft: '0px',
+                                        width: '120px',
+                                        fontSize: '14px',
+                                        color: theme.text
+                                    }}
+                                >
+                                    {props.hero_damage_avg}
+                                </Typography>
+
+                        </Stack>
                     </Stack>
-                </Stack>
+                    :
+                    <></>
 
+                }
                 
-                <Stack 
-                    direction="column" 
-                    spacing={0}
-                    sx={{
-                        height: 'fit-content',
-                        bgcolor: theme.transparent,
-                        paddingTop: '12px'
-                    }}>
 
-                    <Typography
-                        textAlign="center"
-                        sx={{
-                            fontWeight: 'bold', 
-                            paddingTop: '0px',
-                            width: '120px',
-                            fontSize: '14px',
-                            color: theme.text
-                        }}
-                    >
-                        Avg Tower Dmg
-                    </Typography>
-
+                {
+                    props.widthMode != "small"
+                    ?
                     <Stack 
-                        direction="row" 
+                        direction="column" 
                         spacing={0}
                         sx={{
                             height: 'fit-content',
                             bgcolor: theme.transparent,
-                            paddingTop: '6px'
+                            paddingTop: '12px'
                         }}>
 
-                            <Typography
-                                textAlign="center"
-                                sx={{
-                                    fontWeight: 'bold', 
-                                    paddingTop: '0px',
-                                    paddingLeft: '0px',
-                                    width: '120px',
-                                    fontSize: '14px',
-                                    color: theme.text
-                                }}
-                            >
-                                {props.tower_damage_avg}
-                            </Typography>
+                        <Typography
+                            textAlign="center"
+                            sx={{
+                                fontWeight: 'bold', 
+                                paddingTop: '0px',
+                                width: '120px',
+                                fontSize: '14px',
+                                color: theme.text
+                            }}
+                        >
+                            Avg Tower Dmg
+                        </Typography>
 
+                        <Stack 
+                            direction="row" 
+                            spacing={0}
+                            sx={{
+                                height: 'fit-content',
+                                bgcolor: theme.transparent,
+                                paddingTop: '6px'
+                            }}>
+
+                                <Typography
+                                    textAlign="center"
+                                    sx={{
+                                        fontWeight: 'bold', 
+                                        paddingTop: '0px',
+                                        paddingLeft: '0px',
+                                        width: '120px',
+                                        fontSize: '14px',
+                                        color: theme.text
+                                    }}
+                                >
+                                    {props.tower_damage_avg}
+                                </Typography>
+
+                        </Stack>
                     </Stack>
-                </Stack>
+                    :
+                    <></>
+                }
 
             </Stack>
 
@@ -415,7 +427,9 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                                 item_2: match.item_2,
                                 item_3: match.item_3,
                                 item_4: match.item_4,
-                                item_5: match.item_5
+                                item_5: match.item_5,
+
+                                widthMode: props.widthMode
                             }} 
                         />
                     ))

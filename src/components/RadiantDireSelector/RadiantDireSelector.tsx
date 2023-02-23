@@ -4,10 +4,12 @@ import { Stack, useTheme, ToggleButtonGroup, ToggleButton, Typography } from '@m
 import React, { MouseEventHandler } from 'react';
 
 import { SIDE_RADIANT, SIDE_DIRE, SIDE_BOTH } from '../../utils/constants';
+import { getToggleButtonGroupSizeForWidthMode, getFontSizeForWidthMode, getFontWeightForWidthMode } from '../../utils/utils';
 
 export interface RadiantDireSelectorProps {
     side: string;
     setSide: Function;
+    widthMode: string; 
 }
 
 export default function RadiantDireSelector({props} : {props: RadiantDireSelectorProps}) {
@@ -54,7 +56,6 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                     WHERE
                 </Typography>
 
-            
                 <ToggleButtonGroup
                     value={props.side}
                     exclusive
@@ -63,11 +64,14 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                     sx={{
                         height: 36
                     }}
+                    size={getToggleButtonGroupSizeForWidthMode(props.widthMode)}
                 >
 
                     <ToggleButton 
                         sx={{ 
-                            width: 80,
+                            width: props.widthMode === "small" ? 60 : 80,
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -85,7 +89,9 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
 
                     <ToggleButton 
                         sx={{ 
-                            width: 80,
+                            width: props.widthMode === "small" ? 50 : 80,
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -103,7 +109,9 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
 
                     <ToggleButton 
                         sx={{ 
-                            width: 80,
+                            width: props.widthMode === "small" ? 50 : 80,
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -120,6 +128,7 @@ export default function RadiantDireSelector({props} : {props: RadiantDireSelecto
                     </ToggleButton>
 
                 </ToggleButtonGroup>
+
 
             </Stack>
 

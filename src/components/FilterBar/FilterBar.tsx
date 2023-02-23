@@ -9,6 +9,7 @@ import RadiantDireSelector from '../RadiantDireSelector/RadiantDireSelector';
 import TimeframeSelector from '../TimeframeSelector/TimeframeSelector';
 
 import { useViewport } from '../../hooks/useViewport';
+import { BREAKPOINT_MEDIUM, BREAKPOINT_SMALL } from '../../utils/constants';
 
 export interface FilterBarProps {
     bestworst: string
@@ -25,67 +26,88 @@ export default function FilterBar({props} : {props: FilterBarProps}) {
 
     const theme = useTheme();
 
-    const { viewportWidth } = useViewport();
-    const breakpoint = 1270;
+    // const { viewportWidth } = useViewport();
 
     return (
 
-        viewportWidth > breakpoint
-        ?
+        // viewportWidth > BREAKPOINT_MEDIUM
+        // ?
         <Stack 
             direction="row" 
             spacing={2}
             sx={{
                 bgcolor: theme.headerBody,
-                paddingLeft: "12px"
+                paddingLeft: "12px",
+                flexWrap: "wrap",
             }}>
 
-            <BestWorstSelector props={{ bestworst: props.bestworst, setBestworst: props.setBestworst }} />
+            <BestWorstSelector props={{ bestworst: props.bestworst, setBestworst: props.setBestworst, widthMode: "large" }} />
 
-            <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode }} />
+            <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode, widthMode: "large" }} />
 
-            <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
+            <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe, widthMode: "large"}} />
 
-            <RadiantDireSelector props={{side: props.side, setSide: props.setSide}} />
-
-        </Stack>
-        :
-        <Stack 
-            direction="column" 
-            spacing={2}
-            sx={{
-                
-            }}>
-
-            <Stack 
-                direction="row" 
-                spacing={2}
-                sx={{
-                    bgcolor: theme.headerBody,
-                    paddingLeft: "12px"
-                }}>
-
-                <BestWorstSelector props={{ bestworst: props.bestworst, setBestworst: props.setBestworst }} />
-
-                <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode }} />
-
-            </Stack>
-
-            <Stack 
-                direction="row" 
-                spacing={2}
-                sx={{
-                    bgcolor: theme.headerBody,
-                    paddingLeft: "24px",
-                }}>
-
-                <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe}} />
-
-                <RadiantDireSelector props={{side: props.side, setSide: props.setSide}} />
-
-            </Stack>
+            <RadiantDireSelector props={{side: props.side, setSide: props.setSide, widthMode: "large"}} />
 
         </Stack>
+        // :
+        //     viewportWidth <= BREAKPOINT_MEDIUM && viewportWidth > BREAKPOINT_SMALL
+        //     ?
+        //     <Stack 
+        //         direction="row" 
+        //         spacing={2}
+        //         sx={{
+        //             bgcolor: theme.headerBody,
+        //             paddingLeft: "12px"
+        //         }}>
+
+        //         <BestWorstSelector props={{ bestworst: props.bestworst, setBestworst: props.setBestworst, widthMode: "small" }} />
+
+        //         <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode, widthMode: "small" }} />
+
+        //         <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe, widthMode: "small"}} />
+
+        //         <RadiantDireSelector props={{side: props.side, setSide: props.setSide, widthMode: "small"}} />
+
+        //     </Stack>
+        //     :
+
+        //     <Stack 
+        //         direction="column" 
+        //         spacing={0}
+        //         sx={{
+                    
+        //         }}>
+
+        //         <Stack 
+        //             direction="row" 
+        //             spacing={2}
+        //             sx={{
+        //                 bgcolor: theme.headerBody,
+        //                 paddingLeft: "12px"
+        //             }}>
+
+        //             <BestWorstSelector props={{ bestworst: props.bestworst, setBestworst: props.setBestworst, widthMode: "small" }} />
+
+        //             <GameModeSelector props={{ gameMode: props.gameMode, setGameMode: props.setGameMode, widthMode: "small" }} />
+
+        //         </Stack>
+
+        //         <Stack 
+        //             direction="row" 
+        //             spacing={2}
+        //             sx={{
+        //                 bgcolor: theme.headerBody,
+        //                 paddingLeft: "24px",
+        //             }}>
+
+        //             <TimeframeSelector props={{timeframe: props.timeframe, setTimeframe: props.setTimeframe, widthMode: "small"}} />
+
+        //             <RadiantDireSelector props={{side: props.side, setSide: props.setSide, widthMode: "small"}} />
+
+        //         </Stack>
+
+        //     </Stack>
         
         
     )

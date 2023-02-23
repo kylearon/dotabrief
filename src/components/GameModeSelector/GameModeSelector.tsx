@@ -3,11 +3,12 @@ import { Stack, useTheme, ToggleButtonGroup, ToggleButton, Typography } from '@m
 
 import React, { MouseEventHandler } from 'react';
 import { GAME_MODE_AP, GAME_MODE_RANKED, GAME_MODE_TURBO } from '../../utils/constants';
-
+import { getToggleButtonGroupSizeForWidthMode, getFontSizeForWidthMode, getFontWeightForWidthMode } from '../../utils/utils';
 
 export interface GameModeSelectorProps {
     gameMode: string
     setGameMode: Function
+    widthMode: string
 }
 
 export default function GameModeSelector({props} : {props: GameModeSelectorProps}) {
@@ -65,10 +66,13 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
                     sx={{
                         height: 36
                     }}
+                    size={getToggleButtonGroupSizeForWidthMode(props.widthMode)}
                 >
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -86,6 +90,8 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -103,6 +109,8 @@ export default function GameModeSelector({props} : {props: GameModeSelectorProps
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground

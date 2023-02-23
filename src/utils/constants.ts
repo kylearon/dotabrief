@@ -64,3 +64,7 @@ export const MATCHES_VERBOSE_URL_PARAMS = "project=duration&project=game_mode&pr
 
 export const DOTABUFF_MATCH_URL = "https://www.dotabuff.com/matches/";
 export const OPENDOTA_MATCH_URL = "https://www.opendota.com/matches/";
+
+export const BREAKPOINT_MEDIUM = 1270;
+export const BREAKPOINT_SMALL = 820;
+export const BREAKPOINT_GUTTER = 870;

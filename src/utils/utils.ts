@@ -241,3 +241,28 @@ export function getTimeStringFromSeconds(timestampSeconds: string): string {
 export function getTimeStringFromISO(iso: string): string {
     return DateTime.fromISO(iso).toRelative();
 }
+
+
+export function getFontSizeForWidthMode(widthMode:string): string {
+    if(widthMode === "small") {
+        return "10px";
+    } else {
+        return "14px";
+    }
+};
+
+export function getToggleButtonGroupSizeForWidthMode(widthMode:string): "small" | "large" | "medium" | undefined {
+    if(widthMode === "small") {
+        return "small";
+    } else {
+        return "medium";
+    }
+};
+
+export function getFontWeightForWidthMode(widthMode:string): string {
+    if(widthMode === "small") {
+        return "bold";
+    } else {
+        return "normal";
+    }
+};

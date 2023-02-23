@@ -30,7 +30,8 @@ export default function ItemRow({props} : {props: ItemRowProps}) {
             spacing={0}
             sx={{
                 bgcolor: props.background_color,
-                paddingLeft: "24px"
+                paddingLeft: "24px",
+                paddingBottom: "6px"
             }}>
 
             

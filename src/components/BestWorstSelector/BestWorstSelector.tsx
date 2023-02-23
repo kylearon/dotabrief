@@ -4,10 +4,12 @@ import { Stack, useTheme, ToggleButtonGroup, ToggleButton, Typography } from '@m
 import React, { MouseEventHandler } from 'react';
 
 import { BEST_HEROES, WORST_HEROES } from '../../utils/constants';
+import { getToggleButtonGroupSizeForWidthMode, getFontSizeForWidthMode, getFontWeightForWidthMode } from '../../utils/utils';
 
 export interface BestWorstSelectorProps {
     bestworst: string
     setBestworst: Function
+    widthMode: string
 }
 
 export default function BestWorstSelector({props} : {props: BestWorstSelectorProps}) {
@@ -63,9 +65,12 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                     sx={{
                         height: 36
                     }}
+                    size={getToggleButtonGroupSizeForWidthMode(props.widthMode)}
                 >
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -82,6 +87,8 @@ export default function BestWorstSelector({props} : {props: BestWorstSelectorPro
                     </ToggleButton>
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground

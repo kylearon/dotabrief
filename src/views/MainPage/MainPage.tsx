@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
+import { BEST_HEROES, BREAKPOINT_GUTTER, BREAKPOINT_MEDIUM, BREAKPOINT_SMALL, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
@@ -27,23 +27,40 @@ export default function MainPage({props} : {props: MainPageProps}) {
     
     const theme = useTheme();
 
-    const mobileBreakpoint = 910;
-    
-    const [renderSmall, setRenderSmall] = useState<boolean>(false);
+    const [widthMode, setWidthMode] = useState<string>("large");
+
+    function getDisableGutter(): boolean {
+        if(widthMode === "small") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    console.log("rendering main page");
 
     //handle the window resizing not in a custom hook because the custom hook was causing an entire page re-render on every resize
     useEffect(() => {
         const handleWindowResize = () => {
             // console.log("resized to " + window.innerWidth);
-            if((window.innerWidth <= mobileBreakpoint) && renderSmall === false) {
-                setRenderSmall(true);
-            } else if (window.innerWidth > mobileBreakpoint) {
-                setRenderSmall(false);
+
+            if((window.innerWidth > BREAKPOINT_MEDIUM) && widthMode != "large") {
+                console.log("setting large");
+                console.log("widthMode: " + widthMode);
+                setWidthMode("large");
+            } else if((window.innerWidth <= BREAKPOINT_MEDIUM) && (window.innerWidth > BREAKPOINT_SMALL) && widthMode != "medium") {
+                console.log("setting medium");
+                console.log("widthMode: " + widthMode);
+                setWidthMode("medium");
+            } else if(window.innerWidth <= BREAKPOINT_SMALL) {
+                console.log("setting small");
+                console.log("widthMode: " + widthMode);
+                setWidthMode("small");
             }
         };
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
-      }, [renderSmall]);
+    }, [widthMode]);
 
     const [timeframe, setTimeframe] = useState<string>(THIS_PATCH);
 
@@ -122,7 +139,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
                     assists_avg: value.assists_avg,
                     hero_damage_avg: value.hero_damage_avg,
                     tower_damage_avg: value.tower_damage_avg,
-                    games_match_data: value.games_match_data 
+                    games_match_data: value.games_match_data,
+                    widthMode: widthMode,
                 });
                 
             });
@@ -134,9 +152,9 @@ export default function MainPage({props} : {props: MainPageProps}) {
     },[matchesData, bestworst]);
 
     return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={renderSmall}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
 
-            <Container maxWidth="lg" sx={{  }} disableGutters={renderSmall}>
+            <Container maxWidth="lg" sx={{  }} disableGutters={getDisableGutter()}>
 
                 <Stack spacing={2} sx={{ height: '100vh', width: 'fill' }}>
 
@@ -166,7 +184,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
                                     assists_avg: heroToShow.assists_avg,
                                     hero_damage_avg: heroToShow.hero_damage_avg,
                                     tower_damage_avg: heroToShow.tower_damage_avg,
-                                    games_match_data: heroToShow.games_match_data 
+                                    games_match_data: heroToShow.games_match_data,
+                                    widthMode: widthMode,
                                 }} />
                             ))
                             :

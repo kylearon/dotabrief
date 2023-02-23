@@ -4,10 +4,12 @@ import { Stack, useTheme, ToggleButtonGroup, ToggleButton, Typography } from '@m
 import React, { MouseEventHandler } from 'react';
 
 import { THIS_PATCH, LAST_MONTH, LAST_100 } from '../../utils/constants';
+import { getToggleButtonGroupSizeForWidthMode, getFontSizeForWidthMode, getFontWeightForWidthMode } from '../../utils/utils';
 
 export interface TimeframeSelectorProps {
     timeframe: string;
     setTimeframe: Function;
+    widthMode: string; 
 }
 
 export default function TimeframeSelector({props} : {props: TimeframeSelectorProps}) {
@@ -63,10 +65,13 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
                     sx={{
                         height: 36
                     }}
+                    size={getToggleButtonGroupSizeForWidthMode(props.widthMode)}
                 >
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode), 
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -84,6 +89,8 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode),
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
@@ -101,6 +108,8 @@ export default function TimeframeSelector({props} : {props: TimeframeSelectorPro
 
                     <ToggleButton 
                         sx={{ 
+                            fontSize: getFontSizeForWidthMode(props.widthMode),
+                            fontWeight: getFontWeightForWidthMode(props.widthMode),
                             "&.Mui-selected, &.Mui-selected:hover": {
                                 color: "white",
                                 backgroundColor: theme.headerButtonBackground
