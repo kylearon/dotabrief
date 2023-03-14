@@ -3,6 +3,12 @@ A quick glance Dota 2 dashboard
 
 On github pages here: https://kylearon.github.io/dotabrief/
 
+![ss1](https://raw.githubusercontent.com/kylearon/dotabrief/main/public/dotabrief_1a.png)
+
+![ss2](https://raw.githubusercontent.com/kylearon/dotabrief/main/public/dotabrief_2.png)
+
+![ss2](https://raw.githubusercontent.com/kylearon/dotabrief/main/public/dotabrief_3.png)
+
 ## Dependencies
 
 install mui `npm install @mui/material`
