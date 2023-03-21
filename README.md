@@ -2,6 +2,7 @@
 A quick glance Dota 2 dashboard 
 
 On github pages here: https://kylearon.github.io/dotabrief/
+Uses the OpenDota API: https://docs.opendota.com/
 
 ![ss1](https://raw.githubusercontent.com/kylearon/dotabrief/main/public/dotabrief_1a.png)
 
