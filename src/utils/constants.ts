@@ -46,7 +46,7 @@ export const GAME_MODE_AP_URL_PARAM = "game_mode=1"; //&significant=1";
 export const GAME_MODE_TURBO_URL_PARAM = "game_mode=23&significant=0";
 export const LOBBY_TYPE_RANKED_URL_PARAM = "lobby_type=7";
 
-export const THIS_PATCH_URL_PARAM = "patch=51";
+export const THIS_PATCH_URL_PARAM = "patch=52";
 export const LAST_MONTH_URL_PARAM = "date=30";
 export const LAST_100_URL_PARAM = "limit=100";
 
