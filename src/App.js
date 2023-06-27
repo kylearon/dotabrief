@@ -34,9 +34,9 @@ function App() {
 
     const splitPath = location.pathname.split("/");
 
-    if(splitPath.length == 3) {
+    if(splitPath.length === 3) {
       const id = splitPath[splitPath.length - 1]
-      if(id != steamId) {
+      if(id !== steamId) {
         console.log("setting steamId");
         setSteamId(id);
       }

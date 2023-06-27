@@ -52,7 +52,7 @@ export function getHeroNameFromId(id: number): string {
 
 export function getItemUrlFromId(itemId: number): string {
 
-    if(itemId == 0) {
+    if(itemId === 0) {
         return STEAM_CDN_DEFAULT_ICON_FULL_URL;
     }
 
@@ -200,7 +200,7 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
             if(bestworst === BEST_HEROES && (value.win / (value.win + value.lose)) >= 0.5) {
                 heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: hero_damage_avg, tower_damage_avg: tower_damage_avg, games_match_data: value.games_match_data });
             }
-            else if(bestworst == WORST_HEROES && (value.win / (value.win + value.lose)) < 0.5) {
+            else if(bestworst === WORST_HEROES && (value.win / (value.win + value.lose)) < 0.5) {
                 heroesToShow.push({ heroId: value.heroId, win: value.win, lose: value.lose, kills_avg: kills_avg, deaths_avg: deaths_avg, assists_avg: assists_avg, hero_damage_avg: hero_damage_avg, tower_damage_avg: tower_damage_avg, games_match_data: value.games_match_data });
             }
         }

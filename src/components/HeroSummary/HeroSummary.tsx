@@ -287,7 +287,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 </Stack>
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Stack 
                         direction="column" 
@@ -343,7 +343,7 @@ export default function HeroSummary({props} : {props: HeroSummaryProps}) {
                 
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Stack 
                         direction="column" 

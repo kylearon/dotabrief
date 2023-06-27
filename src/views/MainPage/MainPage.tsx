@@ -57,7 +57,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
         const handleWindowResize = () => {
             // console.log("resized to " + window.innerWidth);
             let widthModeString = getWidthModeString();
-            if(widthMode != widthModeString) {
+            if(widthMode !== widthModeString) {
                 setWidthMode(widthModeString);
             }
         };

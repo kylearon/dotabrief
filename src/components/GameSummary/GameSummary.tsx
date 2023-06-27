@@ -202,7 +202,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
 
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Stack 
                         direction="column" 
@@ -246,7 +246,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
 
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Stack 
                         direction="column" 
@@ -289,7 +289,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                 }
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <ItemRow props={{ background_color: props.background_color, item_0: props.item_0, item_1: props.item_1, item_2: props.item_2, item_3: props.item_3, item_4: props.item_4, item_5: props.item_5 }}/>
                     :
@@ -297,7 +297,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                 }
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Box
                         component="img"
@@ -318,7 +318,7 @@ export default function GameSummary({props} : {props: GameSummaryProps}) {
                 }
 
                 {
-                    props.widthMode != "small"
+                    props.widthMode !== "small"
                     ?
                     <Box
                         component="img"

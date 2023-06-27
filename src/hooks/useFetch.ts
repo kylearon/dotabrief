@@ -135,7 +135,7 @@ function getTimeframeParam(separator: string, timeframe: string): string {
 function getGameModeParam(separator: string, gameMode:string): string {
     if(gameMode === GAME_MODE_AP) {
         return separator + GAME_MODE_AP_URL_PARAM;
-    } else if(gameMode == GAME_MODE_RANKED) {
+    } else if(gameMode === GAME_MODE_RANKED) {
         return separator + LOBBY_TYPE_RANKED_URL_PARAM;
     } else if(gameMode === GAME_MODE_TURBO) {
         return separator + GAME_MODE_TURBO_URL_PARAM;
@@ -147,7 +147,7 @@ function getGameModeParam(separator: string, gameMode:string): string {
 function getSideParam(separator: string, side:string): string {
     if(side === SIDE_RADIANT) {
         return separator + SIDE_RADIANT_URL_PARAM;
-    } else if(side == SIDE_DIRE) {
+    } else if(side === SIDE_DIRE) {
         return separator + SIDE_DIRE_URL_PARAM;
     }
 
