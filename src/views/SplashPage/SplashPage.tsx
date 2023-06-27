@@ -1,5 +1,5 @@
 
-import { Container, Stack, Box, useTheme } from '@mui/material';
+import { Container, Stack, useTheme } from '@mui/material';
 
 import Header from '../../components/Header/Header'
 import SplashLogin from '../../components/SplashLogin/SplashLogin'

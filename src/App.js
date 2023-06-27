@@ -3,7 +3,7 @@ import './App.css';
 import SplashPage from './views/SplashPage/SplashPage';
 import MainPage from './views/MainPage/MainPage';
 
-import { testTheme, darkTheme, lightTheme } from './theme/Theme';
+import { darkTheme, lightTheme } from './theme/Theme';
 import { ThemeProvider } from '@mui/material';
 
 import { useEffect, useState } from 'react';

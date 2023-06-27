@@ -17,8 +17,6 @@ export interface ItemRowProps {
 
 export default function ItemRow({props} : {props: ItemRowProps}) {
 
-    const theme = useTheme();
-
     const iconHeight = "28px";
     const iconWidth = "38px";
     const iconPaddingTop = "4px";

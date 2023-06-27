@@ -1,5 +1,5 @@
 
-import { Box, Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
+import { Container, Skeleton, Stack, Typography, useTheme } from '@mui/material';
 
 import { useEffect, useState } from 'react';
 
@@ -9,12 +9,11 @@ import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
 import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
-import { BEST_HEROES, BREAKPOINT_GUTTER, BREAKPOINT_MEDIUM, BREAKPOINT_SMALL, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
+import { BEST_HEROES, BREAKPOINT_MEDIUM, BREAKPOINT_SMALL, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
 //load an svg as a loading icon https://stackoverflow.com/a/70964618
-const loading: string = require("../../assets/loading.svg").default;
-
+// const loading: string = require("../../assets/loading.svg").default;
 
 export interface MainPageProps {
     steamId: string

@@ -51,8 +51,6 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
             if(target.value) {
 
                 //generate the full url with the player id
-                const fullUrl = PLAYERS_URL + target.value;
-
                 //fetch the player info
                 //use .then() with the Promise returned by fetch to get the response
                 fetch(PLAYERS_URL + target.value).then( (response) => {
