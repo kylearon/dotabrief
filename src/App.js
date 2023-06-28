@@ -37,7 +37,7 @@ function App() {
     if(splitPath.length === 3) {
       const id = splitPath[splitPath.length - 1]
       if(id !== steamId) {
-        console.log("setting steamId");
+        // console.log("setting steamId");
         setSteamId(id);
       }
     }
@@ -48,12 +48,12 @@ function App() {
   useEffect(() => {
     if(steamId)
     {
-      console.log("Loading player data for: " + steamId);
+    //   console.log("Loading player data for: " + steamId);
       navigate("/player/" + steamId);
     }
     else
     {
-      console.log("Showing Splash Page because steamId is undefined");
+    //   console.log("Showing Splash Page because steamId is undefined");
       navigate("/");
     }
   },[steamId]);
@@ -63,8 +63,7 @@ function App() {
       //save the name of the theme to localStorage
       localStorage.setItem('theme',  lightDarkMode.name);
     }
-
-},[lightDarkMode]);
+  },[lightDarkMode]);
 
   return (
     <>

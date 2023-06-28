@@ -106,6 +106,7 @@ export default function Header({props} : {props: HeaderProps}) {
                             width: '64px',
                             paddingTop: '6px'
                         }}
+                        data-testid="light-mode-button"
                     >
                         <LightModeOutlined 
                             sx={{ 
@@ -121,6 +122,7 @@ export default function Header({props} : {props: HeaderProps}) {
                             width: '64px',
                             paddingTop: '6px'
                         }}
+                        data-testid="dark-mode-button"
                     >
                         <DarkModeOutlined 
                             sx={{ 

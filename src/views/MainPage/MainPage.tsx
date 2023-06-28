@@ -49,7 +49,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
         }
     }
 
-    console.log("rendering main page");
+    // console.log("rendering main page");
 
     //handle the window resizing not in a custom hook because the custom hook was causing an entire page re-render on every resize
     useEffect(() => {
@@ -95,8 +95,8 @@ export default function MainPage({props} : {props: MainPageProps}) {
     // },[timeframe]);
 
     useEffect(() => {
-        console.log("player data changed");
-        console.log(playerData);
+        // console.log("player data changed");
+        // console.log(playerData);
 
         if(playerData) {
             
@@ -117,14 +117,14 @@ export default function MainPage({props} : {props: MainPageProps}) {
     },[playerData]);
 
     useEffect(() => {
-        console.log("timeframe/gameMode changed");
+        // console.log("timeframe/gameMode changed");
         setHeroesToShow([]);
         setShowLoading(true);
     },[timeframe, gameMode]);
 
     useEffect(() => {
-        console.log("matches data changed");
-        console.log(matchesData);
+        // console.log("matches data changed");
+        // console.log(matchesData);
 
         let newHeroesToShow: HeroSummaryProps[] = [];
         if(matchesData) {
@@ -155,7 +155,7 @@ export default function MainPage({props} : {props: MainPageProps}) {
     },[matchesData, bestworst]);
 
     return (
-        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} disableGutters={getDisableGutter()}>
+        <Container maxWidth={false} sx={{ bgcolor: theme.body, overflowY: "scroll" }} data-testid="main-page" disableGutters={getDisableGutter()}>
 
             <Container maxWidth="lg" sx={{  }} disableGutters={true}>
 
