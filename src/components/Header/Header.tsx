@@ -45,6 +45,7 @@ export default function Header({props} : {props: HeaderProps}) {
         <Stack 
             direction="row" 
             spacing={1}
+            data-testid="header-component"
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody
@@ -63,6 +64,7 @@ export default function Header({props} : {props: HeaderProps}) {
                     minWidth: '230px',
                     color: theme.text
                 }}
+                data-testid="header-component-home-button"
                 //monospace text generated here: https://tools.picsart.com/text/font-generator/
             >
                 𝚍𝚘𝚝𝚊𝚋𝚛𝚒𝚎𝚏
