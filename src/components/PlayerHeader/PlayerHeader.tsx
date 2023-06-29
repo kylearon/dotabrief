@@ -41,6 +41,7 @@ export default function PlayerHeader({props} : {props: PlayerHeaderProps}) {
         <Stack 
             direction="row" 
             spacing={1}
+            data-testid="player-header-component"
             sx={{
                 bgcolor: theme.headerBody
             }}>

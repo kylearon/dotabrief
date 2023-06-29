@@ -16,6 +16,7 @@ export default function WinRate({props} : {props: WinRateProps}) {
         <Stack 
             direction="column" 
             spacing={0}
+            data-testid="win-rate-component"
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,

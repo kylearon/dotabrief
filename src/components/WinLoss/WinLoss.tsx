@@ -17,6 +17,7 @@ export default function WinLoss({props} : {props: WinLossProps}) {
         <Stack 
             direction="column" 
             spacing={0}
+            data-testid="win-loss-component"
             sx={{
                 height: 'fit-content',
                 bgcolor: theme.headerBody,
