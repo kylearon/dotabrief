@@ -1,0 +1,10 @@
+[
+  {
+    "file": "C:\\dotabrief\\src\\views\\MainPage\\MainPage.tsx",
+    "function": "MainPage",
+    "error": {
+      "stack": "Error: Error: The model: `gpt-4` does not exist. Code: model_not_found\n    at IncomingMessage.<anonymous> (C:\\dotabrief\\node_modules\\pythagora\\src\\helpers\\api.js:68:54)\n    at IncomingMessage.emit (node:events:532:35)\n    at endReadableNT (node:internal/streams/readable:1346:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)",
+      "message": "Error: The model: `gpt-4` does not exist. Code: model_not_found"
+    }
+  }
+]
