@@ -18,6 +18,7 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
     const navigate = useNavigate();
 
     const onPlayerEntryClick: MouseEventHandler<HTMLDivElement> = (e) => {
+        console.log("onPlayerEntryClick");
         navigate("/player/" + props.account_id);
     }
 
@@ -26,6 +27,7 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
         //get the steamIdsObject even if it doesn't exist
         let steamIdsObject = JSON.parse("{}");
         let steamIdsString = localStorage.getItem('steamIds');
+        console.log(steamIdsString)
         if(steamIdsString) {
             steamIdsObject = JSON.parse(steamIdsString);
         }
@@ -44,7 +46,6 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
         <Stack 
             direction="row" 
             spacing={0}
-            
             sx={{
                 cursor: 'pointer',
             }}>
@@ -54,6 +55,7 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
                 direction="row" 
                 spacing={2}
                 onClick={(e) => onPlayerEntryClick(e)}
+                data-testid="player-entry-from-history-component"
                 sx={{
                     display: 'flex',
                     height: '64px',
@@ -114,6 +116,7 @@ export default function PlayerEntryFromHistory({props} : {props: PlayerEntryFrom
                         backgroundColor: theme.deleteButtonHover, 
                     }
                 }}
+                data-testid="player-entry-from-history-remove-button"
                 onClick={(e) => onRemoveEntryClick(e)}
             >
                 <Typography

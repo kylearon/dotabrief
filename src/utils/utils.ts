@@ -290,5 +290,5 @@ export function rgbToHex(rgb: string): string {
     if (b.length == 1) { b = "0" + b; }
   
     return "#" + r + g + b;
-  }
+}
   

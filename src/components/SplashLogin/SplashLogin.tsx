@@ -45,7 +45,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
         }
 
         if (e.key === "Enter") {
-            console.log('Input value', target.value);
+            // console.log('Input value', target.value);
             e.preventDefault();
 
             if(target.value) {
@@ -59,19 +59,19 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
 
                     //log a bad response to the console. like 404 etc
                     if (!response.ok) {
-                        console.log("ERROR: " + response.status + " " + response.statusText);
+                        console.log("ERROR 1: " + response.status + " " + response.statusText);
 
                         //try to search for this value as a player name
                         fetch(SEARCH_FOR_PLAYER_URL + target.value).then( (playerNameResponse) => {
                             if (!playerNameResponse.ok) {
-                                console.log("ERROR: " + playerNameResponse.status + " " + playerNameResponse.statusText);
+                                console.log("ERROR 2: " + playerNameResponse.status + " " + playerNameResponse.statusText);
                             }
 
                             //return the Promise for the json response
                             return playerNameResponse.json();
                         }).then((playerNameData: PlayerSearchEntry[]) => { //read the json response Promise
                             console.log("playerNameData");
-                            console.log(playerNameData);
+                            // console.log(playerNameData);
 
                             //remove any that don't play dota so don't have a last_match_time
                             const filteredPlayerNameData = playerNameData.filter(entry => entry.last_match_time);
@@ -103,7 +103,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
     }
 
     return (
-        <Stack spacing={2} sx={{ paddingTop: "12px", paddingBottom: "12px" }}>
+        <Stack spacing={2} sx={{ paddingTop: "12px", paddingBottom: "12px" }} data-testid="splash-login-component">
 
             {
                 (steamIdsObject && Object.keys(steamIdsObject).length > 0)
@@ -191,6 +191,7 @@ export default function SplashLogin({props} : {props: SplashLoginProps}){
                                 },
                             }
                         }}
+                        data-testid="splash-login-text-field"
                         onKeyPress={onKeyPress}
                         error={steamIdError}
                         helperText={steamIdError ? "Incorrect ID. Use the same ID you would find in your dotabuff profile url." : ""}
