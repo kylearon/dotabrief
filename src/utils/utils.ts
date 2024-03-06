@@ -182,7 +182,7 @@ export function getHeroesToShowFromMatchData(matchesData: MatchData[], bestworst
     });
 
     //go through the per-hero results and decide which ones to show
-    const NUM_MATCHES_FOR_SIGNIFICANCE = 4;
+    const NUM_MATCHES_FOR_SIGNIFICANCE = 3;
     const heroesToShow: HeroMatchesData[] = [];
     heroMap.forEach((value: HeroMatchesData, key: number, map: Map<number, HeroMatchesData>) => {
         //are there enough matches to be significant and is the win rate over 50%
