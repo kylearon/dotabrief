@@ -8,7 +8,7 @@ import FilterBar from '../../components/FilterBar/FilterBar';
 import Header from '../../components/Header/Header'
 import HeroSummary, { HeroSummaryProps } from '../../components/HeroSummary/HeroSummary';
 import PlayerHeader from '../../components/PlayerHeader/PlayerHeader';
-import { useFetchMatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
+import { useFetchMatches, useFetchPatches, useFetchPlayer, useFetchWinLoss } from '../../hooks/useFetch';
 import { BEST_HEROES, BREAKPOINT_MEDIUM, BREAKPOINT_SMALL, GAME_MODE_TURBO, SIDE_BOTH, THIS_PATCH } from '../../utils/constants';
 import { getHeroesToShowFromMatchData, getHeroIconFromId, getHeroLocalizedNameFromId, getHeroNameFromId, HeroMatchesData } from '../../utils/utils';
 
@@ -78,21 +78,35 @@ export default function MainPage({props} : {props: MainPageProps}) {
     //load the heros to show
     const [ heroesToShow, setHeroesToShow ] = useState<HeroSummaryProps[]>([]);
 
+    const [ patchNumber, setPatchNumber ] = useState<number>(0);
 
     //load the player data
     const { playerData, playerDataError } = useFetchPlayer(props.steamId);
 
+    //load the patches data
+    const { patchesData, patchesError } = useFetchPatches();
+
     //load the win/loss data based on the timeframe
-    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, timeframe, gameMode, side);
+    const { winLossData, winLossError } = useFetchWinLoss(props.steamId, timeframe, patchNumber, gameMode, side);
 
     //load the match data from the timeframe
-    const { matchesData, matchesError } = useFetchMatches(props.steamId, timeframe, gameMode, side);
+    const { matchesData, matchesError } = useFetchMatches(props.steamId, timeframe, patchNumber, gameMode, side);
 
 
     // useEffect(() => {
     //     console.log("timeframe changed");
     //     console.log(timeframe);
     // },[timeframe]);
+
+    useEffect(() => {
+
+        if(patchesData) {
+            //get the most current patch number from the data
+            const mostRecentPatch = patchesData[patchesData.length - 1];
+            setPatchNumber(mostRecentPatch.id);
+        }
+
+    }, [patchesData])
 
     useEffect(() => {
         // console.log("player data changed");
